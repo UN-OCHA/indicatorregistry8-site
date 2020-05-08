@@ -8,6 +8,3 @@
 ## Pages
 
 - https://indicatorregistry8-site.docksal/
-- https://indicatorregistry8-site.docksal/indicators/list
-- https://indicatorregistry8-site.docksal/indicators/map
-- https://indicatorregistry8-site.docksal/knowledge-management
