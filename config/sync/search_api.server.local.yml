@@ -1,0 +1,17 @@
+uuid: 462a167f-e4ca-43c6-bc3b-da8aeb854a8a
+langcode: en
+status: true
+dependencies:
+  module:
+    - search_api_db
+id: local
+name: local
+description: ''
+backend: search_api_db
+backend_config:
+  database: 'default:default'
+  min_chars: 1
+  matching: words
+  autocomplete:
+    suggest_suffix: true
+    suggest_words: true

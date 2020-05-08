@@ -1,0 +1,29 @@
+uuid: 1aff0d08-7f7f-4acf-844e-0fc66eb39147
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.sub_domain
+  module:
+    - facets
+    - system
+  theme:
+    - common_design
+id: sub_domain
+theme: common_design
+region: sidebar_first
+weight: -3
+provider: null
+plugin: 'facet_block:sub_domain'
+settings:
+  id: 'facet_block:sub_domain'
+  label: Sub-domain
+  provider: facets
+  label_display: visible
+  block_id: sub_domain
+visibility:
+  request_path:
+    id: request_path
+    pages: "/indicators\r\n/indicators/*"
+    negate: false
+    context_mapping: {  }

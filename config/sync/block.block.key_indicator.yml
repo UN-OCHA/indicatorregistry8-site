@@ -1,0 +1,29 @@
+uuid: 7eec297a-bc1c-454d-b8d9-9971cbf3ad48
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.key_indicator
+  module:
+    - facets
+    - system
+  theme:
+    - common_design
+id: key_indicator
+theme: common_design
+region: sidebar_first
+weight: -7
+provider: null
+plugin: 'facet_block:key_indicator'
+settings:
+  id: 'facet_block:key_indicator'
+  label: 'Key indicator'
+  provider: facets
+  label_display: visible
+  block_id: key_indicator
+visibility:
+  request_path:
+    id: request_path
+    pages: "/indicators\r\n/indicators/*"
+    negate: false
+    context_mapping: {  }

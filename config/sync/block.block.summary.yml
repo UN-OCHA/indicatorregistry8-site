@@ -1,0 +1,28 @@
+uuid: 12677762-e21a-46e4-8710-ccf148cf3fb1
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets_summary.facets_summary.summary
+  module:
+    - facets_summary
+    - system
+  theme:
+    - common_design
+id: summary
+theme: common_design
+region: sidebar_first
+weight: -9
+provider: null
+plugin: 'facets_summary_block:summary'
+settings:
+  id: 'facets_summary_block:summary'
+  label: Summary
+  provider: facets_summary
+  label_display: visible
+visibility:
+  request_path:
+    id: request_path
+    pages: "/indicators\r\n/indicators/*"
+    negate: false
+    context_mapping: {  }

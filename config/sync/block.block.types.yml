@@ -1,0 +1,29 @@
+uuid: 7c3d218c-2ea8-4c89-8c9b-c9a28bc50ac2
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.types
+  module:
+    - facets
+    - system
+  theme:
+    - common_design
+id: types
+theme: common_design
+region: sidebar_first
+weight: -2
+provider: null
+plugin: 'facet_block:types'
+settings:
+  id: 'facet_block:types'
+  label: Types
+  provider: facets
+  label_display: visible
+  block_id: types
+visibility:
+  request_path:
+    id: request_path
+    pages: "/indicators\r\n/indicators/*"
+    negate: false
+    context_mapping: {  }

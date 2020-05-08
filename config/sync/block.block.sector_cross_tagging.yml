@@ -1,0 +1,29 @@
+uuid: 6e220825-512a-47a9-aabc-ccc9c91f212f
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.sector_cross_tagging
+  module:
+    - facets
+    - system
+  theme:
+    - common_design
+id: sector_cross_tagging
+theme: common_design
+region: sidebar_first
+weight: -6
+provider: null
+plugin: 'facet_block:sector_cross_tagging'
+settings:
+  id: 'facet_block:sector_cross_tagging'
+  label: 'Sector cross-tagging'
+  provider: facets
+  label_display: visible
+  block_id: sector_cross_tagging
+visibility:
+  request_path:
+    id: request_path
+    pages: "/indicators\r\n/indicators/*"
+    negate: false
+    context_mapping: {  }

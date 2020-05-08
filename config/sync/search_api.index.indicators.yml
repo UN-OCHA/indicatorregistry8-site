@@ -1,0 +1,219 @@
+uuid: 0bfb1c11-958f-470c-b57a-52e0fe88502c
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - search_api
+  config:
+    - field.storage.node.field_ind_code
+    - field.storage.node.body
+    - field.storage.node.field_sectors
+    - field.storage.node.field_ind_guidance_baseline
+    - field.storage.node.field_ind_guidance_phases
+    - field.storage.node.field_ind_response
+    - field.storage.node.field_ind_key
+    - field.storage.node.field_ind_level
+    - field.storage.node.field_ind_sectoral_objective
+    - field.storage.node.field_ind_cross_tagging
+    - field.storage.node.field_ind_standards
+    - field.storage.node.field_ind_strategic_objective
+    - field.storage.node.field_ind_domain
+    - field.storage.node.title_field
+    - field.storage.node.field_ind_types
+    - field.storage.node.field_ind_unit
+    - search_api.server.local
+id: indicators
+name: Indicators
+description: ''
+read_only: false
+field_settings:
+  changed:
+    label: Changed
+    datasource_id: 'entity:node'
+    property_path: changed
+    type: date
+    dependencies:
+      module:
+        - node
+  created:
+    label: 'Authored on'
+    datasource_id: 'entity:node'
+    property_path: created
+    type: date
+    dependencies:
+      module:
+        - node
+  field_ind_code:
+    label: Code
+    datasource_id: 'entity:node'
+    property_path: field_ind_code
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_ind_code
+  field_ind_cross_tagging:
+    label: 'Sector cross-tagging'
+    datasource_id: 'entity:node'
+    property_path: field_ind_cross_tagging
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_ind_cross_tagging
+  field_ind_domain:
+    label: Sub-domain
+    datasource_id: 'entity:node'
+    property_path: field_ind_domain
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_ind_domain
+  field_ind_guidance_baseline:
+    label: 'Guidance for pre-crisis/baseline'
+    datasource_id: 'entity:node'
+    property_path: field_ind_guidance_baseline
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_ind_guidance_baseline
+  field_ind_guidance_phases:
+    label: 'Guidance on phases'
+    datasource_id: 'entity:node'
+    property_path: field_ind_guidance_phases
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_ind_guidance_phases
+  field_ind_key:
+    label: 'Key indicator'
+    datasource_id: 'entity:node'
+    property_path: field_ind_key
+    type: boolean
+    dependencies:
+      config:
+        - field.storage.node.field_ind_key
+  field_ind_level:
+    label: Level
+    datasource_id: 'entity:node'
+    property_path: field_ind_level
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_ind_level
+  field_ind_response:
+    label: 'Indicator used for response monitoring ?'
+    datasource_id: 'entity:node'
+    property_path: field_ind_response
+    type: boolean
+    dependencies:
+      config:
+        - field.storage.node.field_ind_response
+  field_ind_sectoral_objective:
+    label: 'Sectoral objective'
+    datasource_id: 'entity:node'
+    property_path: field_ind_sectoral_objective
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_ind_sectoral_objective
+  field_ind_standards:
+    label: Standards
+    datasource_id: 'entity:node'
+    property_path: field_ind_standards
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_ind_standards
+  field_ind_strategic_objective:
+    label: 'Strategic objective'
+    datasource_id: 'entity:node'
+    property_path: field_ind_strategic_objective
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_ind_strategic_objective
+  field_ind_types:
+    label: Types
+    datasource_id: 'entity:node'
+    property_path: field_ind_types
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_ind_types
+  field_ind_unit:
+    label: 'Unit of Measurement'
+    datasource_id: 'entity:node'
+    property_path: field_ind_unit
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_ind_unit
+  field_sectors:
+    label: 'Global Clusters'
+    datasource_id: 'entity:node'
+    property_path: field_sectors
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_sectors
+  nid:
+    label: ID
+    datasource_id: 'entity:node'
+    property_path: nid
+    type: integer
+    dependencies:
+      module:
+        - node
+  status:
+    label: Published
+    datasource_id: 'entity:node'
+    property_path: status
+    type: boolean
+    dependencies:
+      module:
+        - node
+  summary_processed:
+    label: 'Description/Rationale » Processed summary'
+    datasource_id: 'entity:node'
+    property_path: 'body:summary_processed'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.body
+  title:
+    label: Title
+    datasource_id: 'entity:node'
+    property_path: title
+    type: string
+    dependencies:
+      module:
+        - node
+  title_field:
+    label: Title
+    datasource_id: 'entity:node'
+    property_path: title_field
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.title_field
+datasource_settings:
+  'entity:node':
+    bundles:
+      default: false
+      selected:
+        - hr_indicator
+    languages:
+      default: true
+      selected: {  }
+processor_settings:
+  add_url: {  }
+  aggregated_field: {  }
+  language_with_fallback: {  }
+  rendered_item: {  }
+tracker_settings:
+  default:
+    indexing_order: fifo
+options:
+  index_directly: true
+  cron_limit: 50
+server: local

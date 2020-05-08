@@ -1,0 +1,29 @@
+uuid: 03617b36-209d-4c8d-b344-518140a97136
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.standards
+  module:
+    - facets
+    - system
+  theme:
+    - common_design
+id: standards
+theme: common_design
+region: sidebar_first
+weight: -4
+provider: null
+plugin: 'facet_block:standards'
+settings:
+  id: 'facet_block:standards'
+  label: Standards
+  provider: facets
+  label_display: visible
+  block_id: standards
+visibility:
+  request_path:
+    id: request_path
+    pages: "/indicators\r\n/indicators/*"
+    negate: false
+    context_mapping: {  }

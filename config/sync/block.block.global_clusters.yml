@@ -1,0 +1,29 @@
+uuid: 4897feb1-829a-4fde-b543-f2ebeffa0a7f
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.global_clusters
+  module:
+    - facets
+    - system
+  theme:
+    - common_design
+id: global_clusters
+theme: common_design
+region: sidebar_first
+weight: -8
+provider: null
+plugin: 'facet_block:global_clusters'
+settings:
+  id: 'facet_block:global_clusters'
+  label: 'Global Clusters'
+  provider: facets
+  label_display: visible
+  block_id: global_clusters
+visibility:
+  request_path:
+    id: request_path
+    pages: "/indicators\r\n/indicators/*"
+    negate: false
+    context_mapping: {  }
