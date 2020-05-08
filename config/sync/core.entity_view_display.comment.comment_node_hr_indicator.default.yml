@@ -1,0 +1,28 @@
+uuid: 8db69a72-6f42-4c21-99c4-4ec8ef7b7319
+langcode: en
+status: true
+dependencies:
+  config:
+    - comment.type.comment_node_hr_indicator
+    - field.field.comment.comment_node_hr_indicator.comment_body
+  module:
+    - text
+id: comment.comment_node_hr_indicator.default
+targetEntityType: comment
+bundle: comment_node_hr_indicator
+mode: default
+content:
+  comment_body:
+    label: hidden
+    type: text_default
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  search_api_excerpt: true

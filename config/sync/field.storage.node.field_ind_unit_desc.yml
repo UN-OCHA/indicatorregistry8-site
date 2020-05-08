@@ -1,0 +1,19 @@
+uuid: 575722e1-173f-4e82-968c-930222ee134a
+langcode: und
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_ind_unit_desc
+field_name: field_ind_unit_desc
+entity_type: node
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,19 @@
+uuid: 56c293a8-6289-4d24-971e-a001129a3c0c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_acronym
+    - node.type.hr_sector
+id: node.hr_sector.field_acronym
+field_name: field_acronym
+entity_type: node
+bundle: hr_sector
+label: Acronym
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

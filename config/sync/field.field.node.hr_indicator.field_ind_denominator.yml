@@ -1,0 +1,19 @@
+uuid: 3cf21860-b6db-4d80-bdf1-4fbc596a937c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ind_denominator
+    - node.type.hr_indicator
+id: node.hr_indicator.field_ind_denominator
+field_name: field_ind_denominator
+entity_type: node
+bundle: hr_indicator
+label: Denominator
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

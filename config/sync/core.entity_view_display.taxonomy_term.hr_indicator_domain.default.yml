@@ -1,0 +1,24 @@
+uuid: dedc15b3-0779-45b4-8e6d-f1845ed43d70
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.hr_indicator_domain.name_field
+    - taxonomy.vocabulary.hr_indicator_domain
+  module:
+    - text
+id: taxonomy_term.hr_indicator_domain.default
+targetEntityType: taxonomy_term
+bundle: hr_indicator_domain
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  name_field: true
+  search_api_excerpt: true

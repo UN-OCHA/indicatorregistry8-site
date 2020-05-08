@@ -1,0 +1,30 @@
+uuid: 9bc45e7e-a25b-45df-9e1a-8e89822cb189
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sectors
+    - node.type.hr_indicator
+    - node.type.hr_sector
+id: node.hr_indicator.field_sectors
+field_name: field_sectors
+entity_type: node
+bundle: hr_indicator
+label: 'Global Clusters'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    behaviors:
+      views-select-list:
+        status: 0
+    sort:
+      field: _none
+      direction: ASC
+    target_bundles:
+      hr_sector: hr_sector
+field_type: entity_reference

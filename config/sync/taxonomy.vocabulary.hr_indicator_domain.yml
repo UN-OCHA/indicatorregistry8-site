@@ -1,0 +1,8 @@
+uuid: c2ff690d-f942-4852-bf66-ec1a75af976a
+langcode: en
+status: true
+dependencies: {  }
+name: 'Indicator Domain'
+vid: hr_indicator_domain
+description: ''
+weight: 0

@@ -1,0 +1,23 @@
+uuid: e0241e82-d82f-4b1b-a509-bf2a7cd0684e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ind_key
+    - node.type.hr_indicator
+id: node.hr_indicator.field_ind_key
+field_name: field_ind_key
+entity_type: node
+bundle: hr_indicator
+label: 'Key indicator'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

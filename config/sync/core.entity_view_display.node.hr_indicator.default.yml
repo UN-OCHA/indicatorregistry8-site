@@ -1,0 +1,238 @@
+uuid: e5e392d1-e9a4-4c7e-87ec-5b324a42a139
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_display.comment.comment_node_hr_indicator.default
+    - field.field.node.hr_indicator.body
+    - field.field.node.hr_indicator.comment_node_hr_indicator
+    - field.field.node.hr_indicator.field_ind_code
+    - field.field.node.hr_indicator.field_ind_comments
+    - field.field.node.hr_indicator.field_ind_cross_tagging
+    - field.field.node.hr_indicator.field_ind_data_sources
+    - field.field.node.hr_indicator.field_ind_denominator
+    - field.field.node.hr_indicator.field_ind_disaggregation
+    - field.field.node.hr_indicator.field_ind_domain
+    - field.field.node.hr_indicator.field_ind_general_guidance
+    - field.field.node.hr_indicator.field_ind_guidance_baseline
+    - field.field.node.hr_indicator.field_ind_guidance_phases
+    - field.field.node.hr_indicator.field_ind_key
+    - field.field.node.hr_indicator.field_ind_level
+    - field.field.node.hr_indicator.field_ind_numerator
+    - field.field.node.hr_indicator.field_ind_phase_applicability
+    - field.field.node.hr_indicator.field_ind_response
+    - field.field.node.hr_indicator.field_ind_sectoral_objective
+    - field.field.node.hr_indicator.field_ind_standards
+    - field.field.node.hr_indicator.field_ind_strategic_objective
+    - field.field.node.hr_indicator.field_ind_threshold
+    - field.field.node.hr_indicator.field_ind_types
+    - field.field.node.hr_indicator.field_ind_unit
+    - field.field.node.hr_indicator.field_ind_unit_desc
+    - field.field.node.hr_indicator.field_sectors
+    - field.field.node.hr_indicator.title_field
+    - node.type.hr_indicator
+  module:
+    - comment
+    - options
+    - text
+    - user
+id: node.hr_indicator.default
+targetEntityType: node
+bundle: hr_indicator
+mode: default
+content:
+  body:
+    label: hidden
+    weight: 1
+    type: text_default
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  comment_node_hr_indicator:
+    label: hidden
+    type: comment_default
+    weight: 20
+    settings:
+      view_mode: default
+      pager_id: 0
+    third_party_settings: {  }
+    region: content
+  field_ind_code:
+    label: inline
+    weight: 2
+    type: string
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    region: content
+  field_ind_comments:
+    label: inline
+    weight: 19
+    type: basic_string
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_ind_cross_tagging:
+    label: inline
+    weight: 20
+    type: entity_reference_label
+    settings:
+      link: false
+    third_party_settings: {  }
+    region: content
+  field_ind_data_sources:
+    label: inline
+    weight: 18
+    type: basic_string
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_ind_denominator:
+    label: inline
+    weight: 7
+    type: basic_string
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_ind_disaggregation:
+    label: inline
+    weight: 8
+    type: basic_string
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_ind_domain:
+    label: inline
+    weight: 3
+    type: entity_reference_label
+    settings:
+      link: false
+    third_party_settings: {  }
+    region: content
+  field_ind_general_guidance:
+    label: inline
+    weight: 14
+    type: basic_string
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_ind_guidance_baseline:
+    label: inline
+    weight: 17
+    type: basic_string
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_ind_guidance_phases:
+    label: inline
+    weight: 15
+    type: basic_string
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_ind_key:
+    label: inline
+    weight: 9
+    type: list_default
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_ind_level:
+    label: above
+    weight: 25
+    type: entity_reference_label
+    settings:
+      link: false
+    third_party_settings: {  }
+    region: content
+  field_ind_numerator:
+    label: inline
+    weight: 6
+    type: basic_string
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_ind_phase_applicability:
+    label: inline
+    weight: 16
+    type: list_default
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_ind_response:
+    label: inline
+    weight: 10
+    type: list_default
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_ind_sectoral_objective:
+    label: above
+    weight: 24
+    type: entity_reference_label
+    settings:
+      link: false
+    third_party_settings: {  }
+    region: content
+  field_ind_standards:
+    label: inline
+    weight: 12
+    type: entity_reference_label
+    settings:
+      link: false
+    third_party_settings: {  }
+    region: content
+  field_ind_strategic_objective:
+    label: above
+    weight: 23
+    type: entity_reference_label
+    settings:
+      link: false
+    third_party_settings: {  }
+    region: content
+  field_ind_threshold:
+    label: inline
+    weight: 13
+    type: basic_string
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_ind_types:
+    label: inline
+    weight: 11
+    type: entity_reference_label
+    settings:
+      link: false
+    third_party_settings: {  }
+    region: content
+  field_ind_unit:
+    label: inline
+    weight: 4
+    type: entity_reference_label
+    settings:
+      link: false
+    third_party_settings: {  }
+    region: content
+  field_ind_unit_desc:
+    label: inline
+    weight: 5
+    type: basic_string
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_sectors:
+    label: inline
+    weight: 0
+    type: entity_reference_label
+    settings:
+      link: false
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  search_api_excerpt: true
+  title_field: true

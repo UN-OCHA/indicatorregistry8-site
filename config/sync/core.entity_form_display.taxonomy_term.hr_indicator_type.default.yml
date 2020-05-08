@@ -1,0 +1,53 @@
+uuid: 43f651ce-942e-4e90-adb0-4986f17d0165
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.hr_indicator_type.name_field
+    - taxonomy.vocabulary.hr_indicator_type
+  module:
+    - path
+    - text
+id: taxonomy_term.hr_indicator_type.default
+targetEntityType: taxonomy_term
+bundle: hr_indicator_type
+mode: default
+content:
+  description:
+    type: text_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  name_field:
+    weight: -5
+    type: string_textfield
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 100
+    region: content
+    third_party_settings: {  }
+hidden: {  }

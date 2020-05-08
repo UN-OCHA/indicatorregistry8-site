@@ -1,0 +1,8 @@
+uuid: 4ee7b3ec-054d-4858-97f6-11d40a250ec6
+langcode: en
+status: true
+dependencies: {  }
+id: comment_node_hr_indicator
+label: 'Indicator comment'
+target_entity_type_id: node
+description: null

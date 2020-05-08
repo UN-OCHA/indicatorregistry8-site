@@ -1,0 +1,21 @@
+uuid: b0587b94-9a00-4da7-a295-cbce17136eb3
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node_hr_indicator
+label: 'Content - Indicator'
+type: 'canonical_entities:node'
+pattern: 'indicator/[node:field_ind_code]'
+selection_criteria:
+  -
+    id: node_type
+    bundles:
+      hr_indicator: hr_indicator
+    negate: false
+    context_mapping:
+      node: node
+selection_logic: and
+weight: 0
+relationships: {  }

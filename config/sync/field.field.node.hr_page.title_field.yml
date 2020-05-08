@@ -1,0 +1,19 @@
+uuid: 97689c7a-e473-4ca5-863e-5695c5f2d76a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.title_field
+    - node.type.hr_page
+id: node.hr_page.title_field
+field_name: title_field
+entity_type: node
+bundle: hr_page
+label: Title
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,30 @@
+uuid: eeca30f7-435d-4974-b841-e1961a85861b
+langcode: und
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_sector_type
+field_name: field_sector_type
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: global
+      label: 'Global clusters'
+    -
+      value: aor
+      label: 'Areas of Responsibility'
+    -
+      value: working_group
+      label: 'Working Groups'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

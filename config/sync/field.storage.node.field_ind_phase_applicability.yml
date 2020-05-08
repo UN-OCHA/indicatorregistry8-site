@@ -1,0 +1,39 @@
+uuid: 178a44e7-ac8a-4d19-99c8-fa3bc00ed822
+langcode: und
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_ind_phase_applicability
+field_name: field_ind_phase_applicability
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: 'All Phases'
+      label: 'All Phases'
+    -
+      value: Pre-crisis-Baseline
+      label: Pre-crisis/Baseline
+    -
+      value: Phase1
+      label: 'Phase 1'
+    -
+      value: Phase2
+      label: ' Phase 2'
+    -
+      value: Phase3
+      label: 'Phase 3'
+    -
+      value: Phase4
+      label: 'Phase 4'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 6
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

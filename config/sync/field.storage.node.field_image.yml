@@ -1,5 +1,5 @@
 uuid: 1b1424a4-969f-489e-b50b-2a0fcc424e08
-langcode: en
+langcode: und
 status: true
 dependencies:
   module:
@@ -13,13 +13,9 @@ field_name: field_image
 entity_type: node
 type: image
 settings:
-  uri_scheme: public
   default_image:
-    uuid: null
-    alt: ''
-    title: ''
-    width: null
-    height: null
+    uuid: ''
+  uri_scheme: public
   target_type: file
   display_field: false
   display_default: false

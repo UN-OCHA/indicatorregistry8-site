@@ -1,0 +1,39 @@
+uuid: 5e827a67-26cf-4e92-a602-69089f1ed319
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.search_result
+    - field.field.node.hr_sector.body
+    - field.field.node.hr_sector.comment_node_hr_sector
+    - field.field.node.hr_sector.field_acronym
+    - field.field.node.hr_sector.field_email
+    - field.field.node.hr_sector.field_image
+    - field.field.node.hr_sector.field_sector_type
+    - field.field.node.hr_sector.field_social_media
+    - field.field.node.hr_sector.field_website
+    - field.field.node.hr_sector.title_field
+    - node.type.hr_sector
+  module:
+    - user
+id: node.hr_sector.search_result
+targetEntityType: node
+bundle: hr_sector
+mode: search_result
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  body: true
+  comment_node_hr_sector: true
+  field_acronym: true
+  field_email: true
+  field_image: true
+  field_sector_type: true
+  field_social_media: true
+  field_website: true
+  search_api_excerpt: true
+  title_field: true

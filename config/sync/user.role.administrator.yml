@@ -5,7 +5,27 @@ dependencies: {  }
 _core:
   default_config_hash: Om6FEO7vZZMkPIbVvfxtdkWerQ2PvQM4sWUd6Q3ZnfI
 id: administrator
-label: Administrator
+label: administrator
 weight: 2
 is_admin: true
-permissions: {  }
+permissions:
+  - 'access devel information'
+  - 'access fieldable panels panes master list'
+  - 'access pwa'
+  - 'add JS snippets for google analytics'
+  - 'administer fieldable panels panes'
+  - 'administer google analytics'
+  - 'administer modernizr'
+  - 'administer pwa'
+  - 'create fieldable fieldable_panels_pane'
+  - 'create files'
+  - 'delete fieldable fieldable_panels_pane'
+  - 'edit fieldable fieldable_panels_pane'
+  - 'execute php code'
+  - hr_indicators_import_xlsx
+  - 'opt-in or out of tracking'
+  - 'switch users'
+  - 'use PHP for tracking visibility'
+  - 'use hybridauth'
+  - 'view own files'
+  - 'view own private files'

@@ -1,0 +1,30 @@
+uuid: fbc145fc-dda3-4b3a-8015-c01d729df754
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ind_level
+    - node.type.hr_indicator
+    - taxonomy.vocabulary.level
+id: node.hr_indicator.field_ind_level
+field_name: field_ind_level
+entity_type: node
+bundle: hr_indicator
+label: Level
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      level: level
+    sort:
+      field: name
+      direction: ASC
+    behaviors:
+      views-select-list:
+        status: 0
+field_type: entity_reference

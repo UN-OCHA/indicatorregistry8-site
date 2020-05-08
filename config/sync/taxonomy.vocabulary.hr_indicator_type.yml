@@ -1,0 +1,8 @@
+uuid: cb1ac5ed-3910-450a-aaf2-9d3c4d1f20dd
+langcode: en
+status: true
+dependencies: {  }
+name: 'Indicator Type'
+vid: hr_indicator_type
+description: ''
+weight: 0

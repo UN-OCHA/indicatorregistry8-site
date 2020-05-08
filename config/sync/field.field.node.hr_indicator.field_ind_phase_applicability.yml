@@ -1,0 +1,21 @@
+uuid: 53a36723-621b-41a4-a12b-3782dff62872
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ind_phase_applicability
+    - node.type.hr_indicator
+  module:
+    - options
+id: node.hr_indicator.field_ind_phase_applicability
+field_name: field_ind_phase_applicability
+entity_type: node
+bundle: hr_indicator
+label: 'Phase applicability'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

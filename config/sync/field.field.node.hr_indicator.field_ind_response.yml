@@ -1,0 +1,21 @@
+uuid: b5e22ec9-fdbc-4749-8790-b3d47a6f943b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ind_response
+    - node.type.hr_indicator
+id: node.hr_indicator.field_ind_response
+field_name: field_ind_response
+entity_type: node
+bundle: hr_indicator
+label: 'Indicator used for response monitoring ?'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

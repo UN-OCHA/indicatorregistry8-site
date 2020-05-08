@@ -1,0 +1,8 @@
+uuid: 2efd72de-0a75-4d75-8c8f-d0e0a4211c49
+langcode: en
+status: true
+dependencies: {  }
+name: 'Strategic objective'
+vid: strategic_objective
+description: ''
+weight: 0

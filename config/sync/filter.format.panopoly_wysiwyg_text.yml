@@ -1,0 +1,8 @@
+uuid: de6b4885-2b93-4068-aff4-9284103376ba
+langcode: en
+status: true
+dependencies: {  }
+name: WYSIWYG
+format: panopoly_wysiwyg_text
+weight: -10
+filters: {  }

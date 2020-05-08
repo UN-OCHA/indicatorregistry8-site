@@ -1,0 +1,29 @@
+uuid: c9e5ecbf-8221-4ebd-bc0d-bbd7f2b1cfd4
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.search_result
+    - field.field.node.hr_page.body
+    - field.field.node.hr_page.comment_node_hr_page
+    - field.field.node.hr_page.field_page_menu
+    - field.field.node.hr_page.title_field
+    - node.type.hr_page
+  module:
+    - user
+id: node.hr_page.search_result
+targetEntityType: node
+bundle: hr_page
+mode: search_result
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  body: true
+  comment_node_hr_page: true
+  field_page_menu: true
+  search_api_excerpt: true
+  title_field: true

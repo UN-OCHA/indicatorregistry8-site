@@ -1,0 +1,8 @@
+uuid: b48dd89b-68cd-4370-9098-21022d2ea6c5
+langcode: en
+status: true
+dependencies: {  }
+name: 'Sectoral objective'
+vid: sectoral_objective
+description: ''
+weight: 0

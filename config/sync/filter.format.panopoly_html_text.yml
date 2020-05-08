@@ -1,0 +1,8 @@
+uuid: 209f03d0-ceea-4dc6-a17c-4ff191e415d3
+langcode: en
+status: true
+dependencies: {  }
+name: HTML
+format: panopoly_html_text
+weight: -9
+filters: {  }

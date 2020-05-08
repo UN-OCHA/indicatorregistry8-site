@@ -1,0 +1,23 @@
+uuid: 3f7cccc6-c0f8-462a-98e8-99aebc1709d6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.hr_indicator
+  module:
+    - text
+id: node.hr_indicator.body
+field_name: body
+entity_type: node
+bundle: hr_indicator
+label: Description/Rationale
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

@@ -1,0 +1,30 @@
+uuid: c5564df0-fd47-482b-8f4b-117f9b80df96
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ind_standards
+    - node.type.hr_indicator
+    - taxonomy.vocabulary.hr_indicator_standard
+id: node.hr_indicator.field_ind_standards
+field_name: field_ind_standards
+entity_type: node
+bundle: hr_indicator
+label: Standards
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    behaviors:
+      views-select-list:
+        status: 0
+    sort:
+      field: _none
+      direction: ASC
+    target_bundles:
+      hr_indicator_standard: hr_indicator_standard
+field_type: entity_reference

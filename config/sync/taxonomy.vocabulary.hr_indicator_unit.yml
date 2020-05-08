@@ -1,0 +1,8 @@
+uuid: 54a2318d-e414-4345-b4b2-a4a9a771c513
+langcode: en
+status: true
+dependencies: {  }
+name: 'Indicator Unit'
+vid: hr_indicator_unit
+description: ''
+weight: 0

@@ -1,11 +1,11 @@
 uuid: 75573f05-2623-4bfe-b3f4-94b09be2c998
-name: 'Indicator Registry'
+name: 'IR Migrate'
 mail: admin@example.com
 slogan: ''
 page:
-  403: ''
-  404: ''
-  front: /node
+  403: /
+  404: /
+  front: /home
 admin_compact_mode: false
 weight_select_max: 100
 langcode: en

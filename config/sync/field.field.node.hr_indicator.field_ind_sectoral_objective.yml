@@ -1,0 +1,30 @@
+uuid: c3b85914-116c-404a-a229-5b8d29c3a4e5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ind_sectoral_objective
+    - node.type.hr_indicator
+    - taxonomy.vocabulary.sectoral_objective
+id: node.hr_indicator.field_ind_sectoral_objective
+field_name: field_ind_sectoral_objective
+entity_type: node
+bundle: hr_indicator
+label: 'Sectoral objective'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      sectoral_objective: sectoral_objective
+    sort:
+      field: name
+      direction: ASC
+    behaviors:
+      views-select-list:
+        status: 0
+field_type: entity_reference

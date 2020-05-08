@@ -1,0 +1,19 @@
+uuid: 7195e1a1-8d32-4ab4-a540-32becec8021d
+langcode: und
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_ind_disaggregation
+field_name: field_ind_disaggregation
+entity_type: node
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

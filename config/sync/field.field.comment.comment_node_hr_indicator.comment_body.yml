@@ -1,0 +1,21 @@
+uuid: 7bb01cc4-31bf-4aca-b35d-21ca605325f1
+langcode: en
+status: true
+dependencies:
+  config:
+    - comment.type.comment_node_hr_indicator
+    - field.storage.comment.comment_body
+  module:
+    - text
+id: comment.comment_node_hr_indicator.comment_body
+field_name: comment_body
+entity_type: comment
+bundle: comment_node_hr_indicator
+label: Comment
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

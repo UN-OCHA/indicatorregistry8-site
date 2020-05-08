@@ -1,0 +1,23 @@
+uuid: ecfae27a-eb27-4e17-8fe8-01001abca180
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.hr_page
+  module:
+    - text
+id: node.hr_page.body
+field_name: body
+entity_type: node
+bundle: hr_page
+label: Body
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

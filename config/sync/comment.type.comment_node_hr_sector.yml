@@ -1,0 +1,8 @@
+uuid: 415cf816-0e00-46be-9a98-506e2519f494
+langcode: en
+status: true
+dependencies: {  }
+id: comment_node_hr_sector
+label: 'Global bundle comment'
+target_entity_type_id: node
+description: null

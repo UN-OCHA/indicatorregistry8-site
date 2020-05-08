@@ -1,0 +1,21 @@
+uuid: 2a9406aa-6658-4519-b2f2-1e8187d7a445
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node_hr_page
+label: 'Content - Page'
+type: 'canonical_entities:node'
+pattern: '[node:title]'
+selection_criteria:
+  -
+    id: node_type
+    bundles:
+      hr_page: hr_page
+    negate: false
+    context_mapping:
+      node: node
+selection_logic: and
+weight: 0
+relationships: {  }

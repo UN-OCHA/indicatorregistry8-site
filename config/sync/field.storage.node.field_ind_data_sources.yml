@@ -1,0 +1,19 @@
+uuid: 88e2d1d6-3e9c-49e4-b081-1f7e90e028b6
+langcode: und
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_ind_data_sources
+field_name: field_ind_data_sources
+entity_type: node
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

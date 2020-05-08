@@ -1,0 +1,8 @@
+uuid: 539b29c8-dd2b-4e64-822d-f2813dda4f09
+langcode: en
+status: true
+dependencies: {  }
+name: 'Space Category'
+vid: hr_space_category
+description: 'Categories for spaces'
+weight: 0

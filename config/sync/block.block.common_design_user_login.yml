@@ -1,0 +1,20 @@
+uuid: 5e6adf26-db22-4198-a6d2-77a56b2b1de4
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+  theme:
+    - common_design
+id: common_design_user_login
+theme: common_design
+region: header_top
+weight: 0
+provider: null
+plugin: user_login_block
+settings:
+  id: user_login_block
+  label: ''
+  provider: user
+  label_display: '0'
+visibility: {  }

@@ -1,0 +1,96 @@
+uuid: 638c4fab-042e-4cef-a728-a7740ed4a7bd
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_display.comment.comment_node_hr_sector.default
+    - field.field.node.hr_sector.body
+    - field.field.node.hr_sector.comment_node_hr_sector
+    - field.field.node.hr_sector.field_acronym
+    - field.field.node.hr_sector.field_email
+    - field.field.node.hr_sector.field_image
+    - field.field.node.hr_sector.field_sector_type
+    - field.field.node.hr_sector.field_social_media
+    - field.field.node.hr_sector.field_website
+    - field.field.node.hr_sector.title_field
+    - node.type.hr_sector
+  module:
+    - comment
+    - image
+    - link
+    - options
+    - text
+    - user
+id: node.hr_sector.default
+targetEntityType: node
+bundle: hr_sector
+mode: default
+content:
+  body:
+    label: hidden
+    weight: 1
+    type: text_default
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  comment_node_hr_sector:
+    label: hidden
+    type: comment_default
+    weight: 20
+    settings:
+      view_mode: default
+      pager_id: 0
+    third_party_settings: {  }
+    region: content
+  field_acronym:
+    label: above
+    weight: 10
+    type: string
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    region: content
+  field_email:
+    label: above
+    weight: 5
+    type: email_mailto
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_image:
+    label: above
+    weight: 3
+    type: image
+    settings:
+      image_link: ''
+      image_style: ''
+    third_party_settings: {  }
+    region: content
+  field_sector_type:
+    label: above
+    weight: 11
+    type: list_default
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_website:
+    label: above
+    weight: 4
+    type: link
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_social_media: true
+  search_api_excerpt: true
+  title_field: true

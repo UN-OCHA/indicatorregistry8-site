@@ -1,0 +1,19 @@
+uuid: b8b64b65-969f-4eb0-bfe0-6869b94f2835
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ind_threshold
+    - node.type.hr_indicator
+id: node.hr_indicator.field_ind_threshold
+field_name: field_ind_threshold
+entity_type: node
+bundle: hr_indicator
+label: 'Threshold / Standard'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

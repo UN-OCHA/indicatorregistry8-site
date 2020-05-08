@@ -1,0 +1,23 @@
+uuid: 09d85633-bfc9-48ea-abd6-1af99873d4bd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_website
+    - node.type.hr_sector
+  module:
+    - link
+id: node.hr_sector.field_website
+field_name: field_website
+entity_type: node
+bundle: hr_sector
+label: Website
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 0
+  link_type: 17
+field_type: link

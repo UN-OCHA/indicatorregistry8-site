@@ -1,0 +1,37 @@
+uuid: 1aed3a13-09fd-4194-b291-396238e215fd
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.hr_page.body
+    - field.field.node.hr_page.comment_node_hr_page
+    - field.field.node.hr_page.field_page_menu
+    - field.field.node.hr_page.title_field
+    - node.type.hr_page
+  module:
+    - text
+    - user
+id: node.hr_page.teaser
+targetEntityType: node
+bundle: hr_page
+mode: teaser
+content:
+  body:
+    label: hidden
+    weight: 1
+    type: text_summary_or_trimmed
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  comment_node_hr_page: true
+  field_page_menu: true
+  search_api_excerpt: true
+  title_field: true

@@ -1,0 +1,272 @@
+uuid: fe14070b-a748-48b9-b54c-765eaeac7124
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.hr_indicator.body
+    - field.field.node.hr_indicator.comment_node_hr_indicator
+    - field.field.node.hr_indicator.field_ind_code
+    - field.field.node.hr_indicator.field_ind_comments
+    - field.field.node.hr_indicator.field_ind_cross_tagging
+    - field.field.node.hr_indicator.field_ind_data_sources
+    - field.field.node.hr_indicator.field_ind_denominator
+    - field.field.node.hr_indicator.field_ind_disaggregation
+    - field.field.node.hr_indicator.field_ind_domain
+    - field.field.node.hr_indicator.field_ind_general_guidance
+    - field.field.node.hr_indicator.field_ind_guidance_baseline
+    - field.field.node.hr_indicator.field_ind_guidance_phases
+    - field.field.node.hr_indicator.field_ind_key
+    - field.field.node.hr_indicator.field_ind_level
+    - field.field.node.hr_indicator.field_ind_numerator
+    - field.field.node.hr_indicator.field_ind_phase_applicability
+    - field.field.node.hr_indicator.field_ind_response
+    - field.field.node.hr_indicator.field_ind_sectoral_objective
+    - field.field.node.hr_indicator.field_ind_standards
+    - field.field.node.hr_indicator.field_ind_strategic_objective
+    - field.field.node.hr_indicator.field_ind_threshold
+    - field.field.node.hr_indicator.field_ind_types
+    - field.field.node.hr_indicator.field_ind_unit
+    - field.field.node.hr_indicator.field_ind_unit_desc
+    - field.field.node.hr_indicator.field_sectors
+    - field.field.node.hr_indicator.title_field
+    - node.type.hr_indicator
+  module:
+    - comment
+    - path
+    - text
+id: node.hr_indicator.default
+targetEntityType: node
+bundle: hr_indicator
+mode: default
+content:
+  body:
+    weight: 5
+    type: text_textarea_with_summary
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+    region: content
+  comment_node_hr_indicator:
+    type: comment_default
+    weight: 20
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  created:
+    type: datetime_timestamp
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_ind_code:
+    weight: 2
+    type: string_textfield
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  field_ind_comments:
+    weight: 20
+    type: string_textarea
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  field_ind_data_sources:
+    weight: 21
+    type: string_textarea
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  field_ind_denominator:
+    weight: 9
+    type: string_textarea
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  field_ind_disaggregation:
+    weight: 10
+    type: string_textarea
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  field_ind_general_guidance:
+    weight: 18
+    type: string_textarea
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  field_ind_guidance_baseline:
+    weight: 19
+    type: string_textarea
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  field_ind_guidance_phases:
+    weight: 16
+    type: string_textarea
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  field_ind_key:
+    weight: 11
+    type: options_buttons
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_ind_level:
+    weight: 28
+    type: options_select
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_ind_numerator:
+    weight: 8
+    type: string_textarea
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  field_ind_phase_applicability:
+    weight: 17
+    type: options_buttons
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_ind_response:
+    weight: 13
+    type: options_buttons
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_ind_sectoral_objective:
+    weight: 27
+    type: options_select
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_ind_standards:
+    weight: 14
+    type: options_select
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_ind_strategic_objective:
+    weight: 26
+    type: options_select
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_ind_threshold:
+    weight: 15
+    type: string_textarea
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  field_ind_types:
+    weight: 12
+    type: options_select
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_ind_unit:
+    weight: 6
+    type: options_select
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_ind_unit_desc:
+    weight: 7
+    type: string_textarea
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  field_sectors:
+    weight: 1
+    type: options_select
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 15
+    region: content
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 120
+    region: content
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 16
+    region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  title_field:
+    weight: 4
+    type: string_textfield
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  uid:
+    type: entity_reference_autocomplete
+    weight: 5
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+      match_limit: 10
+    region: content
+    third_party_settings: {  }
+  url_redirects:
+    weight: 50
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_ind_cross_tagging: true
+  field_ind_domain: true

@@ -1,0 +1,81 @@
+uuid: 4b8ac85f-a2ee-485f-b1d6-b7ab7c9ca732
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.hr_indicator.body
+    - field.field.node.hr_indicator.comment_node_hr_indicator
+    - field.field.node.hr_indicator.field_ind_code
+    - field.field.node.hr_indicator.field_ind_comments
+    - field.field.node.hr_indicator.field_ind_cross_tagging
+    - field.field.node.hr_indicator.field_ind_data_sources
+    - field.field.node.hr_indicator.field_ind_denominator
+    - field.field.node.hr_indicator.field_ind_disaggregation
+    - field.field.node.hr_indicator.field_ind_domain
+    - field.field.node.hr_indicator.field_ind_general_guidance
+    - field.field.node.hr_indicator.field_ind_guidance_baseline
+    - field.field.node.hr_indicator.field_ind_guidance_phases
+    - field.field.node.hr_indicator.field_ind_key
+    - field.field.node.hr_indicator.field_ind_level
+    - field.field.node.hr_indicator.field_ind_numerator
+    - field.field.node.hr_indicator.field_ind_phase_applicability
+    - field.field.node.hr_indicator.field_ind_response
+    - field.field.node.hr_indicator.field_ind_sectoral_objective
+    - field.field.node.hr_indicator.field_ind_standards
+    - field.field.node.hr_indicator.field_ind_strategic_objective
+    - field.field.node.hr_indicator.field_ind_threshold
+    - field.field.node.hr_indicator.field_ind_types
+    - field.field.node.hr_indicator.field_ind_unit
+    - field.field.node.hr_indicator.field_ind_unit_desc
+    - field.field.node.hr_indicator.field_sectors
+    - field.field.node.hr_indicator.title_field
+    - node.type.hr_indicator
+  module:
+    - text
+    - user
+id: node.hr_indicator.teaser
+targetEntityType: node
+bundle: hr_indicator
+mode: teaser
+content:
+  body:
+    label: hidden
+    weight: 1
+    type: text_summary_or_trimmed
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  comment_node_hr_indicator: true
+  field_ind_code: true
+  field_ind_comments: true
+  field_ind_cross_tagging: true
+  field_ind_data_sources: true
+  field_ind_denominator: true
+  field_ind_disaggregation: true
+  field_ind_domain: true
+  field_ind_general_guidance: true
+  field_ind_guidance_baseline: true
+  field_ind_guidance_phases: true
+  field_ind_key: true
+  field_ind_level: true
+  field_ind_numerator: true
+  field_ind_phase_applicability: true
+  field_ind_response: true
+  field_ind_sectoral_objective: true
+  field_ind_standards: true
+  field_ind_strategic_objective: true
+  field_ind_threshold: true
+  field_ind_types: true
+  field_ind_unit: true
+  field_ind_unit_desc: true
+  field_sectors: true
+  search_api_excerpt: true
+  title_field: true

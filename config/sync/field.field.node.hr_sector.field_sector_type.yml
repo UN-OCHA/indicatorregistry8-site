@@ -1,0 +1,21 @@
+uuid: d6c41a5a-f29f-4971-976a-49fe85a9d15e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sector_type
+    - node.type.hr_sector
+  module:
+    - options
+id: node.hr_sector.field_sector_type
+field_name: field_sector_type
+entity_type: node
+bundle: hr_sector
+label: Type
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

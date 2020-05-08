@@ -1,0 +1,8 @@
+uuid: 58f1acb3-211c-4e7b-ad6c-9f52609f1c52
+langcode: en
+status: true
+dependencies: {  }
+name: 'WYSIWYG trusted'
+format: hr_wysiwyg_trusted
+weight: -8
+filters: {  }

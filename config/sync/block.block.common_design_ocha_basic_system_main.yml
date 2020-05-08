@@ -1,0 +1,22 @@
+uuid: f0d9ef71-7717-4d23-ae0a-be6341647b31
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - common_design
+_core:
+  default_config_hash: 9EoWV2Lot6FVSr50t4hoKgiz1LIXYWNG-IIPYsWxBqo
+id: common_design_ocha_basic_system_main
+theme: common_design
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: ''
+  provider: system
+  label_display: '0'
+visibility: {  }

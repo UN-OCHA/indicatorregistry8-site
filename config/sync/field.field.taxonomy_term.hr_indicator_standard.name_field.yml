@@ -1,0 +1,19 @@
+uuid: e667b51a-d997-464a-adfb-5c22beebbff0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.name_field
+    - taxonomy.vocabulary.hr_indicator_standard
+id: taxonomy_term.hr_indicator_standard.name_field
+field_name: name_field
+entity_type: taxonomy_term
+bundle: hr_indicator_standard
+label: Name
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,30 @@
+uuid: d24540de-f447-423a-a2c8-9e9aa0189c7f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ind_domain
+    - node.type.hr_indicator
+    - taxonomy.vocabulary.hr_indicator_domain
+id: node.hr_indicator.field_ind_domain
+field_name: field_ind_domain
+entity_type: node
+bundle: hr_indicator
+label: Sub-domain
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    behaviors:
+      views-select-list:
+        status: 0
+    sort:
+      field: _none
+      direction: ASC
+    target_bundles:
+      hr_indicator_domain: hr_indicator_domain
+field_type: entity_reference

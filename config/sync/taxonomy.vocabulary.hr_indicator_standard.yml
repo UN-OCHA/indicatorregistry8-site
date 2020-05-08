@@ -1,0 +1,8 @@
+uuid: 8d0c88be-573c-4f80-964d-0c71a207f8d1
+langcode: en
+status: true
+dependencies: {  }
+name: 'Indicator Standard'
+vid: hr_indicator_standard
+description: ''
+weight: 0

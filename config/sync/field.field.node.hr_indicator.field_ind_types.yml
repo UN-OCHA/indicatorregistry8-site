@@ -1,0 +1,30 @@
+uuid: 65fb2bc0-5ac8-42e4-9406-59e1e96628cd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ind_types
+    - node.type.hr_indicator
+    - taxonomy.vocabulary.hr_indicator_type
+id: node.hr_indicator.field_ind_types
+field_name: field_ind_types
+entity_type: node
+bundle: hr_indicator
+label: Types
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    behaviors:
+      views-select-list:
+        status: 0
+    sort:
+      field: _none
+      direction: ASC
+    target_bundles:
+      hr_indicator_type: hr_indicator_type
+field_type: entity_reference

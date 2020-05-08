@@ -1,0 +1,30 @@
+uuid: b49c9033-edb7-4b0f-bb62-d5d759094d48
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ind_unit
+    - node.type.hr_indicator
+    - taxonomy.vocabulary.hr_indicator_unit
+id: node.hr_indicator.field_ind_unit
+field_name: field_ind_unit
+entity_type: node
+bundle: hr_indicator
+label: 'Unit of Measurement'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    behaviors:
+      views-select-list:
+        status: 0
+    sort:
+      field: _none
+      direction: ASC
+    target_bundles:
+      hr_indicator_unit: hr_indicator_unit
+field_type: entity_reference

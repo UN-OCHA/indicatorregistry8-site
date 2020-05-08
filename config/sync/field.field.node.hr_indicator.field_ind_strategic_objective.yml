@@ -1,0 +1,30 @@
+uuid: 369bf298-39a9-44fc-b070-2c880aac61e2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ind_strategic_objective
+    - node.type.hr_indicator
+    - taxonomy.vocabulary.strategic_objective
+id: node.hr_indicator.field_ind_strategic_objective
+field_name: field_ind_strategic_objective
+entity_type: node
+bundle: hr_indicator
+label: 'Strategic objective'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      strategic_objective: strategic_objective
+    sort:
+      field: name
+      direction: ASC
+    behaviors:
+      views-select-list:
+        status: 0
+field_type: entity_reference
