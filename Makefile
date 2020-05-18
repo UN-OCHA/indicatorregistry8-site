@@ -17,7 +17,8 @@ build:	clean
 	@echo "Built a shiny new unocha/indicatorregistry8-site:local for you."
 
 clean:
-	rm -rf ./buildlog.txt
+	composer run gulp-cleanup
+	rm -rf ./buildlog.txt ./vendor
 
 # Always build, never claim cache.
 .PHONY: build
