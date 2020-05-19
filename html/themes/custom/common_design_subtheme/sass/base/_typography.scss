@@ -7,23 +7,40 @@ h2,
 h3,
 h4,
 h5 {
-  color: $cd-ocha-blue;
+  color: $implementation-primary;
 }
 
 h1 {
-  color: $cd-ocha-blue;
+  color: $implementation-primary;
 }
 
 .page-title {
-  border-bottom: 1px solid $cd-mid-bluey-grey;
-  color: $cd-default-text-color;
+  border-bottom: 0 none;
+  color: $implementation-primary;
+  margin-top: 0;
 }
 
 a {
-  color: $cd-dark-blue;
+  color: $implementation-primary;
 
   &:hover,
   &:focus {
-    color: $cd-ocha-blue;
+    color: $implementation-primary-dark;
   }
+}
+
+.cd-heading-2 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  color: $implementation-primary;
+  border-bottom: 3px solid $cd-mid-bluey-grey;
+}
+
+.cd-heading-3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: $implementation-primary;
 }

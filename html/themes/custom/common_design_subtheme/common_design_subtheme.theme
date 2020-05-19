@@ -1,0 +1,61 @@
+<?php
+
+/**
+ * @file
+ * Template overrides, preprocess, and alter hooks for the Common Design theme.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_form_alter().
+ */
+function common_design_subtheme_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  // To use this for Views exposed forms, copy the form alter hook into your
+  // subtheme and add the relevant Views IDs to this array in your subtheme.
+  $includeView = [
+    'views-exposed-form-indicator',
+  ];
+
+  // If in array above, add search--inline attributes.
+  if (in_array($form['#id'], $includeView)) {
+    // This is for a Views exposed form INLINE search block.
+    // There are templates needed for this. Replace cd-search.html.twig
+    // with cd-search--inline.html.twig in cd-site-header.html.twig.
+    $form['#attributes']['class'][] = 'cd-search--inline__form';
+    $form['#attributes']['aria-labelledby'][] = 'cd-search--inline__btn';
+    $form['#attributes']['data-cd-toggable'][] = 'Search';
+    $form['#attributes']['data-cd-hidden'][] = 'true';
+    $form['#attributes']['data-cd-icon'][] = '';
+    $form['#attributes']['data-cd-component'][] = 'cd-search--inline';
+    $form['#attributes']['data-cd-logo'][] = 'search';
+    $form['s']['#attributes']['placeholder'][] = t('What are you looking for?');
+    $form['s']['#attributes']['class'][] = 'cd-search--inline__input';
+    $form['s']['#attributes']['type'][] = 'search';
+    $form['s']['#attributes']['id'][] = 'cd-search--inline';
+    $form['s']['#attributes']['autocomplete'][] = 'off';
+    // Theme suggestion for submit element.
+    $form['actions']['submit']['#attributes']['data-twig-suggestion'] = 'search_submit';
+    $form['actions']['submit']['#attributes']['class'][] = 'cd-search--inline__submit';
+    $form['actions']['submit']['#attributes']['value'][] = 'Search';
+  }
+}
+
+/**
+ * Implements template_preprocess_region().
+ */
+function common_design_subtheme_preprocess_region(&$variables) {
+  $variables['has_filters'] = FALSE;
+
+  if (isset($variables['region']) && $variables['region'] == 'sidebar_first') {
+    $view_id = \Drupal::routeMatch()->getParameter('view_id');
+    if ($view_id === 'indicator') {
+      $variables['attributes']['class'][] = 'cd-dropdown';
+    }
+    $variables['has_filters'] = TRUE;
+  }
+
+  // Create the $content variable that templates expect.
+  $variables['content'] = $variables['elements']['#children'];
+  $variables['region'] = $variables['elements']['#region'];
+}

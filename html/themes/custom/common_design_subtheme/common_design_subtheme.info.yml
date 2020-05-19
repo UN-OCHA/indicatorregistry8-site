@@ -20,18 +20,18 @@ regions:
   highlighted: Highlighted
   content: Content
   sidebar_first: First sidebar
-  sidebar_second: Second sidebar
   footer_soft: Soft footer
   footer_navigation: Footer navigation
 
-# Add implementation-specific styles to base theme components
-# libraries-extend:
-#   common_design/cd-article-teaser:
-#     - common_design_subtheme/cd-article-teaser
 
 # CD components
-# Requires Components module
-# component-libraries:
-#   cd-components:
-#     paths:
-#       - components
+component-libraries:
+  cd-components:
+    paths:
+      - components
+
+libraries-override:
+  common_design/cd-table:
+    css:
+      theme:
+        components/cd-table/cd-table.css: components/cd-table/cd-table.css
