@@ -52,6 +52,7 @@
         "drupal/upgrade_status": "^2.0",
         "drush/drush": "^9.0.0",
         "phpmd/phpmd": "^2.6",
+        "webmozart/path-util": "^2.3",
         "weitzman/drupal-test-traits": "^1.2",
         "weitzman/logintrait": "^1.1"
     },
