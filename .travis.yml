@@ -1,0 +1,78 @@
+dist: trusty
+language: php
+cache:
+  directories:
+  - $HOME/.composer
+  - $HOME/.npm
+
+# addons:
+#   chrome: stable
+
+php:
+  - 7.3
+
+mysql:
+  database: drupal
+  username: root
+  encoding: utf8
+
+services:
+  - docker
+
+env:
+  global:
+     - DRUPAL_REPO='git://drupalcode.org/project/drupal.git'
+     - DRUPAL_VERSION='8.x'
+     - DRUSH_VERSION='8.*'
+     - PHPCS_VERSION='2.9.*@dev'
+     - CODER_VERSION='dev-8.x-2.x'
+     - DB=mysql
+
+#install:
+#  - test -n "${SSH_AGENT_PID}" && ssh-agent -k
+
+before_script:
+  # Check the docker images we want actually exists.
+  - grep 'unocha/unified-builder:' docker/Dockerfile | awk '{print $2}' | xargs docker pull
+  - grep 'unocha/php7-k8s:' docker/Dockerfile | awk '{print $2}' | xargs docker pull
+  # Composer.
+  - sed -i '1i export PATH="$HOME/.composer/vendor/bin:$PATH"' $HOME/.bashrc
+  - source $HOME/.bashrc
+  - composer self-update
+
+  # Ensure the PHP environment is ready.
+  - phpenv rehash
+
+  # Code sniff
+  - cd $TRAVIS_BUILD_DIR
+  - composer install
+
+  # LightHouseBot
+  # - npm i --save-dev https://github.com/GoogleChromeLabs/lighthousebot
+
+  # PWMetrics
+  # - npm i
+
+script:
+  # PHP linting
+  - set -e
+  - test ! -d ./html/modules/custom || find -L ./html/modules/custom -iregex '.*\.\(php\|module\|inc\|install\)$' -print0 | xargs -0 -n 1 -P 4 php -l
+  - test ! -d ./html/themes/custom || find -L ./html/themes/custom -iregex '.*\.\(php\|module\|inc\|install\)$' -print0 | xargs -0 -n 1 -P 4 php -l
+  - set +e
+
+  # PHP CS
+  - ./vendor/bin/phpcs --config-set installed_paths vendor/drupal/coder/coder_sniffer
+  - set -e
+  - test ! -d ./html/modules/custom || ./vendor/bin/phpcs -p --report=full ./html/modules/custom
+  - test ! -d ./html/themes/custom || ./vendor/bin/phpcs -p --report=full ./html/themes/custom
+  - set +e
+
+  # Theme build.
+  - composer run gulp
+
+after_success:
+  - cd $TRAVIS_BUILD_DIR
+  - killall -9 php
+
+after_failure:
+  - echo "The tests failed. Please check the output above for problems."
