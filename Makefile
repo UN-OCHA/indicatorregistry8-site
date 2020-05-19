@@ -14,7 +14,6 @@ build:	clean
 				--build-arg GITHUB_SHA=`git rev-parse --short HEAD` \
 		. --file docker/Dockerfile --tag unocha/indicatorregistry8-site:local \
 		2>&1 | tee buildlog.txt
-	@echo "Built a shiny new unocha/indicatorregistry8-site:local for you."
 
 clean:
 	composer run gulp-cleanup
