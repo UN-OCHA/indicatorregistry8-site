@@ -109,10 +109,25 @@ $cd-bright-blue-text-color: $cd-bright-blue;
 // Implementation colours
 //——————————————————————————————————————————————————————————————————————————————
 
-$implementation-primary: $cd-ocha-blue;
-$implementation-primary-dark: $cd-ocha-blue;
+$implementation-primary: #3d5c76;
+$implementation-primary-dark: darken(#3d5c76, 4%);
 $implementation-secondary: $cd-bright-blue;
-$implementation-highlight: $cd-highlight-red;
+$implementation-highlight: #0ac7d9;
+
+//——————————————————————————————————————————————————————————————————————————————
+// Indicator Registry colours
+//——————————————————————————————————————————————————————————————————————————————
+$cd-primary-bg-color: #3d5c76;
+$cd-dark-primary-bg-color: darken(#3d5c76, 4%);
+$cd-highlight: #0ac7d9;
+
+$cd-primary-color: $cd-primary-bg-color;
+$cd-dark-primary-color: $cd-dark-primary-bg-color;
+$cd-grey-background-color: #f9f;
+$p-dark-text: #1c304a;
+
+$border-grey: #d8d8d8;
+$text-color: $cd-default-text-color !default;
 
 //——————————————————————————————————————————————————————————————————————————————
 // Fonts

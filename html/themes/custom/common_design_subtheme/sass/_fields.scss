@@ -1,0 +1,8 @@
+.field--label-inline {
+  display: block;
+  overflow: hidden; // Hack to prevent inline label float issues.
+}
+
+.field + .field {
+  margin-top: 1rem;
+}

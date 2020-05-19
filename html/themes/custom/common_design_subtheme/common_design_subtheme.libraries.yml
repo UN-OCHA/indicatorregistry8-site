@@ -2,9 +2,3 @@ global-styling:
   css:
     theme:
       css/styles.css: {}
-
-# Custom components
-# cd-article-teaser:
-#   css:
-#     theme:
-#       components/cd-article-teaser/cd-article-teaser.css: {}
