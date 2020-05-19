@@ -180,7 +180,7 @@ exports.js = jsTask;
 // Watch Files For Changes
 //——————————————————————————————————————————————————————————————————————————————
 function watchTask() {
-  gulp.watch(['js/cd-*.js'], jsTask);
+  // gulp.watch(['js/cd-*.js'], jsTask);
   gulp.watch(['sass/**/*.scss'], sassTask);
 };
 exports.watch = watchTask;
@@ -197,5 +197,5 @@ exports.default = defaultTask;
 //——————————————————————————————————————————————————————————————————————————————
 // Build all assets in the theme
 //——————————————————————————————————————————————————————————————————————————————
-const buildTask = gulp.parallel(sassTask, jsTask);
+const buildTask = gulp.parallel(sassTask/*, jsTask*/);
 exports.build = buildTask;
