@@ -1,0 +1,20 @@
+uuid: 65507eef-7634-4871-ac32-a9d4e2438b6b
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - registry
+id: registry_system_main
+theme: registry
+region: ''
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: ''
+  provider: system
+  label_display: '0'
+visibility: {  }
