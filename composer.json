@@ -26,7 +26,7 @@
         "drupal-composer/drupal-scaffold": "^2.5",
         "drupal/admin_denied": "^1.0",
         "drupal/coder": "^8.3",
-        "drupal/core": "^8.8",
+        "drupal/core": "^8.8.6",
         "drupal/dream_block_manager": "^1.0",
         "drupal/facets": "^1.4",
         "drupal/facets_pretty_paths": "^1.0",
