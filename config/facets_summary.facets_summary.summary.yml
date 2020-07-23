@@ -52,7 +52,7 @@ facets:
     separator: ', '
     weight: 0
     show_count: false
-facet_source_id: 'search_api:views_page__indicators__page_1'
+facet_source_id: 'search_api:views_page__indicators__indicators_table'
 processor_configs:
   hide_when_not_rendered:
     processor_id: hide_when_not_rendered

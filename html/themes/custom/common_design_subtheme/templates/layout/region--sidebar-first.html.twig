@@ -20,11 +20,12 @@
 %}
 
 {{ attach_library('common_design/cd-dropdown') }}
+{{ attach_library('common_design/cd-filter') }}
 
 {% if content %}
 
-  {% if has_filters %}
-    <div {{ attributes.addClass(classes) }} role="menu" id="cd-filters-dropdown" aria-labelledby="cd-filters-dropdown-toggle" data-cd-toggable="Filters" data-cd-hidden="true" data-cd-icon="arrow-down" data-cd-component="cd-filters" data-cd-toggable-keep="true">
+  {% if has_filter %}
+    <div {{ attributes.addClass(classes) }} id="cd-filter" aria-labelledby="cd-filter-toggle" data-cd-toggable="Filter" data-cd-icon="arrow-down" data-cd-component="cd-filter" data-cd-toggable-keep="true">
   {% else %}
     <div {{ attributes.addClass(classes) }}>
   {% endif %}

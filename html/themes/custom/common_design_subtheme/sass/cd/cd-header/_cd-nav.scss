@@ -72,6 +72,7 @@
         button {
           &.is-active,
           &:focus {
+            // sass-lint:disable nesting-depth
             &::before {
               background: $implementation-highlight;
             }

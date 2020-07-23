@@ -180,7 +180,7 @@ exports.js = jsTask;
 // Watch Files For Changes
 //——————————————————————————————————————————————————————————————————————————————
 function watchTask() {
-  // gulp.watch(['js/cd-*.js'], jsTask);
+  //gulp.watch(['js/cd-*.js'], jsTask);
   gulp.watch(['sass/**/*.scss'], sassTask);
 };
 exports.watch = watchTask;

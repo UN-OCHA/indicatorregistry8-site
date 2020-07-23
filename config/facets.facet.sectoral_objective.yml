@@ -18,7 +18,7 @@ weight: 0
 min_count: 1
 show_only_one_result: false
 field_identifier: field_ind_sectoral_objective
-facet_source_id: 'search_api:views_page__indicators__page_1'
+facet_source_id: 'search_api:views_page__indicators__indicators_table'
 widget:
   type: dropdown
   config:

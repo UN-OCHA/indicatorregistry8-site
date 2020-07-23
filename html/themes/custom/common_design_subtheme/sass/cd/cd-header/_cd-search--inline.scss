@@ -46,7 +46,14 @@
 
 // Start inline search for desktop only.
 @include desktop {
+  .cd-search--inline {
+    flex: 0 1 340px;
+  }
+
   .cd-search--inline__input {
+    min-width: 160px;
+    width: 100%;
+
     &:focus {
       border-bottom: 3px solid $implementation-highlight;
     }

@@ -1,6 +1,6 @@
 uuid: 8e59525e-6d3a-4677-8d53-7b617e513911
 langcode: en
-status: true
+status: false
 dependencies:
   module:
     - system
@@ -11,7 +11,7 @@ _core:
 id: common_design_subtheme_breadcrumbs
 theme: common_design_subtheme
 region: content
-weight: -8
+weight: 1
 provider: null
 plugin: system_breadcrumb_block
 settings:

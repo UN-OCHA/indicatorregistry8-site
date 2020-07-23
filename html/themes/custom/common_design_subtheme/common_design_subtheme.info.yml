@@ -23,7 +23,6 @@ regions:
   footer_soft: Soft footer
   footer_navigation: Footer navigation
 
-
 # CD components
 component-libraries:
   cd-components:
