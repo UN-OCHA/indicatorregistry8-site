@@ -41,9 +41,7 @@
   ]
 %}
 
-{% if display_id != 'assessments_map' %}
-  {% include '@cd-components/cd-export-button/cd-export-button.html.twig' %}
-{% endif %}
+{% include '@cd-components/cd-export-button/cd-export-button.html.twig' %}
 
 <div{{ attributes.addClass(classes) }}>
   {{ title_prefix }}
