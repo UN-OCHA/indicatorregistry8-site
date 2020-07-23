@@ -108,16 +108,12 @@
       <section class="cd-layout-two-col">
 
         <div class="cd-layout-main-content">
-          {{ content|without('field_countries', 'field_ass_date', 'field_status', 'field_population_types', 'field_organizations', 'field_locations') }}
+          {{ content|without('field_sectors', 'field_ind_cross_tagging') }}
         </div>
 
         <div class="cd-layout-sidebar-first" role="complementary">
-          {{ content.field_countries }}
-          {{ content.field_ass_date }}
-          {{ content.field_status }}
-          {{ content.field_population_types }}
-          {{ content.field_organizations }}
-          {{ content.field_locations }}
+          {{ content.field_sectors }}
+          {{ content.field_ind_cross_tagging }}
         </div>
 
       </section>
