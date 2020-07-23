@@ -5,6 +5,20 @@
 //
 //——————————————————————————————————————————————————————————————————————————————
 
+.cd-user-menu {
+  &--no-language-switcher {
+    li:last-child a,
+    li:last-child button {
+      padding-right: 0;
+
+      // sass-lint:disable nesting-depth
+      &::after {
+        content: none;
+      }
+    }
+  }
+}
+
 .cd-user-menu__item {
   &:focus {
     outline: 3px solid $implementation-highlight;
@@ -14,6 +28,12 @@
 //——————————————————————————————————————————————————————————————————————————————
 // Drupal selectors
 //——————————————————————————————————————————————————————————————————————————————
+
+.cd-global-header .menu {
+  // If there's no language switcher in the Global Header, uncomment this line
+  // to apply special treatment to the last link in the list.
+  @extend .cd-user-menu--no-language-switcher;
+}
 
 .cd-global-header .menu > li a,
 .cd-global-header .menu > li button {

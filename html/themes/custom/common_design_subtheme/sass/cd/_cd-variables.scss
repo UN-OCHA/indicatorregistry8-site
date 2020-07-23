@@ -20,6 +20,7 @@ $grid-breakpoints: (
 // CD Breakpoints correspond to the following grid breakpoints:
 //
 $cd-breakpoints: (
+  mobile: #{map-get($grid-breakpoints, 'sm')},
   tablet: #{map-get($grid-breakpoints, 'md')},
   desktop: #{map-get($grid-breakpoints, 'lg')},
   xlarge: #{map-get($grid-breakpoints, 'xl')}
@@ -115,7 +116,7 @@ $implementation-secondary: $cd-bright-blue;
 $implementation-highlight: #0ac7d9;
 
 //——————————————————————————————————————————————————————————————————————————————
-// Indicator Registry colours
+// Assessment Registry colours
 //——————————————————————————————————————————————————————————————————————————————
 $cd-primary-bg-color: #3d5c76;
 $cd-dark-primary-bg-color: darken(#3d5c76, 4%);
@@ -134,11 +135,6 @@ $text-color: $cd-default-text-color !default;
 //——————————————————————————————————————————————————————————————————————————————
 
 $cd-font: helvetica, arial, sans-serif;
-$cd-font--system: system-ui;
-
-// Web fonts.
-//@import url('https://fonts.googleapis.com/css?family=Mali:300,400,500,600,700&display=swap"');
-//$cd-font--webfont: 'Mali', cursive;
 
 
 //——————————————————————————————————————————————————————————————————————————————
