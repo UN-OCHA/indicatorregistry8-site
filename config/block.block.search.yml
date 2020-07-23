@@ -1,0 +1,23 @@
+uuid: 1e4ae196-49c4-4a96-ad9f-70d4770f43d4
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.indicators
+  module:
+    - views
+  theme:
+    - common_design_subtheme
+id: search
+theme: common_design_subtheme
+region: header_search
+weight: 0
+provider: null
+plugin: 'views_exposed_filter_block:indicators-indicators_table'
+settings:
+  id: 'views_exposed_filter_block:indicators-indicators_table'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+visibility: {  }
