@@ -70,6 +70,9 @@ script:
   # Theme build.
   - composer run gulp
 
+  # Image build.
+  - make
+
 after_success:
   - cd $TRAVIS_BUILD_DIR
   - killall -9 php
