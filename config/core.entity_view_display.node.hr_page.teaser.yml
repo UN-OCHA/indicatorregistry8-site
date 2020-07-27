@@ -7,7 +7,6 @@ dependencies:
     - field.field.node.hr_page.body
     - field.field.node.hr_page.comment_node_hr_page
     - field.field.node.hr_page.field_page_menu
-    - field.field.node.hr_page.title_field
     - node.type.hr_page
   module:
     - text
@@ -34,4 +33,3 @@ hidden:
   comment_node_hr_page: true
   field_page_menu: true
   search_api_excerpt: true
-  title_field: true
