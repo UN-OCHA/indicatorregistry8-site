@@ -74,13 +74,9 @@ content:
       target: ''
     third_party_settings: {  }
     region: content
-  links:
-    weight: 6
-    region: content
-    settings: {  }
-    third_party_settings: {  }
 hidden:
   comment_node_hr_sector: true
   field_social_media: true
+  links: true
   search_api_excerpt: true
   title_field: true

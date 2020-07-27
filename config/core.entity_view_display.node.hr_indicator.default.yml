@@ -222,11 +222,7 @@ content:
       link: false
     third_party_settings: {  }
     region: content
-  links:
-    weight: 24
-    region: content
-    settings: {  }
-    third_party_settings: {  }
 hidden:
   comment_node_hr_indicator: true
+  links: true
   search_api_excerpt: true
