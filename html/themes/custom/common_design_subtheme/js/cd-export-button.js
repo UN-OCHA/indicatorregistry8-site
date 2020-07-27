@@ -9,8 +9,7 @@
       if (exportButton) {
         exportButton.addEventListener('click', function (e) {
           var location = window.location.toString();
-          location = location.replace('/assessments/list/', '/export/assessments/');
-          location = location.replace('/assessments/table/', '/export/assessments/');
+          location = location.replace('/indicators/', '/export/indicators/');
           window.location = location;
           e.preventDefault;
         });

@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_display.comment.comment_node_hr_indicator.default
     - field.field.node.hr_indicator.body
     - field.field.node.hr_indicator.comment_node_hr_indicator
     - field.field.node.hr_indicator.field_ind_code
@@ -31,7 +30,6 @@ dependencies:
     - field.field.node.hr_indicator.field_sectors
     - node.type.hr_indicator
   module:
-    - comment
     - options
     - text
     - user
@@ -45,15 +43,6 @@ content:
     weight: 1
     type: text_default
     settings: {  }
-    third_party_settings: {  }
-    region: content
-  comment_node_hr_indicator:
-    label: hidden
-    type: comment_default
-    weight: 20
-    settings:
-      view_mode: default
-      pager_id: 0
     third_party_settings: {  }
     region: content
   field_ind_code:
@@ -132,13 +121,16 @@ content:
   field_ind_key:
     label: inline
     weight: 9
-    type: list_default
-    settings: {  }
+    type: boolean
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
     third_party_settings: {  }
     region: content
   field_ind_level:
     label: above
-    weight: 25
+    weight: 23
     type: entity_reference_label
     settings:
       link: false
@@ -161,13 +153,16 @@ content:
   field_ind_response:
     label: inline
     weight: 10
-    type: list_default
-    settings: {  }
+    type: boolean
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
     third_party_settings: {  }
     region: content
   field_ind_sectoral_objective:
     label: above
-    weight: 24
+    weight: 22
     type: entity_reference_label
     settings:
       link: false
@@ -183,7 +178,7 @@ content:
     region: content
   field_ind_strategic_objective:
     label: above
-    weight: 23
+    weight: 21
     type: entity_reference_label
     settings:
       link: false
@@ -227,10 +222,7 @@ content:
       link: false
     third_party_settings: {  }
     region: content
-  links:
-    weight: 100
-    settings: {  }
-    third_party_settings: {  }
-    region: content
 hidden:
+  comment_node_hr_indicator: true
+  links: true
   search_api_excerpt: true

@@ -1,4 +1,4 @@
-uuid: d27ceb1c-f737-4e66-b698-2c1e8bf611d6
+uuid: ad44f46c-17e4-4cf4-8609-31ce04db1880
 langcode: en
 status: true
 dependencies:
@@ -8,19 +8,17 @@ dependencies:
     - system
   theme:
     - common_design_subtheme
-_core:
-  default_config_hash: 8zRjTNbfNAJ94lQpZDu6MkyD87GYJ2zpH9VQPVmRbcM
-id: common_design_subtheme_footer
+id: footer
 theme: common_design_subtheme
 region: footer_navigation
-weight: -9
+weight: 0
 provider: null
 plugin: 'system_menu_block:footer'
 settings:
   id: 'system_menu_block:footer'
-  label: 'Footer menu'
+  label: Footer
   provider: system
-  label_display: '0'
+  label_display: visible
   level: 1
   depth: 0
   expand_all_items: false

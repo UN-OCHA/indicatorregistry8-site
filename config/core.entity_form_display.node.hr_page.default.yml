@@ -5,7 +5,6 @@ dependencies:
   config:
     - field.field.node.hr_page.body
     - field.field.node.hr_page.comment_node_hr_page
-    - field.field.node.hr_page.field_page_menu
     - node.type.hr_page
   module:
     - comment
@@ -38,13 +37,6 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_page_menu:
-    weight: 4
-    type: boolean_checkbox
-    settings:
-      display_label: true
-    third_party_settings: {  }
-    region: content
   path:
     type: path
     weight: 30
