@@ -29,7 +29,6 @@ dependencies:
     - field.field.node.hr_indicator.field_ind_unit
     - field.field.node.hr_indicator.field_ind_unit_desc
     - field.field.node.hr_indicator.field_sectors
-    - field.field.node.hr_indicator.title_field
     - node.type.hr_indicator
   module:
     - comment
@@ -235,4 +234,3 @@ content:
     region: content
 hidden:
   search_api_excerpt: true
-  title_field: true
