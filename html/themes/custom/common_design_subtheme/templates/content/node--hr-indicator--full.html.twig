@@ -108,10 +108,15 @@
       <section class="cd-layout-two-col">
 
         <div class="cd-layout-main-content">
-          {{ content|without('field_sectors', 'field_ind_cross_tagging') }}
+          {{ content|without('field_ind_code', 'field_ind_domain', 'field_ind_unit', 'field_ind_standards', 'field_ind_key', 'field_sectors', 'field_ind_cross_tagging') }}
         </div>
 
         <div class="cd-layout-sidebar-first" role="complementary">
+          {{ content.field_ind_code }}
+          {{ content.field_ind_domain }}
+          {{ content.field_ind_unit }}
+          {{ content.field_ind_key }}
+          {{ content.field_ind_standards }}
           {{ content.field_sectors }}
           {{ content.field_ind_cross_tagging }}
         </div>
