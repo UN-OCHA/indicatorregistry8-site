@@ -20,10 +20,12 @@ show_only_one_result: false
 field_identifier: field_ind_domain
 facet_source_id: 'search_api:views_page__indicators__indicators_table'
 widget:
-  type: dropdown
+  type: select2
   config:
-    show_numbers: false
-    default_option_label: Choose
+    show_numbers: true
+    width: 100%
+    autocomplete: false
+    match_operator: CONTAINS
 query_operator: or
 use_hierarchy: false
 hierarchy:
