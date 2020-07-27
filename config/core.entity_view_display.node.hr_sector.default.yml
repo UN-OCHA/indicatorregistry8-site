@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_display.comment.comment_node_hr_sector.default
     - field.field.node.hr_sector.body
     - field.field.node.hr_sector.comment_node_hr_sector
     - field.field.node.hr_sector.field_acronym
@@ -15,7 +14,6 @@ dependencies:
     - field.field.node.hr_sector.title_field
     - node.type.hr_sector
   module:
-    - comment
     - image
     - link
     - options
@@ -28,23 +26,14 @@ mode: default
 content:
   body:
     label: hidden
-    weight: 1
+    weight: 0
     type: text_default
     settings: {  }
     third_party_settings: {  }
     region: content
-  comment_node_hr_sector:
-    label: hidden
-    type: comment_default
-    weight: 20
-    settings:
-      view_mode: default
-      pager_id: 0
-    third_party_settings: {  }
-    region: content
   field_acronym:
     label: above
-    weight: 10
+    weight: 4
     type: string
     settings:
       link_to_entity: false
@@ -52,14 +41,14 @@ content:
     region: content
   field_email:
     label: above
-    weight: 5
+    weight: 3
     type: email_mailto
     settings: {  }
     third_party_settings: {  }
     region: content
   field_image:
     label: above
-    weight: 3
+    weight: 1
     type: image
     settings:
       image_link: ''
@@ -68,14 +57,14 @@ content:
     region: content
   field_sector_type:
     label: above
-    weight: 11
+    weight: 5
     type: list_default
     settings: {  }
     third_party_settings: {  }
     region: content
   field_website:
     label: above
-    weight: 4
+    weight: 2
     type: link
     settings:
       trim_length: 80
@@ -86,11 +75,12 @@ content:
     third_party_settings: {  }
     region: content
   links:
-    weight: 100
+    weight: 6
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
 hidden:
+  comment_node_hr_sector: true
   field_social_media: true
   search_api_excerpt: true
   title_field: true
