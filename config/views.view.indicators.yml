@@ -496,23 +496,21 @@ display:
           operator: and
           value: ''
           group: 1
-          exposed: true
+          exposed: false
           expose:
-            operator_id: search_api_fulltext_op
-            label: 'Fulltext search'
+            operator_id: ''
+            label: ''
             description: ''
             use_operator: false
-            operator: search_api_fulltext_op
+            operator: ''
             operator_limit_selection: false
             operator_list: {  }
-            identifier: s
+            identifier: ''
             required: false
             remember: false
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
             placeholder: ''
           is_grouped: false
           group_info:
@@ -555,7 +553,6 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - url
         - url.query_args
         - 'user.node_grants:view'
       tags:
@@ -583,7 +580,6 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - url
         - url.query_args
         - 'user.node_grants:view'
       tags:

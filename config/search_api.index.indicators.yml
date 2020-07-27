@@ -19,10 +19,10 @@ dependencies:
     - field.storage.node.field_ind_standards
     - field.storage.node.field_ind_strategic_objective
     - field.storage.node.field_ind_domain
-    - field.storage.node.title_field
     - field.storage.node.field_ind_types
     - field.storage.node.field_ind_unit
     - search_api.server.local
+    - core.entity_view_mode.node.full
 id: indicators
 name: Indicators
 description: ''
@@ -164,6 +164,16 @@ field_settings:
     dependencies:
       module:
         - node
+  rendered_item:
+    label: 'Rendered HTML output'
+    property_path: rendered_item
+    type: text
+    configuration:
+      roles:
+        anonymous: anonymous
+      view_mode:
+        'entity:node':
+          hr_indicator: full
   status:
     label: Published
     datasource_id: 'entity:node'
@@ -188,14 +198,6 @@ field_settings:
     dependencies:
       module:
         - node
-  title_field:
-    label: Title
-    datasource_id: 'entity:node'
-    property_path: title_field
-    type: string
-    dependencies:
-      config:
-        - field.storage.node.title_field
 datasource_settings:
   'entity:node':
     bundles:
