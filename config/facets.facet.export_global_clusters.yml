@@ -1,0 +1,80 @@
+uuid: 808263c7-1400-43eb-8d6b-5ba30105c877
+langcode: en
+status: true
+dependencies:
+  config:
+    - search_api.index.indicators
+  module:
+    - facets_pretty_paths
+    - views_data_export
+third_party_settings:
+  facets_pretty_paths:
+    coder: taxonomy_term_coder
+id: export_global_clusters
+name: 'Global Clusters'
+url_alias: global_clusters
+weight: 0
+min_count: 1
+show_only_one_result: false
+field_identifier: field_sectors
+facet_source_id: 'search_api:views_data_export__indicators__data_export_1'
+widget:
+  type: select2
+  config:
+    show_numbers: true
+    width: 100%
+    autocomplete: false
+    match_operator: CONTAINS
+query_operator: or
+use_hierarchy: false
+hierarchy:
+  type: taxonomy
+  config: {  }
+expand_hierarchy: false
+enable_parent_when_child_gets_disabled: true
+hard_limit: 0
+exclude: false
+only_visible_when_facet_source_is_visible: true
+processor_configs:
+  active_widget_order:
+    processor_id: active_widget_order
+    weights:
+      sort: 20
+    settings:
+      sort: DESC
+  count_widget_order:
+    processor_id: count_widget_order
+    weights:
+      sort: 30
+    settings:
+      sort: DESC
+  display_value_widget_order:
+    processor_id: display_value_widget_order
+    weights:
+      sort: 40
+    settings:
+      sort: ASC
+  hide_1_result_facet:
+    processor_id: hide_1_result_facet
+    weights:
+      build: 50
+    settings: {  }
+  list_item:
+    processor_id: list_item
+    weights:
+      build: 5
+    settings: {  }
+  translate_entity:
+    processor_id: translate_entity
+    weights:
+      build: 5
+    settings: {  }
+  url_processor_handler:
+    processor_id: url_processor_handler
+    weights:
+      pre_query: 50
+      build: 15
+    settings: {  }
+empty_behavior:
+  behavior: none
+show_title: false
