@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5d4d3424cfae2b69d6b0f2bfe04c6957",
+    "content-hash": "00a730a0b872ac6f2a5a0371de30417a",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2032,7 +2032,7 @@
             "extra": {
                 "drupal": {
                     "version": "8.x-1.17",
-                    "datestamp": "1594482952",
+                    "datestamp": "1591128369",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -4138,9 +4138,7 @@
             "version": "4.0.13",
             "dist": {
                 "type": "tar",
-                "url": "https://registry.npmjs.org/select2/-/select2-4.0.13.tgz",
-                "reference": null,
-                "shasum": null
+                "url": "https://registry.npmjs.org/select2/-/select2-4.0.13.tgz"
             },
             "type": "npm-asset",
             "license": [
@@ -6929,6 +6927,34 @@
                 "GPL-2.0-only"
             ],
             "time": "2020-07-15T12:42:28+00:00"
+        },
+        {
+            "name": "unocha/ocha_integrations",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/UN-OCHA/ocha_integrations.git",
+                "reference": "7bcc3b919e4c23a3bc5fef1a24146d3b00d5a731"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/UN-OCHA/ocha_integrations/zipball/7bcc3b919e4c23a3bc5fef1a24146d3b00d5a731",
+                "reference": "7bcc3b919e4c23a3bc5fef1a24146d3b00d5a731",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "^1.2"
+            },
+            "require-dev": {
+                "drupal/coder": "^8.3",
+                "sebastian/phpcpd": "^4.1"
+            },
+            "type": "drupal-module",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-only"
+            ],
+            "time": "2020-07-31T08:17:18+00:00"
         },
         {
             "name": "webflo/drupal-finder",
@@ -11479,5 +11505,6 @@
     "platform": {
         "php": ">=7.2"
     },
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
 }
