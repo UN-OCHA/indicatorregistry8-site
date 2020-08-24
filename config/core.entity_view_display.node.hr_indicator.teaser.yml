@@ -76,4 +76,5 @@ hidden:
   field_ind_unit: true
   field_ind_unit_desc: true
   field_sectors: true
+  langcode: true
   search_api_excerpt: true

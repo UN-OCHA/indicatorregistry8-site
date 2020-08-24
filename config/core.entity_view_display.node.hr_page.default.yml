@@ -23,5 +23,6 @@ content:
     region: content
 hidden:
   comment_node_hr_page: true
+  langcode: true
   links: true
   search_api_excerpt: true
