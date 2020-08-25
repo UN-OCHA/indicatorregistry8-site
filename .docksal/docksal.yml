@@ -3,7 +3,7 @@ services:
   # Solr
   solr:
     hostname: solr
-    image: docksal/solr:8
+    image: docksal/solr:7.7
     volumes:
       - project_root:/var/www:ro,nocopy,cached  # Project root volume (read-only)
     labels:
