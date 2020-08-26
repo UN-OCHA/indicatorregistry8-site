@@ -35,5 +35,6 @@ hidden:
   field_sector_type: true
   field_social_media: true
   field_website: true
+  langcode: true
   search_api_excerpt: true
   title_field: true

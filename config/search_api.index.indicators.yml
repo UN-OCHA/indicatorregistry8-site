@@ -3,26 +3,65 @@ langcode: en
 status: true
 dependencies:
   module:
+    - search_api_solr
     - node
     - search_api
   config:
     - field.storage.node.field_ind_code
-    - field.storage.node.body
-    - field.storage.node.field_sectors
+    - field.storage.node.field_ind_cross_tagging
+    - field.storage.node.field_ind_domain
     - field.storage.node.field_ind_guidance_baseline
     - field.storage.node.field_ind_guidance_phases
-    - field.storage.node.field_ind_response
     - field.storage.node.field_ind_key
     - field.storage.node.field_ind_level
+    - field.storage.node.field_ind_response
     - field.storage.node.field_ind_sectoral_objective
-    - field.storage.node.field_ind_cross_tagging
     - field.storage.node.field_ind_standards
     - field.storage.node.field_ind_strategic_objective
-    - field.storage.node.field_ind_domain
     - field.storage.node.field_ind_types
     - field.storage.node.field_ind_unit
-    - search_api.server.local
+    - field.storage.node.field_sectors
+    - field.storage.node.body
+    - search_api.server.solr
     - core.entity_view_mode.node.full
+third_party_settings:
+  search_api_solr:
+    finalize: false
+    commit_before_finalize: false
+    commit_after_finalize: false
+    multilingual:
+      limit_to_content_language: false
+      include_language_independent: true
+    highlighter:
+      maxAnalyzedChars: 51200
+      fragmenter: gap
+      regex:
+        slop: 0.5
+        pattern: blank
+        maxAnalyzedChars: 10000
+      usePhraseHighlighter: true
+      highlightMultiTerm: true
+      preserveMulti: false
+      highlight:
+        mergeContiguous: false
+        requireFieldMatch: false
+        snippets: 3
+        fragsize: 0
+    mlt:
+      mintf: 1
+      mindf: 1
+      maxdf: 0
+      maxdfpct: 0
+      minwl: 0
+      maxwl: 0
+      maxqt: 100
+      maxntp: 2000
+      boost: false
+      interestingTerms: none
+    advanced:
+      index_prefix: ''
+      collection: ''
+      timezone: ''
 id: indicators
 name: Indicators
 description: ''
@@ -212,10 +251,11 @@ processor_settings:
   aggregated_field: {  }
   language_with_fallback: {  }
   rendered_item: {  }
+  solr_date_range: {  }
 tracker_settings:
   default:
     indexing_order: fifo
 options:
   index_directly: true
   cron_limit: 50
-server: local
+server: solr
