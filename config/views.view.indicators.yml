@@ -2449,6 +2449,12 @@ display:
           plugin_id: search_api_field
       defaults:
         fields: false
+      export_limit: 9999
+      pager:
+        type: some
+        options:
+          items_per_page: 9999
+          offset: 0
     cache_metadata:
       max-age: -1
       contexts:
