@@ -33,18 +33,22 @@
   }
 }
 
-.page-node-type-assessment {
+.page-node-type-hr-indicator {
   .block-page-title-block {
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
     border-bottom: 1px solid $cd-mid-bluey-grey;
 
     @include desktop {
-      padding-right: calc(285px + 3rem);
+      padding-right: calc(285px + 2rem);
     }
   }
 
   .page-title {
     padding-bottom: 0;
+  }
+
+  .field--type-text-with-summary > p {
+    margin-top: 0;
   }
 }
 
