@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "997fe924495a846cbca47cb7d25fd68a",
+    "content-hash": "cc73362ec0a18cd9af67a8bd95c708ae",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2288,7 +2288,7 @@
             "extra": {
                 "drupal": {
                     "version": "8.x-1.17",
-                    "datestamp": "1591128369",
+                    "datestamp": "1594482952",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -7555,16 +7555,16 @@
         },
         {
             "name": "unocha/common_design",
-            "version": "v2.8.2",
+            "version": "v2.8.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/UN-OCHA/common_design.git",
-                "reference": "48cb59cda351f063a12cefb8ecc834a3dc7aade1"
+                "reference": "e3504beb62a5385e165d566bd46e646e98589882"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/UN-OCHA/common_design/zipball/48cb59cda351f063a12cefb8ecc834a3dc7aade1",
-                "reference": "48cb59cda351f063a12cefb8ecc834a3dc7aade1",
+                "url": "https://api.github.com/repos/UN-OCHA/common_design/zipball/e3504beb62a5385e165d566bd46e646e98589882",
+                "reference": "e3504beb62a5385e165d566bd46e646e98589882",
                 "shasum": ""
             },
             "require": {
@@ -7575,7 +7575,7 @@
             "license": [
                 "GPL-2.0-only"
             ],
-            "time": "2020-07-15T12:42:28+00:00"
+            "time": "2020-08-20T12:46:02+00:00"
         },
         {
             "name": "unocha/ocha_integrations",
@@ -10300,7 +10300,6 @@
             "keywords": [
                 "tokenizer"
             ],
-            "abandoned": true,
             "time": "2020-06-27T06:36:25+00:00"
         },
         {
