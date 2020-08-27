@@ -1,26 +1,9 @@
-.cd-table {
-  margin: 0 auto 3rem;
-  border-collapse: collapse;
-  width: 100%;
-}
-
 .cd-table th,
 .cd-table td {
-  padding: 0.5rem;
-  text-align: left;
+  vertical-align: top;
 }
 
-.cd-table th {
-  color: var(--cd-ocha-blue);
-  border-bottom: 1px solid white;
-  background: var(--cd-site-bg-color);
-}
-
-.cd-table a {
-  word-break: break-word;
-}
-
-@media (min-width: 880px) {
+@media (min-width: 768px) {
   .cd-table th[data-sort-type="numeric"],
   .cd-table .cd-table--amount,
   .cd-table .cd-table--amount-total {
@@ -28,36 +11,7 @@
   }
 }
 
-.cd-table tfoot {
-  font-weight: bold;
-}
-
-/* Row numbers */
-.cd-table--row-numbers {
-  counter-reset: rowNumber;
-}
-
-.cd-table--row-numbers tbody tr {
-  counter-increment: rowNumber;
-}
-
-.cd-table--row-numbers tbody tr td.cd-table--row-num:first-child::before {
-  content: counter(rowNumber);
-  min-width: 1em;
-  margin-right: 0.5em;
-  font-weight: normal;
-}
-
-/* Striping */
-.cd-table--striped tr:nth-child(odd) {
-  background: white;
-}
-
-.cd-table--striped tr:nth-child(even) {
-  background: var(--cd-light-grey);
-}
-
-@media (max-width: 880px) {
+@media (max-width: 767px) {
   /* Force table to not be like tables anymore */
   .cd-table--responsive,
   .cd-table--responsive thead,

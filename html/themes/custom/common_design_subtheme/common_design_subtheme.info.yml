@@ -29,8 +29,6 @@ component-libraries:
     paths:
       - components
 
-libraries-override:
+libraries-extend:
   common_design/cd-table:
-    css:
-      theme:
-        components/cd-table/cd-table.css: components/cd-table/cd-table.css
+    - common_design_subtheme/cd-table

@@ -445,7 +445,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: Description/Rationale
+          label: 'Description / Rationale'
           exclude: false
           alter:
             alter_text: false
