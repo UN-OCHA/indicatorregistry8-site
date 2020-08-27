@@ -46,7 +46,7 @@ content:
     third_party_settings: {  }
     region: content
   field_ind_code:
-    label: inline
+    label: above
     weight: 2
     type: string
     settings:
@@ -54,14 +54,14 @@ content:
     third_party_settings: {  }
     region: content
   field_ind_comments:
-    label: inline
+    label: above
     weight: 19
     type: basic_string
     settings: {  }
     third_party_settings: {  }
     region: content
   field_ind_cross_tagging:
-    label: inline
+    label: above
     weight: 20
     type: entity_reference_label
     settings:
@@ -69,28 +69,28 @@ content:
     third_party_settings: {  }
     region: content
   field_ind_data_sources:
-    label: inline
+    label: above
     weight: 18
     type: basic_string
     settings: {  }
     third_party_settings: {  }
     region: content
   field_ind_denominator:
-    label: inline
+    label: above
     weight: 7
     type: basic_string
     settings: {  }
     third_party_settings: {  }
     region: content
   field_ind_disaggregation:
-    label: inline
+    label: above
     weight: 8
     type: basic_string
     settings: {  }
     third_party_settings: {  }
     region: content
   field_ind_domain:
-    label: inline
+    label: above
     weight: 3
     type: entity_reference_label
     settings:
@@ -98,28 +98,28 @@ content:
     third_party_settings: {  }
     region: content
   field_ind_general_guidance:
-    label: inline
+    label: above
     weight: 14
     type: basic_string
     settings: {  }
     third_party_settings: {  }
     region: content
   field_ind_guidance_baseline:
-    label: inline
+    label: above
     weight: 17
     type: basic_string
     settings: {  }
     third_party_settings: {  }
     region: content
   field_ind_guidance_phases:
-    label: inline
+    label: above
     weight: 15
     type: basic_string
     settings: {  }
     third_party_settings: {  }
     region: content
   field_ind_key:
-    label: inline
+    label: above
     weight: 9
     type: boolean
     settings:
@@ -137,21 +137,21 @@ content:
     third_party_settings: {  }
     region: content
   field_ind_numerator:
-    label: inline
+    label: above
     weight: 6
     type: basic_string
     settings: {  }
     third_party_settings: {  }
     region: content
   field_ind_phase_applicability:
-    label: inline
+    label: above
     weight: 16
     type: list_default
     settings: {  }
     third_party_settings: {  }
     region: content
   field_ind_response:
-    label: inline
+    label: above
     weight: 10
     type: boolean
     settings:
@@ -169,7 +169,7 @@ content:
     third_party_settings: {  }
     region: content
   field_ind_standards:
-    label: inline
+    label: above
     weight: 12
     type: entity_reference_label
     settings:
@@ -185,14 +185,14 @@ content:
     third_party_settings: {  }
     region: content
   field_ind_threshold:
-    label: inline
+    label: above
     weight: 13
     type: basic_string
     settings: {  }
     third_party_settings: {  }
     region: content
   field_ind_types:
-    label: inline
+    label: above
     weight: 11
     type: entity_reference_label
     settings:
@@ -200,7 +200,7 @@ content:
     third_party_settings: {  }
     region: content
   field_ind_unit:
-    label: inline
+    label: above
     weight: 4
     type: entity_reference_label
     settings:
@@ -208,14 +208,14 @@ content:
     third_party_settings: {  }
     region: content
   field_ind_unit_desc:
-    label: inline
+    label: above
     weight: 5
     type: basic_string
     settings: {  }
     third_party_settings: {  }
     region: content
   field_sectors:
-    label: inline
+    label: above
     weight: 0
     type: entity_reference_label
     settings:
