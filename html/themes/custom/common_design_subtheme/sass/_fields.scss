@@ -6,3 +6,23 @@
 .field + .field {
   margin-top: 1rem;
 }
+
+.cd-layout-sidebar-first > .field {
+  border-bottom: 1px dotted $cd-dark-grey;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+
+  &:last-child {
+    border-bottom: 0 dotted $cd-dark-grey;
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+}
+
+// Colon after field labels that are displayed above field data.
+.cd-layout-main-content,
+.cd-layout-sidebar-first {
+  .field__label::after {
+    content: ':';
+  }
+}
