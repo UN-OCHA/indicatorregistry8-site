@@ -33,6 +33,7 @@
         "drupal/facets_pretty_paths": "^1.0",
         "drupal/field_group": "^3.0",
         "drupal/maintenance200": "^1.0",
+        "drupal/metatag": "^1.14",
         "drupal/redirect": "^1.6",
         "drupal/search_api": "^1.15",
         "drupal/search_api_solr": "^4.1",
