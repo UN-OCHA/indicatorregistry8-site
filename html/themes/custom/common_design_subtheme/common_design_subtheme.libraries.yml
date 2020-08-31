@@ -2,7 +2,6 @@ global-styling:
   css:
     theme:
       css/styles.css: {}
-      ../../contrib/common_design/components/cd-table/cd-table.css: {}
       ../../contrib/common_design/components/cd-grid/cd-grid.css: {}
   js:
     js/cd-search--inline-action.js: {}
@@ -11,3 +10,7 @@ cd-export-button:
   js:
     js/cd-export-button.js: {}
 
+cd-table:
+  css:
+    component:
+      components/cd-table/cd-table.css: {}
