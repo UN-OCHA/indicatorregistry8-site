@@ -1,4 +1,4 @@
-FROM unocha/unified-builder:7.3.18-r0-202005-01 as builder
+FROM unocha/unified-builder:7.3-stable as builder
 ARG  BRANCH_ENVIRONMENT
 ENV  NODE_ENV=$BRANCH_ENVIRONMENT
 COPY . /srv/www
@@ -7,7 +7,7 @@ RUN composer install --quiet --prefer-dist && \
     cp -a docker/settings.php docker/services.yml docker/redis.services.yml html/sites/default && \
     composer run gulp
 
-FROM unocha/php7-k8s:7.3-NR-stable
+FROM unocha/php7-k8s:${TAG:-7.3-NR-stable}
 
 ARG VCS_REF
 ARG VCS_URL
