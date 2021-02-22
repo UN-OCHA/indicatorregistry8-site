@@ -17,13 +17,13 @@
       display: block;
       padding: 5px 14px;
       background-color: $cd-white;
-      border: 1px solid $cd-site-bg-color;
+      border: 1px solid $cd-blue-grey;
       border-radius: 4px;
 
       &:hover,
       &:focus {
         color: $implementation-primary;
-        background-color: $cd-site-bg-color;
+        background-color: $cd-blue-grey;
       }
     }
 

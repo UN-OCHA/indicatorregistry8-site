@@ -8,12 +8,12 @@
 }
 
 .cd-layout-sidebar-first > .field {
-  border-bottom: 1px dotted $cd-dark-grey;
+  border-bottom: 1px dotted $cd-grey--dark;
   padding-bottom: 1rem;
   margin-bottom: 1rem;
 
   &:last-child {
-    border-bottom: 0 dotted $cd-dark-grey;
+    border-bottom: 0 dotted $cd-grey--dark;
     padding-bottom: 0;
     margin-bottom: 0;
   }
