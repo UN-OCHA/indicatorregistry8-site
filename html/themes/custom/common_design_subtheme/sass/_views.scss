@@ -2,8 +2,16 @@
   max-width: 7rem;
 }
 
-.views-field-title {
-  min-width: 8rem;
+// Set min-width to prevent table from growing and breaking flex layout
+.views-field-title,
+.views-field-body {
+  @include desktop {
+    min-width: 6rem;
+  }
+
+  @include xlarge {
+    min-width: 8rem;
+  }
 }
 
 .views-field-body > p {
