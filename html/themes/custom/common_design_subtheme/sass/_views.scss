@@ -6,7 +6,7 @@
 .views-field-title,
 .views-field-body {
   @include desktop {
-    min-width: 6rem;
+    min-width: 5rem;
   }
 
   @include xlarge {

@@ -17,6 +17,7 @@ regions:
   header_logo: Header logo
   header_navigation: Header navigation
   highlighted: Highlighted
+  page_title: Page title
   content: Content
   sidebar_first: First sidebar
   facets: Facets
