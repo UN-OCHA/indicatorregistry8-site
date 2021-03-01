@@ -11,8 +11,8 @@ dependencies:
     - common_design_subtheme
 id: common_design_subtheme_sector_cross_tagging
 theme: common_design_subtheme
-region: sidebar_first
-weight: -6
+region: facets
+weight: -7
 provider: null
 plugin: 'facet_block:sector_cross_tagging'
 settings:
