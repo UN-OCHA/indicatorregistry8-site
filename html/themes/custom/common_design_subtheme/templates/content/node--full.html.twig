@@ -77,11 +77,13 @@
     node.isPromoted() ? 'node--promoted',
     node.isSticky() ? 'node--sticky',
     not node.isPublished() ? 'node--unpublished',
-    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
-    'cd-layout-with-section-sidebar'
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class
   ]
 %}
+{{ attach_library('common_design/cd-author') }}
 {{ attach_library('common_design/cd-typography') }}
+
+{% set unochaDate = node.getCreatedTime|date('j F Y') %}
 <article{{ attributes.addClass(classes) }}>
 
   {{ title_prefix }}
@@ -99,39 +101,38 @@
   {{ title_suffix }}
 
   {% if display_submitted %}
-    <footer class="node__meta">
-      {{ author_picture }}
-      <div{{ author_attributes.addClass('node__submitted') }}>
-        {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
-        {{ metadata }}
+    <footer class="cd-author node__meta [ cd-bumper ]">
+      {% if author_picture %}
+        <div class="cd-author__image cd-author__image--rounded">
+          {{ author_picture }}
+        </div>
+      {% endif %}
+      <div class="cd-author__content">
+        <div{{ author_attributes.addClass('node__submitted') }}>
+          {% trans %}Submitted by {{ author_name }} on {{ unochaDate }}{% endtrans %}
+          {{ metadata }}
+        </div>
       </div>
     </footer>
   {% endif %}
 
-  <div{{ content_attributes.addClass('node__content') }}>
+  <div{{ content_attributes }}>
 
-    {% block section %}
-      <div class="cd-layout-two-col">
+    {{ content }}
 
-        <div class="cd-layout-main-content">
-          {{ content|without('field_ind_code', 'field_ind_domain', 'field_ind_unit', 'field_ind_standards', 'field_ind_key', 'field_sectors', 'field_ind_cross_tagging') }}
+{#    {% block section %}#}
+{#      <div class="cd-layout-two-col">#}
 
-          {% include '@common_design_subtheme/content/social-share.html.twig' %}
+{#        <div class="cd-layout-main-content">#}
+{#          {{ content }}#}
+{#        </div>#}
 
-        </div>
+{#        <div class="cd-layout-sidebar-first" role="complementary">#}
+{#          Other fields on the node can be printed here to create a faux sidebar layout.#}
+{#        </div>#}
 
-        <div class="cd-layout-sidebar-first" role="complementary">
-          {{ content.field_ind_code }}
-          {{ content.field_ind_domain }}
-          {{ content.field_ind_unit }}
-          {{ content.field_ind_key }}
-          {{ content.field_ind_standards }}
-          {{ content.field_sectors }}
-          {{ content.field_ind_cross_tagging }}
-        </div>
-
-      </div>
-    {% endblock %}
+{#      </div>#}
+{#    {% endblock %}#}
 
   </div>
 
