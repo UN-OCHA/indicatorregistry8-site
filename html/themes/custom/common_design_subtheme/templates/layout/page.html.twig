@@ -58,14 +58,6 @@
     {% include '@common_design_subtheme/cd/cd-header/cd-header.html.twig' %}
   {% endblock %}
 
-  {% if page.breadcrumb %}
-    {% block breadcrumb %}
-      <div class="cd-layout-breadcrumb cd-container">
-        {{ page.breadcrumb }}
-      </div>
-    {% endblock %}
-  {% endif %}
-
   {% if page.highlighted %}
     {% block highlighted %}
       <div class="cd-layout-highlighted cd-container">
@@ -80,7 +72,7 @@
     {# Link to skip to the main content is in html.html.twig #}
     <main role="main" {{ attributes.setAttribute('id', 'main-content').addClass(layout_classes) }}>
 
-{#      {{ page.page_title }}#}
+      {{ page.page_title }}
 
       <div class="cd-layout-content-wrapper">
 
