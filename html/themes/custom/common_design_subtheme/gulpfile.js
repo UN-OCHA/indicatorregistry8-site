@@ -197,5 +197,5 @@ exports.default = defaultTask;
 //——————————————————————————————————————————————————————————————————————————————
 // Build all assets in the theme
 //——————————————————————————————————————————————————————————————————————————————
-const buildTask = gulp.parallel(sassTask, jsTask);
+const buildTask = gulp.parallel(sassTask);
 exports.build = buildTask;
