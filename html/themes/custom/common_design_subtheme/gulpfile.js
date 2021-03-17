@@ -13,7 +13,7 @@ const browserSync = require('browser-sync');
 const reload = browserSync.reload;
 const notify = browserSync.notify;
 const rename = require('gulp-rename');
-const sass = require('gulp-sass');
+const sass = require('gulp-dart-sass');
 const cssnano = require('cssnano');
 const postcss = require('gulp-postcss');
 const prefix = require('autoprefixer');
@@ -73,10 +73,10 @@ function sassCompileTask() {
   return gulp.src(['sass/styles.scss'])
     .pipe(plumber())
     .pipe(gulpif(process.env.NODE_ENV !== 'production', sourcemaps.init()))
-    .pipe(sass({outputStyle: 'nested'}).on('error', sass.logError))
+    .pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
     .pipe(postcss([
       prefix({
-        browsers: ['>1%', 'iOS 9'],
+        browsers: ['>1%', 'last 3 versions'],
         cascade: false,
       }),
       cssnano(),
@@ -160,8 +160,8 @@ function jsLintTask() {
 //——————————————————————————————————————————————————————————————————————————————
 function jsBundleTask() {
   return gulp.src([
-      'js/*.js',
-    ])
+    'js/*.js',
+  ])
     .pipe(concat('ocha_bundle.js'))
     .pipe(gulpif(process.env.NODE_ENV === 'production', uglify()))
     .pipe(gulp.dest('js'))
@@ -180,7 +180,7 @@ exports.js = jsTask;
 // Watch Files For Changes
 //——————————————————————————————————————————————————————————————————————————————
 function watchTask() {
-  //gulp.watch(['js/cd-*.js'], jsTask);
+  gulp.watch(['js/cd-*.js'], jsTask);
   gulp.watch(['sass/**/*.scss'], sassTask);
 };
 exports.watch = watchTask;
@@ -197,5 +197,5 @@ exports.default = defaultTask;
 //——————————————————————————————————————————————————————————————————————————————
 // Build all assets in the theme
 //——————————————————————————————————————————————————————————————————————————————
-const buildTask = gulp.parallel(sassTask/*, jsTask*/);
+const buildTask = gulp.parallel(sassTask, jsTask);
 exports.build = buildTask;
