@@ -27,8 +27,9 @@ regions:
 # Custom namespace
 # https://www.drupal.org/docs/contributed-modules/components/understanding-twig-namespaces
 # Requires Components module
-# components:
-#   namespaces:
+components:
+  namespaces:
+    cd-components: components
 
 libraries-extend:
   common_design/cd-table:
