@@ -11,7 +11,9 @@
           var location = window.location.toString();
           location = location.replace('/indicators', '/export/indicators');
           window.location = location;
-          e.preventDefault;
+          if (e) {
+            e.preventDefault();
+          }
         });
       }
     }
