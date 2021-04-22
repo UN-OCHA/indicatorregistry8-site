@@ -46,7 +46,7 @@
         "npm-asset/select2": "^4.0",
         "oomphinc/composer-installers-extender": "^1.1",
         "phpoffice/phpspreadsheet": "^1.11",
-        "unocha/common_design": "^3.1.3",
+        "unocha/common_design": "^4.0.0",
         "unocha/ocha_integrations": "^1.0",
         "webflo/drupal-finder": "^1.0.0",
         "zaporylie/composer-drupal-optimizations": "^1.0"
@@ -88,15 +88,14 @@
         "post-update-cmd": [
             "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
         ],
-        "gulp-prepare": "cd html/themes/custom/common_design_subtheme && npm install",
-        "gulp-build": "cd html/themes/custom/common_design_subtheme && ./node_modules/.bin/gulp build",
-        "gulp-cleanup": "cd html/themes/custom/common_design_subtheme && rm -rf ./node_modules",
-        "gulp": [
-            "@gulp-prepare",
-            "@gulp-build",
-            "@gulp-cleanup"
+        "sass-prepare": "cd html/themes/custom/common_design_subtheme && npm install",
+        "sass-build": "cd html/themes/custom/common_design_subtheme && ./node_modules/.bin/sass sass:build",
+        "sass-cleanup": "cd html/themes/custom/common_design_subtheme && rm -rf ./node_modules",
+        "sass": [
+            "@sass-prepare",
+            "@sass-build",
+            "@sass-cleanup"
         ]
-
     },
     "extra": {
 		"enable-patching": true,
