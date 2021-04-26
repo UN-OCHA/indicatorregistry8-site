@@ -17,15 +17,15 @@
 }
 
 .resp-sharing-button__link {
+  margin: 0.5em 0.5em 0.5em 0;
   text-decoration: none;
   color: #fff;
-  margin: 0.5em 0.5em 0.5em 0;
 }
 
 .resp-sharing-button {
-  border-radius: 5px;
-  transition: 25ms ease-out;
   padding: 0.5em 0.75em;
+  transition: 25ms ease-out;
+  border-radius: 5px;
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 
@@ -55,8 +55,8 @@
 }
 
 .resp-sharing-button--twitter {
-  background-color: #55acee;
   border-color: #55acee;
+  background-color: #55acee;
 }
 
 .resp-sharing-button--twitter:hover {
@@ -64,8 +64,8 @@
 }
 
 .resp-sharing-button--facebook {
-  background-color: #3b5998;
   border-color: #3b5998;
+  background-color: #3b5998;
 }
 
 .resp-sharing-button--facebook:hover {
@@ -73,8 +73,8 @@
 }
 
 .resp-sharing-button--linkedin {
-  background-color: #0077b5;
   border-color: #0077b5;
+  background-color: #0077b5;
 }
 
 .resp-sharing-button--linkedin:hover {
@@ -82,8 +82,8 @@
 }
 
 .resp-sharing-button--email {
-  background-color: #777;
   border-color: #777;
+  background-color: #777;
 }
 
 .resp-sharing-button--email:hover {
@@ -92,25 +92,24 @@
 
 .resp-sharing-button--facebook:hover,
 .resp-sharing-button--facebook:active {
-  background-color: #2d4373;
   border-color: #2d4373;
+  background-color: #2d4373;
 }
 
 .resp-sharing-button--twitter:hover,
 .resp-sharing-button--twitter:active {
-  background-color: #2795e9;
   border-color: #2795e9;
+  background-color: #2795e9;
 }
 
 .resp-sharing-button--email:hover,
 .resp-sharing-button--email:active {
-  background-color: #5e5e5e;
   border-color: #5e5e5e;
+  background-color: #5e5e5e;
 }
 
 .resp-sharing-button--linkedin:hover,
 .resp-sharing-button--linkedin:active {
-  background-color: #046293;
   border-color: #046293;
+  background-color: #046293;
 }
-

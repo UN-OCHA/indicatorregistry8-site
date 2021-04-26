@@ -11,8 +11,8 @@ dependencies:
     - common_design_subtheme
 id: common_design_subtheme_standards
 theme: common_design_subtheme
-region: sidebar_first
-weight: -4
+region: facets
+weight: -5
 provider: null
 plugin: 'facet_block:standards'
 settings:
