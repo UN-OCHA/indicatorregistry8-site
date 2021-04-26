@@ -9,7 +9,7 @@ cache:
 #   chrome: stable
 
 php:
-  - 7.4
+  - 7.3
 
 mysql:
   database: drupal
