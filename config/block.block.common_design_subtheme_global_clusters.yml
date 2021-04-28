@@ -11,8 +11,8 @@ dependencies:
     - common_design_subtheme
 id: common_design_subtheme_global_clusters
 theme: common_design_subtheme
-region: sidebar_first
-weight: -8
+region: facets
+weight: -9
 provider: null
 plugin: 'facet_block:global_clusters'
 settings:

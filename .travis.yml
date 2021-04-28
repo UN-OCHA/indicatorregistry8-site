@@ -1,4 +1,4 @@
-dist: trusty
+dist: bionic
 language: php
 cache:
   directories:
@@ -68,7 +68,7 @@ script:
   - set +e
 
   # Theme build.
-  - composer run gulp
+  - composer run sass
 
 after_success:
   - cd $TRAVIS_BUILD_DIR

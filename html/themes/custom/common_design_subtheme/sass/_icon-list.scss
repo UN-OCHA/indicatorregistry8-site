@@ -6,31 +6,31 @@
   }
 
   a {
-    line-height: 1.2;
+    position: relative;
     display: block;
     overflow: auto;
+    padding: 15px 15px 15px 60px;
+    text-decoration: none;
+    border-bottom: 1px solid lighten($border-grey, 10%);
     font-size: 16px;
     font-weight: normal;
-    padding: 15px 15px 15px 60px;
-    position: relative;
-    border-bottom: 1px solid lighten($border-grey, 10%);
-    text-decoration: none;
+    line-height: 1.2;
 
     > span {
       position: absolute;
       top: 50%;
-      transform: translateY(-50%);
       left: 10px;
       width: 40px;
       height: 40px;
+      transform: translateY(-50%);
       background-size: 40px 40px;
     }
 
     &:hover,
     &:focus {
+      text-decoration: none;
       color: #fff !important;
       background: $cd-highlight;
-      text-decoration: none;
     }
   }
 }
@@ -38,106 +38,106 @@
 @media (min-width: 768px) {
   .icons-list {
     a {
-      font-size: 24px;
-      padding: 0 30px 0 70px;
-      height: 90px;
       display: flex;
       align-items: center;
+      height: 90px;
+      padding: 0 30px 0 70px;
+      font-size: 24px;
 
       .no-flexbox & {
-        padding: 30px 30px 30px 70px;
         height: auto;
+        padding: 30px 30px 30px 70px;
       }
     }
   }
 }
 
 .icon-wash {
-  background-image: url('../img/icons/global-clusters/wash-11.svg');
+  background-image: url("../img/icons/global-clusters/wash-11.svg");
 }
 
 .icon-telecom {
-  background-image: url('../img/icons/global-clusters/telecom-16.svg');
+  background-image: url("../img/icons/global-clusters/telecom-16.svg");
 }
 
 .icon-shelter {
-  background-image: url('../img/icons/global-clusters/shelter-10.svg');
+  background-image: url("../img/icons/global-clusters/shelter-10.svg");
 }
 
 .icon-protection {
-  background-image: url('../img/icons/global-clusters/protection-09.svg');
+  background-image: url("../img/icons/global-clusters/protection-09.svg");
 }
 
 .icon-nutrition {
-  background-image: url('../img/icons/global-clusters/nutrition-18.svg');
+  background-image: url("../img/icons/global-clusters/nutrition-18.svg");
 }
 
 .icon-logistics {
-  background-image: url('../img/icons/global-clusters/logistics-19.svg');
+  background-image: url("../img/icons/global-clusters/logistics-19.svg");
 }
 
 .icon-health {
-  background-image: url('../img/icons/global-clusters/health-12.svg');
+  background-image: url("../img/icons/global-clusters/health-12.svg");
 }
 
 .icon-foodsecurity {
-  background-image: url('../img/icons/global-clusters/foodsecurity-17.svg');
+  background-image: url("../img/icons/global-clusters/foodsecurity-17.svg");
 }
 
 .icon-education {
-  background-image: url('../img/icons/global-clusters/education-15.svg');
+  background-image: url("../img/icons/global-clusters/education-15.svg");
 }
 
 .icon-early-recovery {
-  background-image: url('../img/icons/global-clusters/earlyrecovery-14.svg');
+  background-image: url("../img/icons/global-clusters/earlyrecovery-14.svg");
 }
 
 .icon-cccm {
-  background-image: url('../img/icons/global-clusters/cccm-13.svg');
+  background-image: url("../img/icons/global-clusters/cccm-13.svg");
 }
 
 .icons-list a:hover {
   .icon-wash {
-    background-image: url('../img/icons/global-clusters/wash-11-wh.svg');
+    background-image: url("../img/icons/global-clusters/wash-11-wh.svg");
   }
 
   .icon-telecom {
-    background-image: url('../img/icons/global-clusters/telecom-16-wh.svg');
+    background-image: url("../img/icons/global-clusters/telecom-16-wh.svg");
   }
 
   .icon-shelter {
-    background-image: url('../img/icons/global-clusters/shelter-10-wh.svg');
+    background-image: url("../img/icons/global-clusters/shelter-10-wh.svg");
   }
 
   .icon-protection {
-    background-image: url('../img/icons/global-clusters/protection-09-wh.svg');
+    background-image: url("../img/icons/global-clusters/protection-09-wh.svg");
   }
 
   .icon-nutrition {
-    background-image: url('../img/icons/global-clusters/nutrition-18-wh.svg');
+    background-image: url("../img/icons/global-clusters/nutrition-18-wh.svg");
   }
 
   .icon-logistics {
-    background-image: url('../img/icons/global-clusters/logistics-19-wh.svg');
+    background-image: url("../img/icons/global-clusters/logistics-19-wh.svg");
   }
 
   .icon-health {
-    background-image: url('../img/icons/global-clusters/health-12-wh.svg');
+    background-image: url("../img/icons/global-clusters/health-12-wh.svg");
   }
 
   .icon-foodsecurity {
-    background-image: url('../img/icons/global-clusters/foodsecurity-17-wh.svg');
+    background-image: url("../img/icons/global-clusters/foodsecurity-17-wh.svg");
   }
 
   .icon-education {
-    background-image: url('../img/icons/global-clusters/education-15-wh.svg');
+    background-image: url("../img/icons/global-clusters/education-15-wh.svg");
   }
 
   .icon-early-recovery {
-    background-image: url('../img/icons/global-clusters/earlyrecovery-14-wh.svg');
+    background-image: url("../img/icons/global-clusters/earlyrecovery-14-wh.svg");
   }
 
   .icon-cccm {
-    background-image: url('../img/icons/global-clusters/cccm-13-wh.svg');
+    background-image: url("../img/icons/global-clusters/cccm-13-wh.svg");
   }
 }

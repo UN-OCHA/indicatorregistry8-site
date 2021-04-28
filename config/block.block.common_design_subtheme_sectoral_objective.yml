@@ -11,8 +11,8 @@ dependencies:
     - common_design_subtheme
 id: common_design_subtheme_sectoral_objective
 theme: common_design_subtheme
-region: sidebar_first
-weight: -5
+region: facets
+weight: -6
 provider: null
 plugin: 'facet_block:sectoral_objective'
 settings:
