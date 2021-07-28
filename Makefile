@@ -16,7 +16,6 @@ build:	clean
 		2>&1 | tee buildlog.txt
 
 clean:
-	composer run gulp-cleanup
 	rm -rf ./buildlog.txt ./vendor
 
 # Always build, never claim cache.
