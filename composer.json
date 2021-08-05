@@ -101,7 +101,7 @@
         ]
     },
     "extra": {
-		"enable-patching": true,
+        "enable-patching": true,
         "composer-exit-on-patch-failure": true,
         "patchLevel": {
             "drupal/core": "-p2"
@@ -131,6 +131,15 @@
                 "web-root": "html/"
             },
             "omit-defaults": false
+        },
+        "merge-plugin": {
+            "include": [
+                "html/core/composer.json"
+            ],
+            "recurse": true,
+            "replace": false,
+            "merge-extra": false
         }
+
     }
 }
