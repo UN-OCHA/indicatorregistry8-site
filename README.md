@@ -5,6 +5,8 @@
 
 # Indicator Registry
 
+https://ir.hpc.tools/
+
 ## Pages
 
 - https://indicatorregistry8-site.docksal/
