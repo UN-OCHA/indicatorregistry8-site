@@ -43,6 +43,7 @@
         "drupal/redis": "^1.4",
         "drupal/search_api": "^1.15",
         "drupal/search_api_solr": "^4.1",
+        "drupal/seckit": "^2.0",
         "drupal/select2": "^1.8",
         "drupal/social_auth_hid": "^2.6",
         "drupal/views_data_export": "^1.0",
