@@ -14,17 +14,31 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
+      id: checkout
       uses: actions/checkout@v1
+
+    - name: Configure AWS Credentials
+      id: aws
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: us-east-1
+
     - name: Determine environment type
-      uses: docker://unocha/actions:determine-environment-main
+      id: env
+      uses: docker://ghcr.io/un-ocha/actions:determine-environment-main
+
     - name: Build docker image
+      id: build
       env:
         DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
       run: |
         export DOCKER_TAG="${GITHUB_REF#refs/*/}"
         export DOCKER_TAG=${DOCKER_TAG//[^[:alnum:].-]/-}
-        echo "${DOCKER_PASSWORD}" | docker login -u "${DOCKER_USERNAME}" --password-stdin
+        echo "${DOCKER_PASSWORD}" | docker login -u "${DOCKER_USERNAME}" --password-stdin || exit 1
+        aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/unocha || exit 1
         docker build \
             --build-arg BRANCH_ENVIRONMENT=${BRANCH_ENVIRONMENT} \
             --build-arg VCS_REF=`git rev-parse --short HEAD` \
@@ -36,8 +50,10 @@ jobs:
             --build-arg GITHUB_REF=${GITHUB_REF} \
          . --file docker/Dockerfile --tag unocha/indicatorregistry8-site:${DOCKER_TAG}
         docker push unocha/indicatorregistry8-site:${DOCKER_TAG}
+
     - name: Flowdock Notify
-      uses: docker://unocha/actions:flowdock-notify-main
+      id: notify
+      uses: docker://ghcr.io/un-ocha/actions:flowdock-notify-main
       env:
         FLOWDOCK_TOKEN: ${{ secrets.FLOWDOCK_TOKEN }}
         FLOWDOCK_ICON: 'package'
