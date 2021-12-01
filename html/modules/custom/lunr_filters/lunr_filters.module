@@ -1,0 +1,84 @@
+<?php
+
+/**
+ * @file
+ * Add filters to lunr search pages.
+ */
+
+use Drupal\lunr\LunrSearchInterface;
+use Drupal\Core\Form\FormState;
+use Drupal\Core\Render\Element;
+
+/**
+ * Implements hook_lunr_search_page_alter().
+ */
+function lunr_filters_lunr_search_page_alter(&$build, LunrSearchInterface $lunr_search) {
+  // Attach exposed filters.
+  $view = $lunr_search->getView();
+
+  // Build exposed filter form.
+  $view->initHandlers();
+  $form_state = new FormState();
+  $form_state->setFormState([
+    'view' => $view,
+    'display' => $view->display_handler->display,
+    'exposed_form_plugin' => $view->display_handler->getPlugin('exposed_form'),
+    'method' => 'get',
+    'rerender' => TRUE,
+    'no_redirect' => TRUE,
+    'always_process' => TRUE,
+  ]);
+  $form = \Drupal::formBuilder()->buildForm('Drupal\views\Form\ViewsExposedForm', $form_state);
+
+  // Remove actions and form values.
+  unset($form['actions']);
+  unset($form['form_build_id']);
+  unset($form['form_token']);
+  unset($form['form_id']);
+
+  // Filter out children.
+  $filters = Element::children($form);
+
+  if (!empty($filters)) {
+    $build['form']['filters'] = [
+      '#type' => 'fieldset',
+      '#title' => t('Filters'),
+      '#weight' => 1,
+    ];
+
+    foreach ($filters as $key) {
+      $build['form']['filters'][$key] = $form[$key];
+      $build['form']['filters'][$key]['#attributes']['data-lunr-search-field'] = $key;
+      $build['form']['filters'][$key]['#options'] = ['' => t('All')] + $build['form']['filters'][$key]['#options'];
+      unset($build['form']['filters'][$key]['#options']['All']);
+    }
+
+    // Adjust weights.
+    $build['form']['submit']['#weight'] = 2;
+    $build['results']['#weight'] = 3;
+  }
+}
+
+/**
+ * Implements hook_library_info_alter().
+ */
+function lunr_filters_library_info_alter(&$libraries, $extension) {
+  if ($extension !== 'lunr') {
+    return;
+  }
+
+  $new_path = '/' . drupal_get_path('module', 'lunr_filters') . '/js';
+  $new_js = [];
+  $replacements = [
+    'js/search.js' => $new_path . '/search.js',
+  ];
+  foreach ($libraries['search']['js'] as $source => $options) {
+    if (isset($replacements[$source])) {
+      $new_js[$replacements[$source]] = $options;
+    }
+    else {
+      $new_js[$source] = $options;
+    }
+  }
+  $libraries['search']['js'] = $new_js;
+}
