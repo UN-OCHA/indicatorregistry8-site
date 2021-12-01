@@ -28,6 +28,8 @@ module:
   image: 0
   language: 0
   link: 0
+  lunr: 0
+  lunr_filters: 0
   maintenance200: 0
   media: 0
   media_library: 0
@@ -61,6 +63,8 @@ module:
   taxonomy: 0
   text: 0
   token: 0
+  tome_base: 0
+  tome_static: 0
   toolbar: 0
   user: 0
   views_data_export: 0
