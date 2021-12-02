@@ -14,6 +14,7 @@ dependencies:
     - node.type.hr_indicator
     - taxonomy.vocabulary.hr_indicator_domain
     - taxonomy.vocabulary.hr_indicator_standard
+    - taxonomy.vocabulary.hr_indicator_type
   module:
     - better_exposed_filters
     - lunr
@@ -1207,7 +1208,7 @@ display:
           reduce_duplicates: false
           type: select
           limit: true
-          vid: hr_indicator_domain
+          vid: hr_indicator_type
           hierarchy: false
           error_message: true
           plugin_id: taxonomy_index_tid

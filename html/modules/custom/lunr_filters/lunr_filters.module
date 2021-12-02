@@ -5,9 +5,10 @@
  * Add filters to lunr search pages.
  */
 
-use Drupal\lunr\LunrSearchInterface;
+use Drupal\Core\Database\Database;
 use Drupal\Core\Form\FormState;
 use Drupal\Core\Render\Element;
+use Drupal\lunr\LunrSearchInterface;
 
 /**
  * Implements hook_lunr_search_page_alter().
@@ -87,4 +88,49 @@ function lunr_filters_library_info_alter(&$libraries, $extension) {
     }
   }
   $libraries['search']['js'] = $new_js;
+}
+
+/**
+ * Implements hook_form_FORM_ID_form_alter().
+ */
+function lunr_filters_form_views_exposed_form_alter(&$form, FormState $form_state) {
+  /** @var \Drupal\views\ViewExecutable $view */
+  $view = $form_state->get('view');
+
+  // Only react on our display.
+  if ($view->display_handler->getType() !== 'lunr_filters_search_index') {
+    return;
+  }
+
+  $filters = $view->getDisplay()->getOption('filters');
+  foreach ($filters as $filter) {
+    if (!isset($filter['exposed']) || !$filter['exposed']) {
+      continue;
+    }
+
+    $identifier = $filter['expose']['identifier'];
+    if (!isset($form[$identifier])) {
+      continue;
+    }
+
+    $table = $filter['table'];
+    $field = $filter['field'];
+
+    $options = $form[$identifier]['#options'];
+
+    // Fetch values in use.
+    $connection = Database::getConnection();
+    $query = $connection->select($table, 't');
+    $query->addField('t', $field);
+    $query->condition('deleted', 0);
+    $query->distinct();
+
+    $data = $query->execute();
+    // Flip the result set so the array key is the tag entity id.
+    $results = array_flip($data->fetchAll(\PDO::FETCH_COLUMN, 0));
+
+    // Intersects the arrays, giving us back an "filtered" array.
+    $options = array_intersect_key($options, $results);
+    $form[$identifier]['#options'] = $options;
+  }
 }
