@@ -1,10 +1,10 @@
 {
   "patches": {
-    "drupal/facets": {
-      "https://www.drupal.org/project/facets/issues/3005040": "https://www.drupal.org/files/issues/2018-10-09/facets-hierarchy-allow-different-types-3005040-7.patch"
-    },
     "drupal/select2": {
       "https://www.drupal.org/project/select2/issues/3078085": "https://www.drupal.org/files/issues/2020-02-27/hierarchical-facet-widget-3078085-2.patch"
+    },
+    "drupal/core": {
+      "https://www.drupal.org/node/2429699 - view exposed entity reference": "https://www.drupal.org/files/issues/2021-11-09/2429699-446.patch"
     }
   }
 }

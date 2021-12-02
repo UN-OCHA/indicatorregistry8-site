@@ -10,11 +10,11 @@ module:
   comment: 0
   components: 0
   config: 0
+  config_split: 0
   contextual: 0
   csv_serialization: 0
   ctools: 0
   datetime: 0
-  dblog: 0
   dynamic_page_cache: 0
   editor: 0
   facets: 0
@@ -24,6 +24,7 @@ module:
   field_ui: 0
   file: 0
   filter: 0
+  google_tag: 0
   help: 0
   history: 0
   image: 0
@@ -40,9 +41,6 @@ module:
   media_library: 0
   menu_ui: 0
   metatag: 0
-  migrate: 0
-  migrate_drupal: 0
-  migrate_drupal_ui: 0
   node: 0
   ocha_integrations: 0
   options: 0
@@ -57,6 +55,7 @@ module:
   search_api: 0
   search_api_db: 0
   search_api_solr: 0
+  seckit: 0
   select2: 0
   select2_facets: 0
   serialization: 0
@@ -73,7 +72,6 @@ module:
   toolbar: 0
   user: 0
   views_data_export: 0
-  views_ui: 0
   menu_link_content: 1
   pathauto: 1
   views: 10

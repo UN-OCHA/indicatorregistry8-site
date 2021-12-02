@@ -5,6 +5,6 @@ _core:
   default_config_hash: ZT0ACgdXm4m65rwBVtAR0TGxX6QsMptRkbldivu-7yI
 client_id: REPLACE_ME
 client_secret: REPLACE_ME
-disable_password_fields: 1
-disable_email_field: 1
-disable_user_field: 1
+disable_password_fields: true
+disable_email_field: true
+disable_user_field: true
