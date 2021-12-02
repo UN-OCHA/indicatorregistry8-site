@@ -56,6 +56,9 @@ function lunr_filters_lunr_search_page_alter(&$build, LunrSearchInterface $lunr_
     // Adjust weights.
     $build['form']['submit']['#weight'] = 2;
     $build['results']['#weight'] = 3;
+
+    // Use our worker.
+    $build['#attached']['drupalSettings']['lunr']['workerPath'] = base_path() . drupal_get_path('module', 'lunr_filters') . '/js/search.worker.js';
   }
 }
 

@@ -8,6 +8,7 @@ dependencies:
     - node.type.hr_indicator
     - taxonomy.vocabulary.hr_indicator_standard
   module:
+    - better_exposed_filters
     - lunr
     - node
     - serialization
@@ -46,7 +47,7 @@ display:
           query_comment: ''
           query_tags: {  }
       exposed_form:
-        type: basic
+        type: bef
         options:
           submit_button: Apply
           reset_button: false
@@ -55,6 +56,27 @@ display:
           expose_sort_order: true
           sort_asc_label: Asc
           sort_desc_label: Desc
+          text_input_required: 'Select any filter and click on Apply to see results'
+          text_input_required_format: panopoly_wysiwyg_text
+          bef:
+            general:
+              autosubmit: false
+              autosubmit_exclude_textfield: false
+              autosubmit_textfield_delay: 500
+              autosubmit_hide: false
+              input_required: false
+              allow_secondary: false
+              secondary_label: 'Advanced options'
+              secondary_open: false
+            filter:
+              field_ind_standards_target_id:
+                plugin_id: bef_select2
+                advanced:
+                  sort_options: false
+                  rewrite:
+                    filter_rewrite_values: ''
+                  collapsible: false
+                  is_secondary: false
       pager:
         type: mini
         options:
@@ -514,7 +536,7 @@ display:
             identifier: field_ind_standards
             required: false
             remember: false
-            multiple: false
+            multiple: true
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
@@ -625,26 +647,9 @@ display:
       display_extenders: {  }
       path: default_lunr_search
       pager:
-        type: full
+        type: none
         options:
-          items_per_page: 50
           offset: 0
-          id: 0
-          total_pages: null
-          tags:
-            previous: '‹ Previous'
-            next: 'Next ›'
-            first: '« First'
-            last: 'Last »'
-          expose:
-            items_per_page: false
-            items_per_page_label: 'Items per page'
-            items_per_page_options: '5, 10, 25, 50'
-            items_per_page_options_all: false
-            items_per_page_options_all_label: '- All -'
-            offset: false
-            offset_label: Offset
-          quantity: 9
       row:
         type: lunr_search_index_row
         options:
@@ -664,7 +669,6 @@ display:
       contexts:
         - 'languages:language_interface'
         - url
-        - url.query_args
         - user
         - 'user.node_grants:view'
         - user.permissions

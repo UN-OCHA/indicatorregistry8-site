@@ -97,7 +97,12 @@
         if (parameters[key].length > 0) {
           fields[key] = parameters[key];
         }
-        this.$form.find('[data-lunr-search-field="' + key + '"]').val(parameters[key]);
+        if (parameters[key].indexOf(',')) {
+          this.$form.find('[data-lunr-search-field="' + key + '"]').val(parameters[key].split(',')).change();
+        }
+        else {
+          this.$form.find('[data-lunr-search-field="' + key + '"]').val(parameters[key]);
+        }
       }
     }
 
