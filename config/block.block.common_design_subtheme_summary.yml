@@ -1,6 +1,6 @@
 uuid: 6f59c070-d016-47e2-a26e-269151e5cdb2
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - facets_summary.facets_summary.summary
@@ -11,8 +11,8 @@ dependencies:
     - common_design_subtheme
 id: common_design_subtheme_summary
 theme: common_design_subtheme
-region: facets
-weight: -10
+region: sidebar_first
+weight: -9
 provider: null
 plugin: 'facets_summary_block:summary'
 settings:

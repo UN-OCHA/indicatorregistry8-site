@@ -1,6 +1,6 @@
 uuid: 6339e613-2b59-49ca-a3af-04018f2fe8b6
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - facets.facet.sub_domain
@@ -11,8 +11,8 @@ dependencies:
     - common_design_subtheme
 id: common_design_subtheme_sub_domain
 theme: common_design_subtheme
-region: facets
-weight: -4
+region: sidebar_first
+weight: -3
 provider: null
 plugin: 'facet_block:sub_domain'
 settings:

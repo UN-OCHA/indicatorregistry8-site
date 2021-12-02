@@ -1,6 +1,6 @@
 uuid: ea0c3d2b-6243-4c0e-90ee-5a3b9842f776
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - facets.facet.key_indicator
@@ -11,8 +11,8 @@ dependencies:
     - common_design_subtheme
 id: common_design_subtheme_key_indicator
 theme: common_design_subtheme
-region: facets
-weight: -8
+region: sidebar_first
+weight: -7
 provider: null
 plugin: 'facet_block:key_indicator'
 settings:

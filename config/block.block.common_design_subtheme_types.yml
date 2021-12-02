@@ -1,6 +1,6 @@
 uuid: 8fe75512-0b8a-44a2-8ee8-4afd15068389
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - facets.facet.types
@@ -11,8 +11,8 @@ dependencies:
     - common_design_subtheme
 id: common_design_subtheme_types
 theme: common_design_subtheme
-region: facets
-weight: -3
+region: sidebar_first
+weight: -2
 provider: null
 plugin: 'facet_block:types'
 settings:

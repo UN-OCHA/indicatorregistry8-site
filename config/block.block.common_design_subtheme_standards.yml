@@ -1,6 +1,6 @@
 uuid: 85dd430f-e05f-4fd6-ae69-f1fb12764c2e
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - facets.facet.standards
@@ -11,8 +11,8 @@ dependencies:
     - common_design_subtheme
 id: common_design_subtheme_standards
 theme: common_design_subtheme
-region: facets
-weight: -5
+region: sidebar_first
+weight: -4
 provider: null
 plugin: 'facet_block:standards'
 settings:

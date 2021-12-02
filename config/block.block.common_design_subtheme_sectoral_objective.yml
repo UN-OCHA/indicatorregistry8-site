@@ -1,6 +1,6 @@
 uuid: 2b2ebc21-b3b9-491d-b862-4a471611bf81
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - facets.facet.sectoral_objective
@@ -11,8 +11,8 @@ dependencies:
     - common_design_subtheme
 id: common_design_subtheme_sectoral_objective
 theme: common_design_subtheme
-region: facets
-weight: -6
+region: sidebar_first
+weight: -5
 provider: null
 plugin: 'facet_block:sectoral_objective'
 settings:
