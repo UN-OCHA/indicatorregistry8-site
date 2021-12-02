@@ -49,8 +49,10 @@ function lunr_filters_lunr_search_page_alter(&$build, LunrSearchInterface $lunr_
     foreach ($filters as $key) {
       $build['form']['filters'][$key] = $form[$key];
       $build['form']['filters'][$key]['#attributes']['data-lunr-search-field'] = $key;
-      $build['form']['filters'][$key]['#options'] = ['' => t('All')] + $build['form']['filters'][$key]['#options'];
-      unset($build['form']['filters'][$key]['#options']['All']);
+      if (isset($build['form']['filters'][$key]['#options'])) {
+        $build['form']['filters'][$key]['#options'] = ['' => t('All')] + $build['form']['filters'][$key]['#options'];
+        unset($build['form']['filters'][$key]['#options']['All']);
+      }
     }
 
     // Adjust weights.
