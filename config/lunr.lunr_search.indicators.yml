@@ -1,0 +1,30 @@
+uuid: 51cc6427-15ba-4c6d-bbe8-86b69d80476e
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.indicators_lunr_search
+  module:
+    - views
+id: indicators
+label: Indicators
+path: /indicators
+view_id: indicators_lunr_search
+view_display_id: lunr_search_index_1
+index_fields:
+  title:
+    boost: 2
+  body:
+    boost: 1
+  field_ind_standards:
+    boost: 1
+  field_sectors:
+    boost: 1
+  field_ind_cross_tagging:
+    boost: 1
+  field_ind_domain:
+    boost: 1
+  field_ind_types:
+    boost: 1
+display_field: html
+results_per_page: 25
