@@ -3,16 +3,7 @@
 namespace Drupal\lunr_filters\Plugin\views\display;
 
 use Drupal\lunr\Plugin\views\display\LunrSearchIndex;
-use Drupal\Core\Cache\CacheableMetadata;
-use Drupal\Core\Cache\CacheableResponse;
-use Drupal\Core\Render\RenderContext;
-use Drupal\Core\Render\RendererInterface;
-use Drupal\Core\Routing\RouteProviderInterface;
-use Drupal\views\Plugin\views\display\PathPluginBase;
 use Drupal\views\Plugin\views\display\ResponseDisplayPluginInterface;
-use Drupal\views\Render\ViewsRenderPipelineMarkup;
-use Drupal\Core\State\StateInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * The plugin that handles Lunr search indexes.
@@ -66,7 +57,6 @@ class LunrFiltersSearchIndex extends LunrSearchIndex implements ResponseDisplayP
     $options['defaults']['default']['row'] = FALSE;
 
     // Remove css/exposed form settings.
-    //unset($options['exposed_form']);
     unset($options['exposed_block']);
     unset($options['css_class']);
 
@@ -93,9 +83,7 @@ class LunrFiltersSearchIndex extends LunrSearchIndex implements ResponseDisplayP
 
     $options['path']['category'] = 'path';
 
-    // Remove css/exposed form settings, as they are not used for the data
-    // display.
-    //unset($options['exposed_form']);
+    // Remove css/exposed form settings.
     unset($options['exposed_block']);
     unset($options['css_class']);
   }
