@@ -20,5 +20,13 @@ index_fields:
     boost: 1
   field_ind_standards:
     boost: 1
+  field_sectors:
+    boost: 1
+  field_ind_cross_tagging:
+    boost: 1
+  field_ind_domain:
+    boost: 1
+  field_ind_types:
+    boost: 1
 display_field: html
 results_per_page: 25
