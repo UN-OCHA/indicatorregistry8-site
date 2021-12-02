@@ -1,5 +1,8 @@
 # Lunr exposed filters
 
+- Unused values in the exposed filters are removed
+- Filter identifier has to match field name
+
 ## Todo
 
 - support select2 without bef
