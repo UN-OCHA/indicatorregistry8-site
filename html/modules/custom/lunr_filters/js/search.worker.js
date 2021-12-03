@@ -57,7 +57,6 @@ function search(data) {
   // > +(foo bar) +type:baz
   // Which would be (foo OR bar) AND type:baz, but that isn't possible.
   var results = this.indexes[data.id].search(data.search);
-  console.log(results.length);
   if (Object.keys(data.fields).length) {
     var queryParts = [];
     for (var key in data.fields) {
@@ -66,17 +65,18 @@ function search(data) {
         queryParts.push(key + ':' + value);
       });
     }
-    console.log(queryParts.join(' +'));
+
     // Act like facets.
     var results2 = this.indexes[data.id].search('+' + queryParts.join(' +'));
-    console.log(results2.length);
+
+    // Filter results
     results = results.filter(function (result1) {
       return results2.some(function (result2) {
         return result2.ref === result1.ref;
       })
     });
   }
-  console.log(results);
+
   this.postMessage({type: 'searchComplete', results, id: data.id});
 }
 

@@ -28,6 +28,7 @@ function lunr_filters_lunr_search_page_alter(&$build, LunrSearchInterface $lunr_
     'rerender' => TRUE,
     'no_redirect' => TRUE,
     'always_process' => TRUE,
+    'exposed', TRUE,
   ]);
   $form = \Drupal::formBuilder()->buildForm('Drupal\views\Form\ViewsExposedForm', $form_state);
 
@@ -41,18 +42,29 @@ function lunr_filters_lunr_search_page_alter(&$build, LunrSearchInterface $lunr_
   $filters = Element::children($form);
 
   if (!empty($filters)) {
+    $filter_definitions = $view->display_handler->getOption('filters');
+
     $build['form']['filters'] = [
       '#type' => 'fieldset',
       '#title' => t('Filters'),
       '#weight' => 1,
     ];
 
+    // Move search box.
+    $build['form']['filters']['input'] = $build['form']['input'];
+    unset($build['form']['input']);
+
+    $facet_fields = [];
     foreach ($filters as $key) {
+      $facet_fields[] = $key;
       $build['form']['filters'][$key] = $form[$key];
       $build['form']['filters'][$key]['#attributes']['data-lunr-search-field'] = $key;
+
+      // Make sure title is set.
+      $build['form']['filters'][$key]['#title'] = lunr_filters_extract_label($filter_definitions, $key);
+
       // Fix all option for normal selects.
       if (!isset($build['form']['filters'][$key]['#select2']) && isset($build['form']['filters'][$key]['#options'])) {
-        $build['form']['filters'][$key]['#options'] = ['' => t('All')] + $build['form']['filters'][$key]['#options'];
         unset($build['form']['filters'][$key]['#options']['All']);
       }
     }
@@ -63,6 +75,10 @@ function lunr_filters_lunr_search_page_alter(&$build, LunrSearchInterface $lunr_
 
     // Use our worker.
     $build['#attached']['drupalSettings']['lunr']['workerPath'] = base_path() . drupal_get_path('module', 'lunr_filters') . '/js/search.worker.js';
+    $build['#attached']['drupalSettings']['lunr']['searchSettings'][$lunr_search->id()]['facetFields'] = $facet_fields;
+
+    // Add select2.
+    $build['#attached']['library'][] = 'lunr_filters/search';
   }
 }
 
@@ -75,10 +91,12 @@ function lunr_filters_library_info_alter(&$libraries, $extension) {
   }
 
   $new_path = '/' . drupal_get_path('module', 'lunr_filters') . '/js';
-  $new_js = [];
   $replacements = [
     'js/search.js' => $new_path . '/search.js',
+    'js/index.form.js' => $new_path . '/index.form.js',
   ];
+
+  $new_js = [];
   foreach ($libraries['search']['js'] as $source => $options) {
     if (isset($replacements[$source])) {
       $new_js[$replacements[$source]] = $options;
@@ -88,6 +106,17 @@ function lunr_filters_library_info_alter(&$libraries, $extension) {
     }
   }
   $libraries['search']['js'] = $new_js;
+
+  $new_js = [];
+  foreach ($libraries['index.form']['js'] as $source => $options) {
+    if (isset($replacements[$source])) {
+      $new_js[$replacements[$source]] = $options;
+    }
+    else {
+      $new_js[$source] = $options;
+    }
+  }
+  $libraries['index.form']['js'] = $new_js;
 }
 
 /**
@@ -133,4 +162,17 @@ function lunr_filters_form_views_exposed_form_alter(&$form, FormState $form_stat
     $options = array_intersect_key($options, $results);
     $form[$identifier]['#options'] = $options;
   }
+}
+
+/**
+ * Get label from filter definitions.
+ */
+function lunr_filters_extract_label($filter_definitions, $identifier) {
+  foreach ($filter_definitions as $filter_definition) {
+    if (isset($filter_definition['expose']) && isset($filter_definition['expose']['identifier']) && $filter_definition['expose']['identifier'] == $identifier) {
+      return $filter_definition['expose']['label'];
+    }
+  }
+
+  return t('Filter');
 }

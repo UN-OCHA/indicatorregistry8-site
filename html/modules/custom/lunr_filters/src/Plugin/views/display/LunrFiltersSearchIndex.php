@@ -3,6 +3,7 @@
 namespace Drupal\lunr_filters\Plugin\views\display;
 
 use Drupal\lunr\Plugin\views\display\LunrSearchIndex;
+use Drupal\views\Plugin\views\display\PathPluginBase;
 use Drupal\views\Plugin\views\display\ResponseDisplayPluginInterface;
 
 /**
@@ -49,7 +50,7 @@ class LunrFiltersSearchIndex extends LunrSearchIndex implements ResponseDisplayP
    * {@inheritdoc}
    */
   protected function defineOptions() {
-    $options = parent::defineOptions();
+    $options = PathPluginBase::defineOptions();
 
     $options['style']['contains']['type']['default'] = 'lunr_search_index_json';
     $options['row']['contains']['type']['default'] = 'lunr_search_index_row';
@@ -67,9 +68,9 @@ class LunrFiltersSearchIndex extends LunrSearchIndex implements ResponseDisplayP
    * {@inheritdoc}
    */
   public function optionsSummary(&$categories, &$options) {
-    parent::optionsSummary($categories, $options);
+    PathPluginBase::optionsSummary($categories, $options);
 
-    unset($categories['page'], $categories['exposed']);
+    unset($categories['page']);
     // Hide some settings, as they aren't useful for pure data output.
     unset($options['show_admin_links'], $options['analyze-theme']);
 

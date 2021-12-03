@@ -39,8 +39,16 @@
     this.settings = settings;
     this.documents = {};
     this.results = [];
+    this.activeFacets = {};
+    this.facetDropdowns = {};
     this.$progressElement = false;
     this.$form = $form;
+
+    // Activate select2.
+    for (var facet = 0; facet < this.settings.facetFields.length; facet++) {
+      var dropdown = document.querySelector('select[data-lunr-search-field="' + this.settings.facetFields[facet] + '"]');
+      this.facetDropdowns[this.settings.facetFields[facet]] = $(dropdown).select2();
+    }
   };
 
   /**
@@ -121,6 +129,7 @@
   Drupal.lunrSearchPage.prototype.showPage = function(page) {
     this.showProgress();
     var requests = {};
+
     var currentResults = this.results.slice(page * this.settings.resultsPerPage, (page * this.settings.resultsPerPage) + this.settings.resultsPerPage);
     currentResults.forEach(function(result) {
       var documentPage = result.ref.split(':')[0];
@@ -138,6 +147,8 @@
       }
     }.bind(this));
     $.when.apply($, Object.values(requests)).then(function () {
+      // Reset facets.
+      this.activeFacets = {};
       var $results = this.$form.siblings('.js-lunr-search-results');
       $results.empty();
       $results.append(Drupal.theme.lunrSearchResultCount({
@@ -161,7 +172,30 @@
       $results.append($pager);
       this.scrollToForm();
       this.hideProgress();
+      this.disableUnusedFacets();
     }.bind(this));
+  };
+
+  /**
+   * Disable unused facets.
+   */
+  Drupal.lunrSearchPage.prototype.disableUnusedFacets = function() {
+    var that = this;
+    for (var facet = 0; facet < this.settings.facetFields.length; facet++) {
+      var dropdown = this.facetDropdowns[this.settings.facetFields[facet]];
+      dropdown.prop('disabled', true);
+      dropdown.find('option').each(function (index, element) {
+        var option = $(element);
+        if (that.activeFacets[that.settings.facetFields[facet]].indexOf(option.val()) >= 0) {
+          option.removeAttr('disabled');
+          dropdown.prop('disabled', false);
+        }
+        else {
+          option.attr('disabled', 'disabled');
+        }
+      });
+      dropdown.change();
+    }
   };
 
   /**
@@ -185,8 +219,33 @@
   Drupal.lunrSearchPage.prototype.getRowElement = function(ref) {
     var parts = ref.split(':');
     var document = this.documents[parts[0]][parts[1]];
+
+    this.trackFacets(document);
+
     return $(Drupal.theme.lunrSearchResultWrapper()).append(document[this.settings.displayField]);
   };
+
+  /**
+   * Track facets.
+   *
+   * @param {object} document
+   *   The document
+   */
+  Drupal.lunrSearchPage.prototype.trackFacets = function(document) {
+    // Track facets.
+    for (var facet = 0; facet < this.settings.facetFields.length; facet++) {
+      var property = this.settings.facetFields[facet];
+      if (document.hasOwnProperty(property)) {
+        this.activeFacets[property] = this.activeFacets[property] || [];
+        var facets = document[property].split(',');
+        for (var f = 0; f < facets.length; f++) {
+          if (facets[f].length > 0 && this.activeFacets[property].indexOf(facets[f]) < 0) {
+            this.activeFacets[property].push(facets[f]);
+          }
+        }
+      }
+    }
+  }
 
   /**
    * Utility function for getting multiple query param values.
