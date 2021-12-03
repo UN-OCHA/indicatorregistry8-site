@@ -27,7 +27,6 @@ module:
   help: 0
   history: 0
   image: 0
-  jquery_ui: 0
   language: 0
   link: 0
   lunr: 0
