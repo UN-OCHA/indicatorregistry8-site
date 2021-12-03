@@ -28,7 +28,7 @@ function lunr_filters_lunr_search_page_alter(&$build, LunrSearchInterface $lunr_
     'rerender' => TRUE,
     'no_redirect' => TRUE,
     'always_process' => TRUE,
-    'exposed', TRUE,
+    'exposed' => TRUE,
   ]);
   $form = \Drupal::formBuilder()->buildForm('Drupal\views\Form\ViewsExposedForm', $form_state);
 
