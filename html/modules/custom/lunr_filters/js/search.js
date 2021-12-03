@@ -130,8 +130,7 @@
     this.showProgress();
     var requests = {};
 
-    var currentResults = this.results.slice(page * this.settings.resultsPerPage, (page * this.settings.resultsPerPage) + this.settings.resultsPerPage);
-    currentResults.forEach(function(result) {
+    this.results.forEach(function(result) {
       var documentPage = result.ref.split(':')[0];
       if (!(documentPage in this.documents) && !(documentPage in requests)) {
         requests[documentPage] = $.ajax({
@@ -147,8 +146,15 @@
       }
     }.bind(this));
     $.when.apply($, Object.values(requests)).then(function () {
-      // Reset facets.
+      // Build facets.
       this.activeFacets = {};
+      this.results.forEach(function(result) {
+        this.trackFacets(result.ref);
+      }.bind(this));
+
+      // Slice for html output.
+      var currentResults = this.results.slice(page * this.settings.resultsPerPage, (page * this.settings.resultsPerPage) + this.settings.resultsPerPage);
+
       var $results = this.$form.siblings('.js-lunr-search-results');
       $results.empty();
       $results.append(Drupal.theme.lunrSearchResultCount({
@@ -220,8 +226,6 @@
     var parts = ref.split(':');
     var document = this.documents[parts[0]][parts[1]];
 
-    this.trackFacets(document);
-
     return $(Drupal.theme.lunrSearchResultWrapper()).append(document[this.settings.displayField]);
   };
 
@@ -231,7 +235,10 @@
    * @param {object} document
    *   The document
    */
-  Drupal.lunrSearchPage.prototype.trackFacets = function(document) {
+  Drupal.lunrSearchPage.prototype.trackFacets = function(ref) {
+    var parts = ref.split(':');
+    var document = this.documents[parts[0]][parts[1]];
+
     // Track facets.
     for (var facet = 0; facet < this.settings.facetFields.length; facet++) {
       var property = this.settings.facetFields[facet];
