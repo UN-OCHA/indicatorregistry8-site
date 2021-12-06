@@ -162,40 +162,42 @@
         page: page
       }));
 
-      // Table output.
-      if (this.settings.displayField.indexOf(',') >= 0) {
-        var $table = $results.append('<table>');
-        var $thead = $table.append('<thead>');
-        this.settings.displayField.split(',').forEach(function(field) {
-          $thead.append('<td>' + this.settings.tableHeaders[field.trim()] + '</td>');
+      if (this.results.length > 0) {
+        // Table output.
+        if (this.settings.displayField.indexOf(',') >= 0) {
+          var $table = $results.append('<table>');
+          var $thead = $table.append('<thead>');
+          this.settings.displayField.split(',').forEach(function(field) {
+            $thead.append('<td>' + this.settings.tableHeaders[field.trim()] + '</td>');
+          }.bind(this));
+
+          var $tbody = $table.append('<tbody>');
+          currentResults.forEach(function(result) {
+            $tbody.append(this.getTableRowElement(result.ref));
+          }.bind(this));
+
+        }
+        else {
+          currentResults.forEach(function(result) {
+            $results.append(this.getRowElement(result.ref));
+          }.bind(this));
+        }
+
+        var $pager = $(Drupal.theme.lunrSearchPager({
+          count: this.results.length,
+          resultsPerPage: this.settings.resultsPerPage,
+          page: page
+        }));
+
+        $pager.find('[data-page]').on('click', function(e) {
+          e.preventDefault();
+          var newPage = parseInt($(e.currentTarget).attr('data-page'));
+          this.setParameter('page', newPage + 1);
+          this.showPage(newPage);
         }.bind(this));
 
-        var $tbody = $table.append('<tbody>');
-        currentResults.forEach(function(result) {
-          $tbody.append(this.getTableRowElement(result.ref));
-        }.bind(this));
-
+        $results.append($pager);
       }
-      else {
-        currentResults.forEach(function(result) {
-          $results.append(this.getRowElement(result.ref));
-        }.bind(this));
-      }
-
-      var $pager = $(Drupal.theme.lunrSearchPager({
-        count: this.results.length,
-        resultsPerPage: this.settings.resultsPerPage,
-        page: page
-      }));
-
-      $pager.find('[data-page]').on('click', function(e) {
-        e.preventDefault();
-        var newPage = parseInt($(e.currentTarget).attr('data-page'));
-        this.setParameter('page', newPage + 1);
-        this.showPage(newPage);
-      }.bind(this));
-
-      $results.append($pager);
 
       this.scrollToForm();
       this.hideProgress();
