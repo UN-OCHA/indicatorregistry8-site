@@ -188,19 +188,21 @@
   Drupal.lunrSearchPage.prototype.disableUnusedFacets = function() {
     var that = this;
     for (var facet = 0; facet < this.settings.facetFields.length; facet++) {
-      var dropdown = this.facetDropdowns[this.settings.facetFields[facet]];
-      dropdown.prop('disabled', true);
-      dropdown.find('option').each(function (index, element) {
-        var option = $(element);
-        if (that.activeFacets[that.settings.facetFields[facet]].indexOf(option.val()) >= 0) {
-          option.removeAttr('disabled');
-          dropdown.prop('disabled', false);
-        }
-        else {
-          option.attr('disabled', 'disabled');
-        }
-      });
-      dropdown.change();
+      if (that.activeFacets[that.settings.facetFields[facet]]) {
+        var dropdown = this.facetDropdowns[this.settings.facetFields[facet]];
+        dropdown.prop('disabled', true);
+        dropdown.find('option').each(function (index, element) {
+          var option = $(element);
+          if (that.activeFacets[that.settings.facetFields[facet]].indexOf(option.val()) >= 0) {
+            option.removeAttr('disabled');
+            dropdown.prop('disabled', false);
+          }
+          else {
+            option.attr('disabled', 'disabled');
+          }
+        });
+        dropdown.change();
+      }
     }
   };
 
