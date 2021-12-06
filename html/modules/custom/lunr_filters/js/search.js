@@ -197,12 +197,28 @@
         }.bind(this));
 
         $results.append($pager);
+
+        this.disableUnusedFacets();
+      }
+      else {
+        this.disableAllFacets();
       }
 
       this.scrollToForm();
       this.hideProgress();
-      this.disableUnusedFacets();
     }.bind(this));
+  };
+
+  /**
+   * Disable all facets.
+   */
+   Drupal.lunrSearchPage.prototype.disableAllFacets = function() {
+    var that = this;
+    for (var facet = 0; facet < this.settings.facetFields.length; facet++) {
+      var dropdown = this.facetDropdowns[this.settings.facetFields[facet]];
+      dropdown.prop('disabled', true);
+      dropdown.change();
+    }
   };
 
   /**
