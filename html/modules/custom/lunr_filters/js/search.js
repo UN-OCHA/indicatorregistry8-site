@@ -272,6 +272,10 @@
       $summaryList.append('<li><a href="' + newUrl + '">x ' + link.text + '</a></li>');
     });
 
+    // Add reset all.
+    var newUrl = window.location.pathname;
+    $summaryList.append('<li><a href="' + newUrl + '">x Reset all filters</a></li>');
+
     // Intercept clicks.
     $('.js-lunr-summary a').on('click', function (e) {
       e.preventDefault();
