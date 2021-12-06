@@ -47,7 +47,22 @@
     // Activate select2.
     for (var facet = 0; facet < this.settings.facetFields.length; facet++) {
       var dropdown = document.querySelector('select[data-lunr-search-field="' + this.settings.facetFields[facet] + '"]');
-      this.facetDropdowns[this.settings.facetFields[facet]] = $(dropdown).select2();
+
+      var $dropdown = $(dropdown).select2();
+      $dropdown.on("select2:select", function (e) {
+        $(this).select2('close');
+        $(this).closest('form').submit();
+      });
+      $dropdown.on("select2:unselect", function (e) {
+        var self = $(this);
+        setTimeout(function() {
+            self.select2('close');
+        }, 1);
+
+        $(this).closest('form').submit();
+      });
+
+      this.facetDropdowns[this.settings.facetFields[facet]] = $dropdown;
     }
   };
 
@@ -106,7 +121,7 @@
           fields[key] = parameters[key];
         }
         if (parameters[key].indexOf(',')) {
-          this.$form.find('[data-lunr-search-field="' + key + '"]').val(parameters[key].split(',')).change();
+          this.$form.find('[data-lunr-search-field="' + key + '"]').val(parameters[key].split(',')).trigger('change.select2');
         }
         else {
           this.$form.find('[data-lunr-search-field="' + key + '"]').val(parameters[key]);
@@ -217,7 +232,7 @@
     for (var facet = 0; facet < this.settings.facetFields.length; facet++) {
       var dropdown = this.facetDropdowns[this.settings.facetFields[facet]];
       dropdown.prop('disabled', true);
-      dropdown.change();
+      dropdown.trigger('change.select2');
     }
   };
 
@@ -240,7 +255,7 @@
             option.attr('disabled', 'disabled');
           }
         });
-        dropdown.change();
+        dropdown.trigger('change.select2');
       }
     }
   };
