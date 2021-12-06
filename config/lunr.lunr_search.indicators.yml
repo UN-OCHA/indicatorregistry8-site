@@ -14,7 +14,7 @@ view_display_id: lunr_search_index_1
 index_fields:
   title:
     boost: 2
-  body:
+  html:
     boost: 1
   field_ind_standards:
     boost: 1
@@ -26,5 +26,5 @@ index_fields:
     boost: 1
   field_ind_types:
     boost: 1
-display_field: html
+display_field: 'field_sectors_1, field_ind_code, field_ind_domain_1, title, body'
 results_per_page: 25

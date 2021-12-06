@@ -95,7 +95,14 @@
         data.forEach(function(row) {
           var documentRow = {};
           documentRow.ref = row.ref;
-          documentRow[displayField] = row[displayField];
+          if (displayField.indexOf(',') > 0) {
+            displayField.split(',').forEach(function(field) {
+              documentRow[field.trim()] = row[field.trim()];
+            });
+          }
+          else {
+            documentRow[displayField] = row[displayField];
+          }
 
           // Add fields.
           for (var field in indexFields) {
