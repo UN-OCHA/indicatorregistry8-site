@@ -221,6 +221,62 @@
 
       this.scrollToForm();
       this.hideProgress();
+      this.updateSummary();
+    }.bind(this));
+  };
+
+  /**
+   * Disable all facets.
+   */
+   Drupal.lunrSearchPage.prototype.updateSummary = function() {
+    var summaryLinks = [];
+
+    // Get active facets.
+    for (var facet = 0; facet < this.settings.facetFields.length; facet++) {
+      var dropdown = this.facetDropdowns[this.settings.facetFields[facet]];
+      summaryLinks = summaryLinks.concat(dropdown.select2('data'));
+    }
+
+    // Build summary.
+    var $summary = this.$form.siblings('.js-lunr-summary');
+    $summary.empty();
+    var $summaryList = $summary.append('<ul>');
+
+    // Add free text search.
+    var parameters = this.getParameters();
+    var search = parameters['search'] ? parameters['search'] : '';
+
+    if (search.length > 0) {
+      var searchParams = new URLSearchParams(window.location.search);
+      searchParams.delete('search');
+      var newUrl = window.location.pathname + '?' + searchParams.toString();
+      $summaryList.append('<li><a href="' + newUrl + '">x ' + search + '</a></li>');
+    }
+
+    // Add facets.
+    summaryLinks.forEach(function(link) {
+      var id = link.element.parentNode.getAttribute('data-lunr-search-field');
+      var searchParams = new URLSearchParams(window.location.search);
+      var activeSelection = searchParams.get(id);
+      if (activeSelection.indexOf(',') >= 0) {
+        var values = activeSelection.split(',');
+        var values = values.filter(function(value, index, arr){
+          return value != link.id;
+        });
+        searchParams.set(id, values.join(','));
+      }
+      else {
+        searchParams.delete(id);
+      }
+      var newUrl = window.location.pathname + '?' + searchParams.toString();
+      $summaryList.append('<li><a href="' + newUrl + '">x ' + link.text + '</a></li>');
+    });
+
+    // Intercept clicks.
+    $('.js-lunr-summary a').on('click', function (e) {
+      e.preventDefault();
+      history.pushState(null, '', e.currentTarget.href);
+      this.searchByQuery();
     }.bind(this));
   };
 
@@ -228,7 +284,6 @@
    * Disable all facets.
    */
    Drupal.lunrSearchPage.prototype.disableAllFacets = function() {
-    var that = this;
     for (var facet = 0; facet < this.settings.facetFields.length; facet++) {
       var dropdown = this.facetDropdowns[this.settings.facetFields[facet]];
       dropdown.prop('disabled', true);

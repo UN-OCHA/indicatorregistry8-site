@@ -69,9 +69,21 @@ function lunr_filters_lunr_search_page_alter(&$build, LunrSearchInterface $lunr_
       }
     }
 
+    // Add summary.
+    $build['summary'] = [
+      '#type' => 'container',
+      '#attributes' => [
+        'class' => [
+          'js-lunr-summary',
+          'lunr-summary',
+        ],
+      ],
+      '#weight' => 2,
+    ];
+
     // Adjust weights.
-    $build['form']['submit']['#weight'] = 2;
-    $build['results']['#weight'] = 3;
+    $build['form']['submit']['#weight'] = 3;
+    $build['results']['#weight'] = 4;
 
     // Add labels for table output.
     $build['#attached']['drupalSettings']['lunr']['searchSettings'][$lunr_search->id()]['tableHeaders'] = $view->display_handler->getFieldLabels();
