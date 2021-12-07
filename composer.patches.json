@@ -4,7 +4,9 @@
       "https://www.drupal.org/project/select2/issues/3078085": "https://www.drupal.org/files/issues/2020-02-27/hierarchical-facet-widget-3078085-2.patch"
     },
     "drupal/core": {
-      "https://www.drupal.org/node/2429699 - view exposed entity reference": "https://www.drupal.org/files/issues/2021-11-09/2429699-446.patch"
+      "https://www.drupal.org/node/2429699 - view exposed entity reference": "https://www.drupal.org/files/issues/2021-11-09/2429699-446.patch",
+      "https://www.drupal.org/node/2732103 - Boolean exposed filter default values do not work correctly with AJAX enabled views": "https://www.drupal.org/files/issues/2732103-25.patch",
+      "HOTFIX https://www.drupal.org/node/2732103 - Boolean exposed filter default values do not work correctly with AJAX enabled views": "./PATCHES/2732103-25.patch"
     }
   }
 }
