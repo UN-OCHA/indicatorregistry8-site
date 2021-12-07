@@ -117,15 +117,25 @@
     var fields = {};
     for (var key in parameters) {
       if (key !== 'search' && key !== 'page') {
+        // Track fields with a value.
         if (parameters[key].length > 0) {
           fields[key] = parameters[key];
         }
+
         if (parameters[key].indexOf(',')) {
           this.$form.find('[data-lunr-search-field="' + key + '"]').val(parameters[key].split(',')).trigger('change.select2');
         }
         else {
-          this.$form.find('[data-lunr-search-field="' + key + '"]').val(parameters[key]);
+          this.$form.find('[data-lunr-search-field="' + key + '"]').val(parameters[key]).trigger('change.select2');
         }
+      }
+    }
+
+    // Make sure unspecified fields are empty.
+    for (var facet = 0; facet < this.settings.facetFields.length; facet++) {
+      if (!parameters[this.settings.facetFields[facet]]) {
+        var dropdown = this.facetDropdowns[this.settings.facetFields[facet]];
+        dropdown.val(null).trigger('change.select2');
       }
     }
 
@@ -258,7 +268,7 @@
       var id = link.element.parentNode.getAttribute('data-lunr-search-field');
       var searchParams = new URLSearchParams(window.location.search);
       var activeSelection = searchParams.get(id);
-      if (activeSelection.indexOf(',') >= 0) {
+      if (activeSelection && activeSelection.indexOf(',') >= 0) {
         var values = activeSelection.split(',');
         var values = values.filter(function(value, index, arr){
           return value != link.id;
@@ -273,8 +283,10 @@
     });
 
     // Add reset all.
-    var newUrl = window.location.pathname;
-    $summaryList.append('<li><a href="' + newUrl + '">x Reset all filters</a></li>');
+    if ($summaryList.find('li').length > 0) {
+      var newUrl = window.location.pathname;
+      $summaryList.append('<li><a href="' + newUrl + '">x Reset all filters</a></li>');
+    }
 
     // Intercept clicks.
     $('.js-lunr-summary a').on('click', function (e) {
