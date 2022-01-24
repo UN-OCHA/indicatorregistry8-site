@@ -77,8 +77,16 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "config": {
-		"bin-dir": "vendor/bin/",
-        "sort-packages": true
+        "bin-dir": "vendor/bin/",
+        "sort-packages": true,
+        "allow-plugins": {
+            "composer/installers": true,
+            "cweagans/composer-patches": true,
+            "drupal-composer/preserve-paths": true,
+            "drupal/core-composer-scaffold": true,
+            "drupal/console-extend-plugin": true,
+            "symfony/flex": true
+        }
     },
     "autoload": {
         "classmap": [
@@ -86,12 +94,6 @@
         ]
     },
     "scripts": {
-        "pre-install-cmd": [
-            "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
-        ],
-        "pre-update-cmd": [
-            "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
-        ],
         "post-install-cmd": [
             "DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
             "DrupalProject\\composer\\ScriptHandler::removeUnnecessaryFiles",
