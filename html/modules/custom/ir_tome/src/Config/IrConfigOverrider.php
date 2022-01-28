@@ -17,10 +17,10 @@ class IrConfigOverrider implements ConfigFactoryOverrideInterface {
   public function loadOverrides($names) {
     $overrides = array();
 
-    if (in_array('views.view.extracts', $names)) {
-      $config = \Drupal::configFactory()->getEditable('views.view.extracts')->getRawData();
-      $config['display']['page_1']['display_options']['path'] = 'extracts-disabled';
-      $overrides['views.view.extracts'] = $config;
+    if (in_array('views.view.indicators', $names)) {
+      $config = \Drupal::configFactory()->getEditable('views.view.indicators')->getRawData();
+      $config['display']['indicators_table']['display_options']['path'] = 'indicators-disabled';
+      $overrides['views.view.indicators'] = $config;
       return $overrides;
     }
 
