@@ -19,8 +19,22 @@ class IrExcludePathSubscriber implements EventSubscriberInterface {
    * @var array
    */
   const EXCLUDED_PATHS = [
-    '/extracts-disabled',
-    '/extracts-header',
+    '/indicators-disabled',
+    '/node',
+  ];
+
+  /**
+   * A hard-coded list of paths to always exclude.
+   *
+   * @var array
+   */
+  const EXCLUDED_PARTIAL_PATHS = [
+    '/taxonomy',
+    '_entity:taxonomy_term',
+    '_entity:user',
+    '/facets-block-ajax',
+    '/user/login/hid',
+    '/api/v1.0/indicators',
   ];
 
   /**
@@ -31,12 +45,24 @@ class IrExcludePathSubscriber implements EventSubscriberInterface {
    */
   public function collectPaths(CollectPathsEvent $event) {
     $excluded_paths = self::EXCLUDED_PATHS;
+    $excluded_partial_paths = self::EXCLUDED_PARTIAL_PATHS;
     $paths = $event->getPaths(TRUE);
     foreach ($paths as $path => $metadata) {
       if (in_array($path, $excluded_paths, TRUE) || (isset($metadata['original_path']) && in_array($metadata['original_path'], $excluded_paths, TRUE))) {
         unset($paths[$path]);
       }
+      else {
+        foreach ($excluded_partial_paths as $excluded_partial_path) {
+          if (strpos($path, $excluded_partial_path) === 0) {
+            unset($paths[$path]);
+          }
+          elseif (isset($metadata['original_path']) && strpos($metadata['original_path'], $excluded_partial_path) === 0) {
+            unset($paths[$path]);
+          }
+        }
+      }
     }
+
     $event->replacePaths($paths);
   }
 
