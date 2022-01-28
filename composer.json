@@ -27,10 +27,10 @@
         "drupal/coder": "^8.3",
         "drupal/components": "^2.4",
         "drupal/config_split": "^2.0.0-beta4",
-        "drupal/core-composer-scaffold": "^9.2.4",
-        "drupal/core-dev": "^9.2.4",
-        "drupal/core-project-message": "^9.2.4",
-        "drupal/core-recommended": "^9.2.4",
+        "drupal/core-composer-scaffold": "^9.3",
+        "drupal/core-dev": "^9.3",
+        "drupal/core-project-message": "^9.3",
+        "drupal/core-recommended": "^9.3",
         "drupal/csv_serialization": "^2.0",
         "drupal/ctools": "^3.7",
         "drupal/dream_block_manager": "^1.0",
@@ -80,8 +80,18 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "config": {
-		"bin-dir": "vendor/bin/",
-        "sort-packages": true
+        "bin-dir": "vendor/bin/",
+        "sort-packages": true,
+        "allow-plugins": {
+            "composer/installers": true,
+            "cweagans/composer-patches": true,
+            "drupal-composer/preserve-paths": true,
+            "drupal/core-composer-scaffold": true,
+            "drupal/core-project-message": true,
+            "drupal/console-extend-plugin": true,
+            "oomphinc/composer-installers-extender": true,
+            "symfony/flex": true
+        }
     },
     "autoload": {
         "classmap": [
@@ -89,12 +99,6 @@
         ]
     },
     "scripts": {
-        "pre-install-cmd": [
-            "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
-        ],
-        "pre-update-cmd": [
-            "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
-        ],
         "post-install-cmd": [
             "DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
             "DrupalProject\\composer\\ScriptHandler::removeUnnecessaryFiles",
