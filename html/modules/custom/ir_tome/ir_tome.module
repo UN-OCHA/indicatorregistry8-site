@@ -1,0 +1,56 @@
+<?php
+
+/**
+ * @file
+ * POCAM tome.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_pocam_general_build_path_alter().
+ */
+function ir_tome_pocam_general_build_path_alter(&$path, array $context) {
+  $path = 'internal:/extracts?field_all_themes=' . $context['term']->tid;
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function ir_tome_form_views_exposed_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if ($form['#id'] == 'views-exposed-form-extracts-page-1') {
+    $form['#action'] = '/extracts';
+    $form['#method'] = 'get';
+  }
+}
+
+/**
+ * Implements template_preprocess_page().
+ */
+function ir_tome_preprocess_page(&$variables) {
+  unset($variables['page']['facets']);
+}
+
+/**
+ * Implements hook_block_build_alter().
+ */
+function ir_tome_block_build_alter(array &$build, \Drupal\Core\Block\BlockPluginInterface $block) {
+  $id = $block->getDerivativeId();
+  if (empty($id)) {
+    return;
+  }
+
+  $blocks_to_disable = [
+    'account',
+    'facet_summary',
+    'document_type',
+    'theme',
+    'year',
+  ];
+
+  if (!in_array($id, $blocks_to_disable)) {
+    return;
+  }
+
+  $build['#access'] = FALSE;
+}

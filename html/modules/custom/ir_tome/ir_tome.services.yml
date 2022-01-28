@@ -1,0 +1,9 @@
+services:
+  ir_tome.exclude_path_subscriber:
+    class: Drupal\ir_tome\EventSubscriber\IrExcludePathSubscriber
+    tags:
+      - { name: event_subscriber }
+  ir_tome.IrConfigOverrider:
+    class: Drupal\ir_tome\Config\IrConfigOverrider
+    tags:
+      - {name: config.factory.override, priority: 5}
