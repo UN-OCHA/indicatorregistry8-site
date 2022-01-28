@@ -30,11 +30,24 @@ function common_design_subtheme_form_alter(&$form, FormStateInterface $form_stat
     $form['#attributes']['data-cd-logo'][] = 'search';
     // Focus the input when clicking on the toggler button.
     $form['#attributes']['data-cd-focus-target'] = 'cd-search--inline';
-    $form['s']['#attributes']['placeholder'][] = t('What are you looking for?');
-    $form['s']['#attributes']['class'][] = 'cd-search--inline__input';
-    $form['s']['#attributes']['type'][] = 'search';
-    $form['s']['#attributes']['id'][] = 'cd-search--inline';
-    $form['s']['#attributes']['autocomplete'][] = 'off';
+
+    // Support Lunr.
+    if (isset($form['search'])) {
+      $form['search']['#attributes']['placeholder'][] = t('What are you looking for?');
+      $form['search']['#attributes']['class'][] = 'cd-search--inline__input';
+      $form['search']['#attributes']['type'][] = 'search';
+      $form['search']['#attributes']['id'][] = 'cd-search--inline';
+      $form['search']['#attributes']['autocomplete'][] = 'off';
+      unset($form['s']);
+    }
+    elseif (isset($form['s'])) {
+      $form['s']['#attributes']['placeholder'][] = t('What are you looking for?');
+      $form['s']['#attributes']['class'][] = 'cd-search--inline__input';
+      $form['s']['#attributes']['type'][] = 'search';
+      $form['s']['#attributes']['id'][] = 'cd-search--inline';
+      $form['s']['#attributes']['autocomplete'][] = 'off';
+    }
+
     // Theme suggestion for submit element.
     $form['actions']['submit']['#attributes']['data-twig-suggestion'] = 'search_submit';
     $form['actions']['submit']['#attributes']['class'][] = 'cd-search--inline__submit';
