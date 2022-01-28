@@ -11,11 +11,11 @@ pattern: 'clusters/[node:title]'
 selection_criteria:
   -
     id: node_type
-    bundles:
-      hr_sector: hr_sector
     negate: false
     context_mapping:
       node: node
+    bundles:
+      hr_sector: hr_sector
 selection_logic: and
 weight: 0
 relationships: {  }

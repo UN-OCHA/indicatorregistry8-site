@@ -21,63 +21,11 @@ base_table: taxonomy_term_field_data
 base_field: tid
 display:
   default:
-    display_plugin: default
     id: default
     display_title: Master
+    display_plugin: default
     position: 0
     display_options:
-      access:
-        type: perm
-        options:
-          perm: 'access content'
-      cache:
-        type: tag
-        options: {  }
-      query:
-        type: views_query
-        options:
-          disable_sql_rewrite: false
-          distinct: false
-          replica: false
-          query_comment: ''
-          query_tags: {  }
-      exposed_form:
-        type: basic
-        options:
-          submit_button: Apply
-          reset_button: false
-          reset_button_label: Reset
-          exposed_sorts_label: 'Sort by'
-          expose_sort_order: true
-          sort_asc_label: Asc
-          sort_desc_label: Desc
-      pager:
-        type: mini
-        options:
-          items_per_page: 10
-          offset: 0
-          id: 0
-          total_pages: null
-          expose:
-            items_per_page: false
-            items_per_page_label: 'Items per page'
-            items_per_page_options: '5, 10, 25, 50'
-            items_per_page_options_all: false
-            items_per_page_options_all_label: '- All -'
-            offset: false
-            offset_label: Offset
-          tags:
-            previous: ‹‹
-            next: ››
-      style:
-        type: serializer
-      row:
-        type: fields
-        options:
-          inline: {  }
-          separator: ''
-          hide_empty: false
-          default_field_elements: true
       fields:
         tid:
           id: tid
@@ -86,6 +34,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: taxonomy_term
+          entity_field: tid
+          plugin_id: field
           label: id
           exclude: false
           alter:
@@ -142,35 +93,27 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: taxonomy_term
-          entity_field: tid
-          plugin_id: field
         name:
           id: name
           table: taxonomy_term_field_data
           field: name
+          relationship: none
+          group_type: group
+          admin_label: ''
           entity_type: taxonomy_term
           entity_field: name
+          plugin_id: term_name
           label: ''
+          exclude: false
           alter:
             alter_text: false
             make_link: false
             absolute: false
-            trim: false
             word_boundary: false
             ellipsis: false
             strip_tags: false
+            trim: false
             html: false
-          hide_empty: false
-          empty_zero: false
-          type: string
-          settings:
-            link_to_entity: true
-          plugin_id: term_name
-          relationship: none
-          group_type: group
-          admin_label: ''
-          exclude: false
           element_type: ''
           element_class: ''
           element_label_type: ''
@@ -180,8 +123,13 @@ display:
           element_wrapper_class: ''
           element_default_classes: true
           empty: ''
+          hide_empty: false
+          empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: true
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -200,6 +148,8 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: taxonomy_term
+          plugin_id: entity_link
           label: self
           exclude: false
           alter:
@@ -244,22 +194,58 @@ display:
           text: self
           output_url_as_text: true
           absolute: true
-          entity_type: taxonomy_term
-          plugin_id: entity_link
+      pager:
+        type: mini
+        options:
+          offset: 0
+          items_per_page: 10
+          total_pages: null
+          id: 0
+          tags:
+            next: ››
+            previous: ‹‹
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+      exposed_form:
+        type: basic
+        options:
+          submit_button: Apply
+          reset_button: false
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
+          expose_sort_order: true
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      access:
+        type: perm
+        options:
+          perm: 'access content'
+      cache:
+        type: tag
+        options: {  }
+      empty: {  }
+      sorts: {  }
+      arguments: {  }
       filters:
         status:
-          value: '1'
+          id: status
           table: taxonomy_term_field_data
           field: status
-          plugin_id: boolean
           entity_type: taxonomy_term
           entity_field: status
-          id: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
           expose:
             operator: ''
             operator_limit_selection: false
             operator_list: {  }
-          group: 1
         vid:
           id: vid
           table: taxonomy_term_field_data
@@ -267,6 +253,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: taxonomy_term
+          entity_field: vid
+          plugin_id: bundle
           operator: in
           value:
             hr_indicator_domain: hr_indicator_domain
@@ -299,15 +288,26 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: taxonomy_term
-          entity_field: vid
-          plugin_id: bundle
-      sorts: {  }
+      style:
+        type: serializer
+      row:
+        type: fields
+        options:
+          default_field_elements: true
+          inline: {  }
+          separator: ''
+          hide_empty: false
+      query:
+        type: views_query
+        options:
+          query_comment: ''
+          disable_sql_rewrite: false
+          distinct: false
+          replica: false
+          query_tags: {  }
+      relationships: {  }
       header: {  }
       footer: {  }
-      empty: {  }
-      relationships: {  }
-      arguments: {  }
       display_extenders: {  }
     cache_metadata:
       max-age: -1
@@ -319,13 +319,11 @@ display:
         - user.permissions
       tags: {  }
   rest_export_indicator_domains:
-    display_plugin: rest_export
     id: rest_export_indicator_domains
     display_title: 'Indicator domains'
+    display_plugin: rest_export
     position: 1
     display_options:
-      display_extenders: {  }
-      path: api/v1.0/indicator_domains
       pager:
         type: none
         options:
@@ -349,6 +347,8 @@ display:
               alias: id
               raw_output: true
       display_description: ''
+      display_extenders: {  }
+      path: api/v1.0/indicator_domains
     cache_metadata:
       max-age: -1
       contexts:
@@ -359,50 +359,29 @@ display:
       tags: {  }
     deleted: false
   rest_export_indicator_standards:
-    display_plugin: rest_export
     id: rest_export_indicator_standards
     display_title: 'Indicator standards'
+    display_plugin: rest_export
     position: 1
     display_options:
-      display_extenders: {  }
-      path: api/v1.0/indicator_standards
       pager:
         type: none
         options:
           offset: 0
-      style:
-        type: serializer
-        options:
-          formats:
-            json: json
-      row:
-        type: data_field
-        options:
-          field_options:
-            name:
-              alias: label
-              raw_output: true
-            view_taxonomy_term:
-              alias: self
-              raw_output: false
-            tid:
-              alias: id
-              raw_output: true
-      display_description: ''
       filters:
         status:
-          value: '1'
+          id: status
           table: taxonomy_term_field_data
           field: status
-          plugin_id: boolean
           entity_type: taxonomy_term
           entity_field: status
-          id: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
           expose:
             operator: ''
             operator_limit_selection: false
             operator_list: {  }
-          group: 1
         vid:
           id: vid
           table: taxonomy_term_field_data
@@ -410,6 +389,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: taxonomy_term
+          entity_field: vid
+          plugin_id: bundle
           operator: in
           value:
             hr_indicator_standard: hr_indicator_standard
@@ -442,37 +424,10 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: taxonomy_term
-          entity_field: vid
-          plugin_id: bundle
-      defaults:
-        filters: false
-        filter_groups: false
       filter_groups:
         operator: AND
         groups:
           1: AND
-    cache_metadata:
-      max-age: -1
-      contexts:
-        - 'languages:language_content'
-        - 'languages:language_interface'
-        - request_format
-        - user.permissions
-      tags: {  }
-    deleted: false
-  rest_export_indicator_types:
-    display_plugin: rest_export
-    id: rest_export_indicator_types
-    display_title: 'Indicator types'
-    position: 1
-    display_options:
-      display_extenders: {  }
-      path: api/v1.0/indicator_types
-      pager:
-        type: none
-        options:
-          offset: 0
       style:
         type: serializer
         options:
@@ -491,21 +446,45 @@ display:
             tid:
               alias: id
               raw_output: true
+      defaults:
+        filters: false
+        filter_groups: false
       display_description: ''
+      display_extenders: {  }
+      path: api/v1.0/indicator_standards
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - request_format
+        - user.permissions
+      tags: {  }
+    deleted: false
+  rest_export_indicator_types:
+    id: rest_export_indicator_types
+    display_title: 'Indicator types'
+    display_plugin: rest_export
+    position: 1
+    display_options:
+      pager:
+        type: none
+        options:
+          offset: 0
       filters:
         status:
-          value: '1'
+          id: status
           table: taxonomy_term_field_data
           field: status
-          plugin_id: boolean
           entity_type: taxonomy_term
           entity_field: status
-          id: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
           expose:
             operator: ''
             operator_limit_selection: false
             operator_list: {  }
-          group: 1
         vid:
           id: vid
           table: taxonomy_term_field_data
@@ -513,6 +492,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: taxonomy_term
+          entity_field: vid
+          plugin_id: bundle
           operator: in
           value:
             hr_indicator_type: hr_indicator_type
@@ -545,37 +527,10 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: taxonomy_term
-          entity_field: vid
-          plugin_id: bundle
-      defaults:
-        filters: false
-        filter_groups: false
       filter_groups:
         operator: AND
         groups:
           1: AND
-    cache_metadata:
-      max-age: -1
-      contexts:
-        - 'languages:language_content'
-        - 'languages:language_interface'
-        - request_format
-        - user.permissions
-      tags: {  }
-    deleted: false
-  rest_export_indicator_units:
-    display_plugin: rest_export
-    id: rest_export_indicator_units
-    display_title: 'Indicator units'
-    position: 1
-    display_options:
-      display_extenders: {  }
-      path: api/v1.0/indicator_units
-      pager:
-        type: none
-        options:
-          offset: 0
       style:
         type: serializer
         options:
@@ -594,21 +549,45 @@ display:
             tid:
               alias: id
               raw_output: true
+      defaults:
+        filters: false
+        filter_groups: false
       display_description: ''
+      display_extenders: {  }
+      path: api/v1.0/indicator_types
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - request_format
+        - user.permissions
+      tags: {  }
+    deleted: false
+  rest_export_indicator_units:
+    id: rest_export_indicator_units
+    display_title: 'Indicator units'
+    display_plugin: rest_export
+    position: 1
+    display_options:
+      pager:
+        type: none
+        options:
+          offset: 0
       filters:
         status:
-          value: '1'
+          id: status
           table: taxonomy_term_field_data
           field: status
-          plugin_id: boolean
           entity_type: taxonomy_term
           entity_field: status
-          id: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
           expose:
             operator: ''
             operator_limit_selection: false
             operator_list: {  }
-          group: 1
         vid:
           id: vid
           table: taxonomy_term_field_data
@@ -616,6 +595,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: taxonomy_term
+          entity_field: vid
+          plugin_id: bundle
           operator: in
           value:
             hr_indicator_unit: hr_indicator_unit
@@ -648,16 +630,34 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: taxonomy_term
-          entity_field: vid
-          plugin_id: bundle
-      defaults:
-        filters: false
-        filter_groups: false
       filter_groups:
         operator: AND
         groups:
           1: AND
+      style:
+        type: serializer
+        options:
+          formats:
+            json: json
+      row:
+        type: data_field
+        options:
+          field_options:
+            name:
+              alias: label
+              raw_output: true
+            view_taxonomy_term:
+              alias: self
+              raw_output: false
+            tid:
+              alias: id
+              raw_output: true
+      defaults:
+        filters: false
+        filter_groups: false
+      display_description: ''
+      display_extenders: {  }
+      path: api/v1.0/indicator_units
     cache_metadata:
       max-age: -1
       contexts:

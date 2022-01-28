@@ -1,6 +1,6 @@
 uuid: 85dd430f-e05f-4fd6-ae69-f1fb12764c2e
 langcode: en
-status: false
+status: true
 dependencies:
   config:
     - facets.facet.standards
@@ -11,19 +11,19 @@ dependencies:
     - common_design_subtheme
 id: common_design_subtheme_standards
 theme: common_design_subtheme
-region: sidebar_first
-weight: -4
+region: facets
+weight: -5
 provider: null
 plugin: 'facet_block:standards'
 settings:
   id: 'facet_block:standards'
   label: Standards
-  provider: facets
   label_display: visible
+  provider: facets
   block_id: standards
 visibility:
   request_path:
     id: request_path
-    pages: "/indicators\r\n/indicators/*"
     negate: false
     context_mapping: {  }
+    pages: "/indicators\r\n/indicators/*"

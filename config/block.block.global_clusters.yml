@@ -18,12 +18,12 @@ plugin: 'facet_block:global_clusters'
 settings:
   id: 'facet_block:global_clusters'
   label: 'Global Clusters'
-  provider: facets
   label_display: visible
+  provider: facets
   block_id: global_clusters
 visibility:
   request_path:
     id: request_path
-    pages: "/indicators\r\n/indicators/*"
     negate: false
     context_mapping: {  }
+    pages: "/indicators\r\n/indicators/*"

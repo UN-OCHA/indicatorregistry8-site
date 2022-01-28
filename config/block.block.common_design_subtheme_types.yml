@@ -1,6 +1,6 @@
 uuid: 8fe75512-0b8a-44a2-8ee8-4afd15068389
 langcode: en
-status: false
+status: true
 dependencies:
   config:
     - facets.facet.types
@@ -11,19 +11,19 @@ dependencies:
     - common_design_subtheme
 id: common_design_subtheme_types
 theme: common_design_subtheme
-region: sidebar_first
-weight: -2
+region: facets
+weight: -3
 provider: null
 plugin: 'facet_block:types'
 settings:
   id: 'facet_block:types'
   label: Types
-  provider: facets
   label_display: visible
+  provider: facets
   block_id: types
 visibility:
   request_path:
     id: request_path
-    pages: "/indicators\r\n/indicators/*"
     negate: false
     context_mapping: {  }
+    pages: "/indicators\r\n/indicators/*"

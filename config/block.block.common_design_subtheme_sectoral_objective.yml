@@ -1,6 +1,6 @@
 uuid: 2b2ebc21-b3b9-491d-b862-4a471611bf81
 langcode: en
-status: false
+status: true
 dependencies:
   config:
     - facets.facet.sectoral_objective
@@ -11,19 +11,19 @@ dependencies:
     - common_design_subtheme
 id: common_design_subtheme_sectoral_objective
 theme: common_design_subtheme
-region: sidebar_first
-weight: -5
+region: facets
+weight: -6
 provider: null
 plugin: 'facet_block:sectoral_objective'
 settings:
   id: 'facet_block:sectoral_objective'
   label: 'Sectoral objective'
-  provider: facets
   label_display: visible
+  provider: facets
   block_id: sectoral_objective
 visibility:
   request_path:
     id: request_path
-    pages: "/indicators\r\n/indicators/*"
     negate: false
     context_mapping: {  }
+    pages: "/indicators\r\n/indicators/*"
