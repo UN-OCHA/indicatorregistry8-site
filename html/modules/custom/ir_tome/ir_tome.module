@@ -22,6 +22,13 @@ function ir_tome_form_views_exposed_form_alter(&$form, FormStateInterface $form_
 }
 
 /**
+ * Implements hook_lunr_search_page_alter().
+ */
+function ir_tome_lunr_search_page_alter(&$build, $lunr_search) {
+  $build['#attached']['library'][] = 'ir_tome/ir_tome';
+}
+
+/**
  * Implements template_preprocess_page().
  */
 function ir_tome_preprocess_page(&$variables) {

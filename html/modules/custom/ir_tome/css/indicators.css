@@ -1,20 +1,24 @@
 .path-indicators .block-system-main-block {
   display: grid;
   grid-template-areas:
-      "sidebar1 results"
-      "sidebar2 results";
+      "sidebar results";
   grid-template-columns: 250px 1fr;
   width: 100%;
   max-width: 100%;
 }
 
-.path-indicators .js-lunr-search-page-form {
-  grid-area: sidebar2;
-  overflow: hidden;
+.path-indicators .js-lunr-search-page-form select,
+.path-indicators .js-lunr-search-page-form .js-lunr-search-input {
+  width: 225px;
 }
 
-.path-indicators .js-lunr-summary {
-  grid-area: sidebar1;
+.path-indicators .js-lunr-search-page-form .select2-container {
+  display: block;
+}
+
+.path-indicators .js-lunr-search-page-form {
+  grid-area: sidebar;
+  overflow: hidden;
 }
 
 .path-indicators .js-lunr-search-results {
