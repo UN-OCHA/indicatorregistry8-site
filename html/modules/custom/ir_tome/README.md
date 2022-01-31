@@ -23,3 +23,6 @@ $config['system.logging']['error_level'] = 'hide';
 ```bash
 php -S localhost:8080 -t static
 ```
+
+ag GTM-xxxx -l | xargs sed -i 's/GTM-xxxx/GTM-TQBWRWF/g'
+https://www.googletagmanager.com/gtm.js?id=GTM-TQBWRWF
