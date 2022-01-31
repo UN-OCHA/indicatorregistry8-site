@@ -1,4 +1,6 @@
 ir_tome:
+  js:
+    js/indicator_export.js: {}
   css:
     theme:
       css/indicators.css: {}

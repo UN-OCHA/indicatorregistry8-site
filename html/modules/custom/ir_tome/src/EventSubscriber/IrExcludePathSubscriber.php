@@ -34,7 +34,9 @@ class IrExcludePathSubscriber implements EventSubscriberInterface {
     '_entity:user',
     '/facets-block-ajax',
     '/user/login/hid',
-    '/api/v1.0/indicators',
+    '/api/v1.0',
+    '/content/api-documentation',
+    '/clusters',
   ];
 
   /**
@@ -48,6 +50,7 @@ class IrExcludePathSubscriber implements EventSubscriberInterface {
     $excluded_partial_paths = self::EXCLUDED_PARTIAL_PATHS;
     $paths = $event->getPaths(TRUE);
     foreach ($paths as $path => $metadata) {
+      print_r([$path => $metadata]);
       if (in_array($path, $excluded_paths, TRUE) || (isset($metadata['original_path']) && in_array($metadata['original_path'], $excluded_paths, TRUE))) {
         unset($paths[$path]);
       }
