@@ -4,6 +4,8 @@ namespace Drupal\tome_static_azure;
 
 use Drupal\Core\Site\Settings;
 
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
+
 /**
  * The meat of all the synchronisation.
  */
@@ -23,8 +25,21 @@ class AzureSynchroniser implements AzureSynchroniserInterface {
     return $this->files;
   }
 
-  public function synchronise() {
+  /**
+   * Synch a bunch of paths to Azure.
+   */
+  public function synchronise($paths) {
 
+    $storage_client = \Drupal::service('azure_storage.client');
+    $storage_blob_service = $storage_client->getStorageBlobService();
+
+    foreach ($paths as $path) {
+      try {
+        $content = fopen("${this->path}/${path}", "r");
+        $storage_blob_service->createBlockBlob(AzureSycnhroniserInterface::AZURE_SITE_CONTAINER, $path, $content);
+      } catch(ServiceException $e) {
+      }
+    }
   }
 
   /**

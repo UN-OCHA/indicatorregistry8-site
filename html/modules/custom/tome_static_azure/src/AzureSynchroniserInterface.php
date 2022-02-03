@@ -13,6 +13,11 @@ interface AzureSynchroniserInterface {
   const STATE_KEY_AZURE_SYNC = 'tome_static_azure.syncing';
 
   /**
+   * The container that contains the website in the storage account.
+   */
+  const AZURE_SITE_CONTAINER = '$web';
+
+  /**
    * Gets all files for the static site.
    *
    * @return string[]
@@ -23,5 +28,5 @@ interface AzureSynchroniserInterface {
   /**
    * Copy all files to the Azure storage container.
    */
-  public function synchronise();
+  public function synchronise(array $paths);
 }

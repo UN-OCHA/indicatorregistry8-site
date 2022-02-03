@@ -72,8 +72,8 @@ class AzureSyncForm extends FormBase {
     $tome_directory = Settings::get('tome_static_directory', '../html');
 
     $form['description'] = [
-      '#markup' => '<p>' . $this->t('Submitting this form will upload the contents of the static export directory (@dir) to the static website container in the Azure storage account at <em>@account/$web</em>.', [
-        '@dir' => $tome_directory,
+      '#markup' => '<p>' . $this->t('Submitting this form will upload the contents of the static export directory %dir to the static website container in the Azure storage account at <em>@account/$web</em>.', [
+        '%dir' => $tome_directory,
         '@account' => $azure_config->get('account_name'),
       ]) . '</p>',
     ];
@@ -118,8 +118,8 @@ class AzureSyncForm extends FormBase {
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $this->state->set(AzureSynchroniserInterface::STATE_KEY_AZURE_SYNC, TRUE);
-
-    $this->setBatch();
+    $paths = $this->synchroniser->getFileList();
+    $this->setBatch($paths);
   }
 
   /**
@@ -128,14 +128,14 @@ class AzureSyncForm extends FormBase {
    * @param array $context
    *   The batch context.
    */
-  public function batchInvokePaths(array &$context) {
-    if (!empty($context['results']['invoke_paths'])) {
+  public function batchSyncPaths(array &$context) {
+    if (!empty($context['results']['sync_paths'])) {
       $context['results']['old_paths'] = isset($context['results']['old_paths']) ? $context['results']['old_paths'] : [];
-      $context['results']['invoke_paths'] = array_diff($context['results']['invoke_paths'], $context['results']['old_paths']);
-      $context['results']['old_paths'] = array_merge($context['results']['invoke_paths'], $context['results']['old_paths']);
-      $invoke_paths = $this->synchroniser->exportPaths($context['results']['invoke_paths']);
-      if (!empty($invoke_paths)) {
-        $this->setBatch($invoke_paths, $base_url);
+      $context['results']['sync_paths'] = array_diff($context['results']['sync_paths'], $context['results']['old_paths']);
+      $context['results']['old_paths'] = array_merge($context['results']['sync_paths'], $context['results']['old_paths']);
+      $sync_paths = $this->synchroniser->syncPaths($context['results']['sync_paths']);
+      if (!empty($sync_paths)) {
+        $this->setBatch($sync_paths);
       }
     }
   }
@@ -153,17 +153,17 @@ class AzureSyncForm extends FormBase {
 
     $this->requestPreparer->prepareForRequest();
     try {
-      $invoke_paths = $this->static->requestPath($path);
+      $sync_paths = $this->static->requestPath($path);
     }
     catch (\Exception $e) {
       $context['results']['errors'][] = $this->formatPathException($path, $e);
-      $invoke_paths = [];
+      $sync_paths = [];
     }
 
     TomeStaticHelper::restoreBaseUrl($this->getRequest(), $original_params);
 
-    $context['results']['invoke_paths'] = isset($context['results']['invoke_paths']) ? $context['results']['invoke_paths'] : [];
-    $context['results']['invoke_paths'] = array_merge($context['results']['invoke_paths'], $invoke_paths);
+    $context['results']['sync_paths'] = isset($context['results']['sync_paths']) ? $context['results']['sync_paths'] : [];
+    $context['results']['sync_paths'] = array_merge($context['results']['sync_paths'], $sync_paths);
   }
 
   /**
@@ -200,11 +200,11 @@ class AzureSyncForm extends FormBase {
     $batch_builder = (new BatchBuilder())
       ->setTitle($this->t('Synchronising static HTML...'))
       ->setFinishCallback([$this, 'finishCallback']);
-    $paths = $this->static->exportPaths($paths);
+    $paths = $this->synchroniser->syncPaths($paths);
     foreach ($paths as $path) {
-      $batch_builder->addOperation([$this, 'exportPath'], [$path, $base_url]);
+      $batch_builder->addOperation([$this, 'syncPath'], [$path]);
     }
-    $batch_builder->addOperation([$this, 'batchInvokePaths'], [$base_url]);
+    $batch_builder->addOperation([$this, 'batchSyncPaths']);
     batch_set($batch_builder->toArray());
   }
 
