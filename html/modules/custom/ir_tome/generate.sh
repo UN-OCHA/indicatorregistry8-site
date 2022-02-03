@@ -9,3 +9,4 @@ $drush tome:static --verbose -y
 cd ../../../..
 ag GTM-xxxx ./static/ -l | xargs sed -i 's/GTM-xxxx/GTM-TQBWRWF/g'
 mv static/export/indicators/index.html static/export/indicators/index.csv
+zip -r ir_static.zip static/
