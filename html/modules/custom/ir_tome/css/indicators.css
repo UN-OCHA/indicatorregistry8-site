@@ -1,4 +1,4 @@
-.path-indicators .block-system-main-block {
+.lunr-filters--wrapper {
   display: grid;
   grid-template-areas:
       "sidebar results";
@@ -8,21 +8,21 @@
   position: relative;
 }
 
-.path-indicators .js-lunr-search-page-form select,
-.path-indicators .js-lunr-search-page-form .js-lunr-search-input {
+.lunr-filters--wrapper-filters select,
+.lunr-filters--wrapper-filters .js-lunr-search-input {
   width: 225px;
 }
 
-.path-indicators .js-lunr-search-page-form .select2-container {
+.lunr-filters--wrapper-filters .select2-container {
   display: block;
 }
 
-.path-indicators .js-lunr-search-page-form {
+.lunr-filters--wrapper-filters {
   grid-area: sidebar;
   overflow: hidden;
 }
 
-.path-indicators .js-lunr-search-results {
+.lunr-filters--wrapper-results {
   grid-area: results;
 }
 
