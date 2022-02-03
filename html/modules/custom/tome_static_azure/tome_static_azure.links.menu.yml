@@ -1,0 +1,6 @@
+tome_static_azure.sync:
+  title: 'Synchronise'
+  parent: tome_static.main
+  description: 'Synchronise static site to Azure.'
+  route_name: tome_static_azure.sync
+  weight: 3

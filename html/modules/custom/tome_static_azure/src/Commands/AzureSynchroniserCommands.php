@@ -7,6 +7,8 @@ use Drush\Commands\DrushCommands;
 use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 use MicrosoftAzure\Storage\Blob\Models\ListBlobsOptions;
 
+use Drupal\tome_static_azure\AzureSyncrhoniserInterface;
+
 
 /**
  * A Drush commandfile.
@@ -16,7 +18,15 @@ use MicrosoftAzure\Storage\Blob\Models\ListBlobsOptions;
  *
  * It assumes you create the container outside Drupal. With terraform, for instance.
  */
-class TomeStaticAzureCommands extends DrushCommands {
+class AzureSynchroniserCommands extends DrushCommands {
+
+  private $synchroniser;
+
+  /**
+   * Create a new synchroniser object.
+   */
+  public function __construct() {
+  }
 
   /**
    * Synchronise the tome_static output directory to an azure storsage account.
@@ -37,7 +47,7 @@ class TomeStaticAzureCommands extends DrushCommands {
     $storage_client = \Drupal::service('azure_storage.client');
     $storage_blob_service = $storage_client->getStorageBlobService();
 
-    $files = $this->getFileList($tome_dir);
+    $files = $synchroniser->getFileList($tome_dir);
     $this->logger()->success(dt('Going to synchronise @count files.', ['@count' => count($files)]));
 
     foreach ($files as $file) {
@@ -53,31 +63,5 @@ class TomeStaticAzureCommands extends DrushCommands {
         $this->logger()->error(dt('Invalid Argument @code: @essage files.', ['@code' => $e->getCode(), '@message' => $e->getMessage()]));
       }
     }
-  }
-
-  /**
-   * Helper to generate a list of files for syncing.
-   *
-   * @param string $path
-   *   A directory.
-   */
-  private function getFileList($path) {
-    $files = [];
-
-    // Make sure we do not end with a slash.
-    $path  = rtrim($path, '/');
-
-    $directory = new \RecursiveDirectoryIterator($path);
-    $filter = new \RecursiveCallbackFilterIterator($directory, function ($current, $key, $iterator) {
-      // Skip hidden files and directories.
-      if ($current->getFilename()[0] === '.') return FALSE;
-      return TRUE;
-    });
-    $iterator = new \RecursiveIteratorIterator($filter);
-
-    foreach ($iterator as $file) {
-      $files[] = substr($file->getPathname(), strlen($path) + 1);
-    }
-    return $files;
   }
 }

@@ -8,7 +8,7 @@ use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Site\Settings;
 use Drupal\Core\State\StateInterface;
-use Drupal\tome_static_azure\StaticAzureSyncInterface;
+use Drupal\tome_static_azure\AzureSynchroniserInterface;
 use Drupal\tome_static\TomeStaticHelper;
 use Drupal\tome_static\StaticUITrait;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -18,9 +18,16 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  *
  * @internal
  */
-class StaticAzureSyncForm extends FormBase {
+class AzureSyncForm extends FormBase {
 
   use StaticUITrait;
+
+  /**
+   * The synchroniser.
+   *
+   * @var \Drupal\tome_static_azure\AzureSynchroniserInterface;
+   */
+  protected $synchroniser;
 
   /**
    * The state system.
@@ -35,8 +42,9 @@ class StaticAzureSyncForm extends FormBase {
    * @param \Drupal\Core\State\StateInterface $state
    *   The state system.
    */
-  public function __construct(StateInterface $state) {
-    $this->state = $state;
+  public function __construct(AzureSynchroniserInterface $synchroniser, StateInterface $state) {
+    $this->synchroniser = $synchroniser;
+    $this->state        = $state;
   }
 
   /**
@@ -44,6 +52,7 @@ class StaticAzureSyncForm extends FormBase {
    */
   public static function create(ContainerInterface $container) {
     return new static(
+      $container->get('tome_static_azure.synchroniser'),
       $container->get('state'),
     );
   }
@@ -70,7 +79,7 @@ class StaticAzureSyncForm extends FormBase {
     ];
 
     $warnings = $this->getWarnings();
-    if ($this->state->get(StaticAzureSyncInterface::STATE_KEY_AZURE_SYNC, FALSE)) {
+    if ($this->state->get(AzureSynchroniserInterface::STATE_KEY_AZURE_SYNC, FALSE)) {
       $warnings[] = $this->t('Another user may be running a synchronisation, proceed only if the last upload failed unexpectedly.');
     }
 
@@ -108,7 +117,7 @@ class StaticAzureSyncForm extends FormBase {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    $this->state->set(StaticAzureSyncInterface::STATE_KEY_AZURE_SYNC, TRUE);
+    $this->state->set(AzureSynchroniserInterface::STATE_KEY_AZURE_SYNC, TRUE);
 
     $this->setBatch();
   }
@@ -116,17 +125,15 @@ class StaticAzureSyncForm extends FormBase {
   /**
    * Exports all remaining paths at the end of a previous batch.
    *
-   * @param string $base_url
-   *   The base URL.
    * @param array $context
    *   The batch context.
    */
-  public function batchInvokePaths($base_url, array &$context) {
+  public function batchInvokePaths(array &$context) {
     if (!empty($context['results']['invoke_paths'])) {
       $context['results']['old_paths'] = isset($context['results']['old_paths']) ? $context['results']['old_paths'] : [];
       $context['results']['invoke_paths'] = array_diff($context['results']['invoke_paths'], $context['results']['old_paths']);
       $context['results']['old_paths'] = array_merge($context['results']['invoke_paths'], $context['results']['old_paths']);
-      $invoke_paths = $this->static->exportPaths($context['results']['invoke_paths']);
+      $invoke_paths = $this->synchroniser->exportPaths($context['results']['invoke_paths']);
       if (!empty($invoke_paths)) {
         $this->setBatch($invoke_paths, $base_url);
       }
@@ -134,16 +141,14 @@ class StaticAzureSyncForm extends FormBase {
   }
 
   /**
-   * Exports a path using Tome.
+   * Synchronises a path using Azure Storage.
    *
    * @param string $path
-   *   The path to export.
-   * @param string $base_url
-   *   The base URL.
+   *   The path to upload.
    * @param array $context
    *   The batch context.
    */
-  public function exportPath($path, $base_url, array &$context) {
+  public function syncPath($path) {
     $original_params = TomeStaticHelper::setBaseUrl($this->getRequest(), $base_url);
 
     $this->requestPreparer->prepareForRequest();
@@ -170,7 +175,7 @@ class StaticAzureSyncForm extends FormBase {
    *   Batch results set with context.
    */
   public function finishCallback($success, $results) {
-    $this->state->set(StaticAzureSyncInterface::STATE_KEY_AZURE_SYNC, FALSE);
+    $this->state->set(AzureSynchronisesreInterface::STATE_KEY_AZURE_SYNC, FALSE);
 
     $this->messenger()->deleteAll();
     if (!$success) {
@@ -189,13 +194,11 @@ class StaticAzureSyncForm extends FormBase {
    * Sets a new batch.
    *
    * @param array $paths
-   *   An array of paths to invoke.
-   * @param string $base_url
-   *   The base URL.
+   *   An array of paths to synchronise.
    */
-  protected function setBatch(array $paths, $base_url) {
+  protected function setBatch(array $paths) {
     $batch_builder = (new BatchBuilder())
-      ->setTitle($this->t('Uploading static HTML...'))
+      ->setTitle($this->t('Synchronising static HTML...'))
       ->setFinishCallback([$this, 'finishCallback']);
     $paths = $this->static->exportPaths($paths);
     foreach ($paths as $path) {

@@ -1,0 +1,3 @@
+services:
+  tome_static_azure.synchroniser:
+    class: Drupal\tome_static_azure\AzureSynchroniser
