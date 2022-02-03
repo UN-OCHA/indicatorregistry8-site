@@ -1,0 +1,7 @@
+tome_static_azure.sync:
+  path: '/admin/config/tome/static/sync'
+  defaults:
+    _form: 'Drupal\tome_static_azure\Form\StaticAzureSyncForm'
+    _title: 'Synchronise static site to Azure'
+  requirements:
+    _permission: 'use tome static'
