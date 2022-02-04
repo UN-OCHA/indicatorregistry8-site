@@ -5,7 +5,6 @@ namespace Drupal\tome_static_azure\Commands;
 use Drush\Commands\DrushCommands;
 use Drupal\Core\Site\Settings;
 use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
-use MicrosoftAzure\Storage\Blob\Models\ListBlobsOptions;
 
 
 /**
@@ -36,23 +35,28 @@ class TomeStaticAzureCommands extends DrushCommands {
     // This should use $settings eh?
     $tome_dir = Settings::get('tome_static_directory', '../html');
 
+    if (!file_exists($tome_dir) || !is_dir($tome_dir)) {
+      $this->logger()->error(dt('The tome_static source directory @dir does not exist!', ['@dir' => $tome_dir]));
+      exit(1);
+    }
+
     $storage_client = \Drupal::service('azure_storage.client');
     $storage_blob_service = $storage_client->getStorageBlobService();
 
     $files = $this->getFileList($tome_dir);
-    $this->logger()->info(dt('Going to synchronise @count files.', ['@count' => count($files)]));
+    $this->logger()->info(dt('Going to synchronise @count files from @dir', ['@count' => count($files), '@dir' => $tome_dir]));
 
     foreach ($files as $file) {
       try {
         $content = fopen("${tome_dir}/${file}", "r");
         $storage_blob_service->createBlockBlob(TomeStaticAzureCommands::AZURE_SITE_CONTAINER, $file, $content);
-        $this->logger()->success(dt('Uploaded @file.', ['@file' => $file]));
+        $this->logger()->success(dt('Uploaded @file', ['@file' => $file]));
       }
       catch (ServiceException $e) {
-        $this->logger()->error(dt('Service Error @code: @essage files.', ['@code' => $e->getCode(), '@message' => $e->getMessage()]));
+        $this->logger()->error(dt('Service Error @code: @message', ['@code' => $e->getCode(), '@message' => $e->getMessage()]));
       }
       catch (InvalidArgumentTypeException $e) {
-        $this->logger()->error(dt('Invalid Argument @code: @essage files.', ['@code' => $e->getCode(), '@message' => $e->getMessage()]));
+        $this->logger()->error(dt('Invalid Argument @code: @message.', ['@code' => $e->getCode(), '@message' => $e->getMessage()]));
       }
     }
   }
