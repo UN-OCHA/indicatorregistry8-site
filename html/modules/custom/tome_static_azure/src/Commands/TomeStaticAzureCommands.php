@@ -3,7 +3,7 @@
 namespace Drupal\tome_static_azure\Commands;
 
 use Drush\Commands\DrushCommands;
-
+use Drupal\Core\Site\Settings;
 use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 use MicrosoftAzure\Storage\Blob\Models\ListBlobsOptions;
 
@@ -19,6 +19,11 @@ use MicrosoftAzure\Storage\Blob\Models\ListBlobsOptions;
 class TomeStaticAzureCommands extends DrushCommands {
 
   /**
+   * A static website container is always this one.
+   */
+  const AZURE_SITE_CONTAINER = '$web';
+
+  /**
    * Synchronise the tome_static output directory to an azure storsage account.
    *
    * @usage drush tome-static-azure-sync
@@ -28,22 +33,19 @@ class TomeStaticAzureCommands extends DrushCommands {
    */
   public function sync() {
 
-    // Because microsoft.
-    $container = '$web';
-
     // This should use $settings eh?
-    $tome_dir  = "/tmp/tome";
+    $tome_dir = Settings::get('tome_static_directory', '../html');
 
     $storage_client = \Drupal::service('azure_storage.client');
     $storage_blob_service = $storage_client->getStorageBlobService();
 
     $files = $this->getFileList($tome_dir);
-    $this->logger()->success(dt('Going to synchronise @count files.', ['@count' => count($files)]));
+    $this->logger()->info(dt('Going to synchronise @count files.', ['@count' => count($files)]));
 
     foreach ($files as $file) {
       try {
         $content = fopen("${tome_dir}/${file}", "r");
-        $storage_blob_service->createBlockBlob($container, $file, $content);
+        $storage_blob_service->createBlockBlob(TomeStaticAzureCommands::AZURE_SITE_CONTAINER, $file, $content);
         $this->logger()->success(dt('Uploaded @file.', ['@file' => $file]));
       }
       catch (ServiceException $e) {
