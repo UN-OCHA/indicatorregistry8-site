@@ -74,7 +74,7 @@ if (!argv['login'] || !argv['index']) {
     }
     {
         const targetPage = page;
-        const element = await waitForSelectors([["aria/Index"],["#block-seven-content > input"]], targetPage);
+        const element = await waitForSelector(".js-lunr-search-index-button", targetPage);
         await element.click({ offset: { x: 49.48038864135742, y: 12.372543334960938} });
     }
     {
