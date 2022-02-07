@@ -17,7 +17,6 @@ dependencies:
     - taxonomy.vocabulary.hr_indicator_standard
     - taxonomy.vocabulary.hr_indicator_type
   module:
-    - lunr
     - lunr_filters
     - node
     - serialization
@@ -25,7 +24,7 @@ dependencies:
     - text
     - user
 _core:
-  default_config_hash: hUt2bX_uTwEavoszmbhIJB0nQr5sE_izmpQwuvTFyvQ
+  default_config_hash: Hu9E5md9NXvv7sBbC-HQgMmnkuWx_4I-2u8ZHWW0Uoc
 id: indicators_lunr_search
 label: 'Indicators Lunr search'
 module: views
@@ -1432,11 +1431,15 @@ display:
               raw_output: 0
             title_1:
               index: '1'
-              boost: '1'
+              boost: '3'
               alias: ''
               display: 0
               raw_output: 0
       rendering_language: '***LANGUAGE_language_interface***'
+      style:
+        type: lunr_filters_search_index_json
+        options:
+          disable_search: 0
     cache_metadata:
       max-age: -1
       contexts:
