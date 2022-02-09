@@ -152,7 +152,8 @@
         },
         "merge-plugin": {
             "include": [
-                "html/core/composer.json"
+                "html/core/composer.json",
+                "html/modules/custom/tome_static_azure/composer.json"
             ],
             "recurse": true,
             "replace": false,

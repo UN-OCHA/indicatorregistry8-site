@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bb321c0d34687686b7a7e3352c9ef448",
+    "content-hash": "62e9f2fa9a54575fca360b6bd1554f1a",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2440,10 +2440,14 @@
                 }
             },
             "autoload": {
+                "files": [
+                    "includes/bootstrap.inc",
+                    "includes/guzzle_php81_shim.php"
+                ],
                 "psr-4": {
                     "Drupal\\Core\\": "lib/Drupal/Core",
-                    "Drupal\\Component\\": "lib/Drupal/Component",
-                    "Drupal\\Driver\\": "../drivers/lib/Drupal/Driver"
+                    "Drupal\\Driver\\": "../drivers/lib/Drupal/Driver",
+                    "Drupal\\Component\\": "lib/Drupal/Component"
                 },
                 "classmap": [
                     "lib/Drupal.php",
@@ -2472,10 +2476,6 @@
                     "lib/Drupal/Core/Http/InputBag.php",
                     "lib/Drupal/Core/Installer/InstallerRedirectTrait.php",
                     "lib/Drupal/Core/Site/Settings.php"
-                ],
-                "files": [
-                    "includes/bootstrap.inc",
-                    "includes/guzzle_php81_shim.php"
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -15000,5 +15000,5 @@
         "php": ">=8.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.2.0"
+    "plugin-api-version": "2.1.0"
 }

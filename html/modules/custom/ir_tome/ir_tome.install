@@ -4,4 +4,7 @@
  * @file
  * Contains ir_tome install.
  */
-// change view path
+
+/**
+ * Change view path.
+ */

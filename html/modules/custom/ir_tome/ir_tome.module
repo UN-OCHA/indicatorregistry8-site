@@ -5,6 +5,7 @@
  * POCAM tome.
  */
 
+use Drupal\Core\Block\BlockPluginInterface;
 use Drupal\Core\Form\FormStateInterface;
 
 /**
@@ -38,7 +39,7 @@ function ir_tome_preprocess_page(&$variables) {
 /**
  * Implements hook_block_build_alter().
  */
-function ir_tome_block_build_alter(array &$build, \Drupal\Core\Block\BlockPluginInterface $block) {
+function ir_tome_block_build_alter(array &$build, BlockPluginInterface $block) {
   $id = $block->getDerivativeId();
   if (empty($id)) {
     return;
@@ -60,7 +61,7 @@ function ir_tome_block_build_alter(array &$build, \Drupal\Core\Block\BlockPlugin
  */
 function ir_tome_preprocess_menu(&$variables) {
   if (isset($variables['menu_name']) && $variables['menu_name'] === 'main') {
-    foreach($variables['items'] as $key => $item) {
+    foreach ($variables['items'] as $key => $item) {
       $url = $item['url']->toString();
       if ($url == '/content/api-documentation') {
         unset($variables['items'][$key]);
@@ -68,4 +69,3 @@ function ir_tome_preprocess_menu(&$variables) {
     }
   }
 }
-
