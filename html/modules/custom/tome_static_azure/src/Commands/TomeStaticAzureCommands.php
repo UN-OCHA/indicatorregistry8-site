@@ -4,7 +4,10 @@ namespace Drupal\tome_static_azure\Commands;
 
 use Drush\Commands\DrushCommands;
 use Drupal\Core\Site\Settings;
+use Drupal\azure_storage\AzureStorageClientInterface;
+use MicrosoftAzure\Storage\Blob\Models\CreateBlockBlobOptions;
 use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
+use Mimey\MimeTypes;
 
 
 /**
@@ -48,9 +51,14 @@ class TomeStaticAzureCommands extends DrushCommands {
 
     foreach ($files as $file) {
       try {
-        $content = fopen("${tome_dir}/${file}", "r");
-        $storage_blob_service->createBlockBlob(TomeStaticAzureCommands::AZURE_SITE_CONTAINER, $file, $content);
-        $this->logger()->success(dt('Uploaded @file', ['@file' => $file]));
+        // Set the file content-type, or Azure will default to forcing a download for everything.
+        $options = new CreateBlockBlobOptions();
+        $options->setContentType($file['filemime']);
+
+        $content = fopen("${tome_dir}/${file['filename']}", "r");
+        $storage_blob_service->createBlockBlob(TomeStaticAzureCommands::AZURE_SITE_CONTAINER, $file['filename'], $content, $options);
+
+        $this->logger()->success(dt('Uploaded @file', ['@file' => $file['filename']]));
       }
       catch (ServiceException $e) {
         $this->logger()->error(dt('Service Error @code: @message', ['@code' => $e->getCode(), '@message' => $e->getMessage()]));
@@ -66,6 +74,8 @@ class TomeStaticAzureCommands extends DrushCommands {
    *
    * @param string $path
    *   A directory.
+   * @return
+   *   An array of keyed values containing a filename and file mimetype.
    */
   private function getFileList($path) {
     $files = [];
@@ -81,9 +91,16 @@ class TomeStaticAzureCommands extends DrushCommands {
     });
     $iterator = new \RecursiveIteratorIterator($filter);
 
+    // Look up the mime type based on the extension (the magic file via finfo makes trouble).
+    $mimes = new MimeTypes();
+
     foreach ($iterator as $file) {
-      $files[] = substr($file->getPathname(), strlen($path) + 1);
+      $files[] = [
+        'filename' => substr($file->getPathname(), strlen($path) + 1),
+        'filemime' => $mimes->getMimeType(pathinfo($file->getPathname(), PATHINFO_EXTENSION)),
+      ];
     }
+
     return $files;
   }
 }

@@ -9,6 +9,7 @@
         }
     },
     "require": {
-        "microsoft/azure-storage-blob": "^1.5"
+        "microsoft/azure-storage-blob": "^1.5",
+        "ralouphie/mimey": "^1.0"
     }
 }
