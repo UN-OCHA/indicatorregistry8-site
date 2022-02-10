@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "96aa1fcb2e98d3cbfb22c33c101f73ef",
+    "content-hash": "24dd005b810db3b164e3a18ec8311aa7",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -4348,6 +4348,62 @@
             "homepage": "https://www.drupal.org/project/tome",
             "support": {
                 "source": "https://git.drupalcode.org/project/tome"
+            }
+        },
+        {
+            "name": "drupal/tome_static_azure",
+            "version": "dev-1.0.x",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/tome_static_azure.git",
+                "reference": "e70970767a3b977227d359ae67dc261a9421dea2"
+            },
+            "require": {
+                "drupal/azure_storage": "*",
+                "drupal/core": "^8 || ^9",
+                "drupal/tome_static": "*",
+                "microsoft/azure-storage-blob": "^1.5",
+                "php": ">=8",
+                "ralouphie/mimey": "^1.0"
+            },
+            "type": "drupal-drush",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.0.x": "1.0.x-dev"
+                },
+                "drupal": {
+                    "version": "1.0.x-dev",
+                    "datestamp": "1644535217",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                },
+                "drush": {
+                    "services": {
+                        "drush.services.yml": "^10"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Peter Lieverdink",
+                    "homepage": "https://www.drupal.org/user/105002",
+                    "role": ""
+                },
+                {
+                    "name": "cafuego",
+                    "homepage": "https://www.drupal.org/user/218525"
+                }
+            ],
+            "description": "Module that provides a drush command to upload a tome static website to an Azure storage account.",
+            "homepage": "https://www.drupal.org/project/tome_static_azure",
+            "support": {
+                "source": "https://git.drupalcode.org/project/tome_static_azure"
             }
         },
         {
@@ -13121,59 +13177,6 @@
             "description": "A robust cross-platform utility for normalizing, comparing and modifying file paths.",
             "abandoned": "symfony/filesystem",
             "time": "2015-12-17T08:42:14+00:00"
-        },
-        {
-            "name": "wikimedia/composer-merge-plugin",
-            "version": "v2.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/wikimedia/composer-merge-plugin.git",
-                "reference": "8ca2ed8ab97c8ebce6b39d9943e9909bb4f18912"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/wikimedia/composer-merge-plugin/zipball/8ca2ed8ab97c8ebce6b39d9943e9909bb4f18912",
-                "reference": "8ca2ed8ab97c8ebce6b39d9943e9909bb4f18912",
-                "shasum": ""
-            },
-            "require": {
-                "composer-plugin-api": "^1.1||^2.0",
-                "php": ">=7.2.0"
-            },
-            "require-dev": {
-                "composer/composer": "^1.1||^2.0",
-                "php-parallel-lint/php-parallel-lint": "~1.1.0",
-                "phpunit/phpunit": "^8.5||^9.0",
-                "squizlabs/php_codesniffer": "~3.5.4"
-            },
-            "type": "composer-plugin",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.x-dev"
-                },
-                "class": "Wikimedia\\Composer\\Merge\\V2\\MergePlugin"
-            },
-            "autoload": {
-                "psr-4": {
-                    "Wikimedia\\Composer\\Merge\\V2\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Bryan Davis",
-                    "email": "bd808@wikimedia.org"
-                }
-            ],
-            "description": "Composer plugin to merge multiple composer.json files",
-            "support": {
-                "issues": "https://github.com/wikimedia/composer-merge-plugin/issues",
-                "source": "https://github.com/wikimedia/composer-merge-plugin/tree/v2.0.1"
-            },
-            "time": "2021-02-24T05:28:06+00:00"
         }
     ],
     "packages-dev": [
@@ -15138,7 +15141,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "drupal/tome_static_azure": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

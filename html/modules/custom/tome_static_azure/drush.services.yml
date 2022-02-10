@@ -1,5 +1,0 @@
-services:
-  tome_static_azure.commands:
-    class: \Drupal\tome_static_azure\Commands\TomeStaticAzureCommands
-    tags:
-      - { name: drush.command }

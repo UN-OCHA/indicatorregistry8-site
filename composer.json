@@ -51,6 +51,7 @@
         "drupal/select2": "^1.8",
         "drupal/social_auth_hid": "^2.2",
         "drupal/tome": "^1.5",
+        "drupal/tome_static_azure": "1.0.x-dev",
         "drupal/views_data_export": "^1.0",
         "drush/drush": "^10.3",
         "npm-asset/select2": "^4.0",
@@ -58,8 +59,7 @@
         "phpoffice/phpspreadsheet": "^1.11",
         "unocha/common_design": "^4.0.0",
         "unocha/ocha_integrations": "^1.0",
-        "webflo/drupal-finder": "^1.0.0",
-        "wikimedia/composer-merge-plugin": "^2.0"
+        "webflo/drupal-finder": "^1.0.0"
     },
     "require-dev": {
         "drupal/config_filter": "^2.2",
@@ -91,9 +91,7 @@
             "drupal/core-project-message": true,
             "drupal/console-extend-plugin": true,
             "oomphinc/composer-installers-extender": true,
-            "symfony/flex": true,
-            "wikimedia/composer-merge-plugin": true
-
+            "symfony/flex": true
         }
     },
     "autoload": {
@@ -152,14 +150,6 @@
                 "web-root": "html/"
             },
             "omit-defaults": false
-        },
-        "merge-plugin": {
-            "include": [
-                "html/modules/custom/tome_static_azure/composer.json"
-            ],
-            "recurse": true,
-            "replace": false,
-            "merge-extra": false
         }
     }
 }
