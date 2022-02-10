@@ -33,7 +33,7 @@ class IrConfigOverrider implements ConfigFactoryOverrideInterface {
    * {@inheritdoc}
    */
   public function loadOverrides($names) {
-    $overrides = array();
+    $overrides = [];
 
     if (in_array('views.view.indicators', $names)) {
       $config = $this->configFactory->getEditable('views.view.indicators')->getRawData();
@@ -64,7 +64,7 @@ class IrConfigOverrider implements ConfigFactoryOverrideInterface {
    * {@inheritdoc}
    */
   public function getCacheSuffix() {
-    return 'ConfigExampleOverrider';
+    return 'IndicatorRegistryTomeConfigOverrider';
   }
 
   /**

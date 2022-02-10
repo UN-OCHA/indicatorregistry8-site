@@ -58,7 +58,8 @@
         "phpoffice/phpspreadsheet": "^1.11",
         "unocha/common_design": "^4.0.0",
         "unocha/ocha_integrations": "^1.0",
-        "webflo/drupal-finder": "^1.0.0"
+        "webflo/drupal-finder": "^1.0.0",
+        "wikimedia/composer-merge-plugin": "^2.0"
     },
     "require-dev": {
         "drupal/config_filter": "^2.2",
@@ -90,7 +91,9 @@
             "drupal/core-project-message": true,
             "drupal/console-extend-plugin": true,
             "oomphinc/composer-installers-extender": true,
-            "symfony/flex": true
+            "symfony/flex": true,
+            "wikimedia/composer-merge-plugin": true
+
         }
     },
     "autoload": {
@@ -152,7 +155,7 @@
         },
         "merge-plugin": {
             "include": [
-                "html/core/composer.json"
+                "html/modules/custom/tome_static_azure/composer.json"
             ],
             "recurse": true,
             "replace": false,
