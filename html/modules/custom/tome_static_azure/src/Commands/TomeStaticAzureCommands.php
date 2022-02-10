@@ -25,17 +25,19 @@ class TomeStaticAzureCommands extends DrushCommands {
 
   /**
    * The blob service.
+   *
+   * @var \MicrosoftAzure\Storage\Blob\Internal\IBlob
    */
-  protected $blob_service;
+  protected $blobService;
 
   /**
    * Constructor that should keep a blob service handy.
    */
   public function __construct() {
-    if (!$this->blob_service) {
+    if (!$this->blobService) {
       // @codingStandardsIgnoreLine
       $storage_client = \Drupal::service('azure_storage.client');
-      $this->blob_service = $storage_client->getStorageBlobService();
+      $this->blobService = $storage_client->getStorageBlobService();
     }
   }
 
@@ -75,19 +77,23 @@ class TomeStaticAzureCommands extends DrushCommands {
         $options->setContentType($mimes->getMimeType(pathinfo($file, PATHINFO_EXTENSION)));
 
         $content = fopen("${tome_dir}/${file}", "r");
-        $this->blob_service->createBlockBlob(TomeStaticAzureCommands::AZURE_SITE_CONTAINER, $file, $content, $options);
+        $this->blobService->createBlockBlob(TomeStaticAzureCommands::AZURE_SITE_CONTAINER, $file, $content, $options);
 
         $this->logger()->success(dt('Uploaded @file', ['@file' => $file]));
       }
       catch (ServiceException $e) {
-        $this->logger()->error(dt('Error uploading @file: Service Error @code: @message',
-          ['@file' => $file, '@code' => $e->getCode(), '@message' => $e->getMessage()]
-        ));
+        $this->logger()->error(dt('Error uploading @file: Service Error @code: @message', [
+          '@file'    => $file,
+          '@code'    => $e->getCode(),
+          '@message' => $e->getMessage(),
+        ]));
       }
       catch (InvalidArgumentTypeException $e) {
-        $this->logger()->error(dt('Error uploading @file: Invalid Argument @code: @message.',
-          ['@file' => $file, '@code' => $e->getCode(), '@message' => $e->getMessage()]
-        ));
+        $this->logger()->error(dt('Error uploading @file: Invalid Argument @code: @message.', [
+          '@file'    => $file,
+          '@code'    => $e->getCode(),
+          '@message' => $e->getMessage(),
+        ]));
       }
     }
 
@@ -105,7 +111,7 @@ class TomeStaticAzureCommands extends DrushCommands {
    */
   public function blobs() {
     $blobs = $this->getBlobList();
-    foreach($blobs as $blob) {
+    foreach ($blobs as $blob) {
       $this->logger()->success(dt('@blob', ['@blob' => $blob]));
     }
   }
@@ -119,23 +125,27 @@ class TomeStaticAzureCommands extends DrushCommands {
    * @param array $files
    *   An array of files that *should* exist on Azure.
    */
-  private function cleanup($files) {
+  private function cleanup(array $files) {
     $blobs = $this->getBlobList();
 
     foreach (array_diff($blobs, $files) as $orphan) {
       try {
-        $this->blob_service->deleteBlob(TomeStaticAzureCommands::AZURE_SITE_CONTAINER, $orphan);
+        $this->blobService->deleteBlob(TomeStaticAzureCommands::AZURE_SITE_CONTAINER, $orphan);
         $this->logger()->success(dt('Deleted @blob', ['@blob' => $orphan]));
       }
       catch (ServiceException $e) {
-        $this->logger()->error(dt('Error deleting @blob: Service Error @code: @message',
-          ['@blob' => $orphan, '@code' => $e->getCode(), '@message' => $e->getMessage()]
-        ));
+        $this->logger()->error(dt('Error deleting @blob: Service Error @code: @message', [
+          '@blob'    => $orphan,
+          '@code'    => $e->getCode(),
+          '@message' => $e->getMessage(),
+        ]));
       }
       catch (InvalidArgumentTypeException $e) {
-        $this->logger()->error(dt('Error deleting @blob: Invalid Argument @code: @message.',
-          ['@blob' => $orphan, '@code' => $e->getCode(), '@message' => $e->getMessage()]
-        ));
+        $this->logger()->error(dt('Error deleting @blob: Invalid Argument @code: @message.', [
+          '@blob'    => $orphan,
+          '@code'    => $e->getCode(),
+          '@message' => $e->getMessage(),
+        ]));
       }
     }
   }
@@ -176,7 +186,7 @@ class TomeStaticAzureCommands extends DrushCommands {
    */
   private function getBlobList() {
     $blobs = [];
-    $list = $this->blob_service->listBlobs(TomeStaticAzureCommands::AZURE_SITE_CONTAINER);
+    $list = $this->blobService->listBlobs(TomeStaticAzureCommands::AZURE_SITE_CONTAINER);
 
     foreach ($list->getBlobs() as $blob) {
       $blobs[] = $blob->getName();
