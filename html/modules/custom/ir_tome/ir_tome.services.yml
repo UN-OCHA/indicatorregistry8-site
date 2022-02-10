@@ -5,5 +5,7 @@ services:
       - { name: event_subscriber }
   ir_tome.IrConfigOverrider:
     class: Drupal\ir_tome\Config\IrConfigOverrider
+    arguments:
+      - '@config.factory'
     tags:
       - {name: config.factory.override, priority: 5}

@@ -3,6 +3,7 @@
 namespace Drupal\ir_tome\Config;
 
 use Drupal\Core\Cache\CacheableMetadata;
+use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Config\ConfigFactoryOverrideInterface;
 use Drupal\Core\Config\StorageInterface;
 
@@ -12,20 +13,37 @@ use Drupal\Core\Config\StorageInterface;
 class IrConfigOverrider implements ConfigFactoryOverrideInterface {
 
   /**
+   * The configuration storage service.
+   *
+   * @var \Drupal\Core\Config\ConfigFactoryInterface
+   */
+  protected $configFactory;
+
+  /**
+   * Constructs a new ConfigurableLanguageManager object.
+   *
+   * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
+   *   The configuration factory service.
+   */
+  public function __construct(ConfigFactoryInterface $config_factory) {
+    $this->configFactory = $config_factory;
+  }
+
+  /**
    * {@inheritdoc}
    */
   public function loadOverrides($names) {
     $overrides = array();
 
     if (in_array('views.view.indicators', $names)) {
-      $config = \Drupal::configFactory()->getEditable('views.view.indicators')->getRawData();
+      $config = $this->configFactory->getEditable('views.view.indicators')->getRawData();
       $config['display']['indicators_table']['display_options']['path'] = 'indicators-disabled';
       $overrides['views.view.indicators'] = $config;
       return $overrides;
     }
 
     if (in_array('system.performance', $names)) {
-      $config = \Drupal::configFactory()->getEditable('system.performance')->getRawData();
+      $config = $this->configFactory->getEditable('system.performance')->getRawData();
       $config['css']['preprocess'] = TRUE;
       $config['js']['preprocess'] = TRUE;
       $overrides['system.performance'] = $config;
@@ -33,7 +51,7 @@ class IrConfigOverrider implements ConfigFactoryOverrideInterface {
     }
 
     if (in_array('system.logging', $names)) {
-      $config = \Drupal::configFactory()->getEditable('system.logging')->getRawData();
+      $config = $this->configFactory->getEditable('system.logging')->getRawData();
       $config['error_level'] = 'hide';
       $overrides['system.logging'] = $config;
       return $overrides;
