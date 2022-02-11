@@ -1,0 +1,71 @@
+<?php
+
+/**
+ * @file
+ * POCAM tome.
+ */
+
+use Drupal\Core\Block\BlockPluginInterface;
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function ir_tome_form_views_exposed_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if ($form['#id'] == 'views-exposed-form-indicators-indicators-table') {
+    $form['#action'] = '/indicators';
+    $form['#method'] = 'get';
+    if (isset($form['s'])) {
+      $form['search'] = $form['s'];
+      $form['s'] = FALSE;
+    }
+  }
+}
+
+/**
+ * Implements hook_lunr_search_page_alter().
+ */
+function ir_tome_lunr_search_page_alter(&$build, $lunr_search) {
+  $build['#attached']['library'][] = 'ir_tome/ir_tome';
+}
+
+/**
+ * Implements template_preprocess_page().
+ */
+function ir_tome_preprocess_page(&$variables) {
+  unset($variables['page']['facets']);
+}
+
+/**
+ * Implements hook_block_build_alter().
+ */
+function ir_tome_block_build_alter(array &$build, BlockPluginInterface $block) {
+  $id = $block->getDerivativeId();
+  if (empty($id)) {
+    return;
+  }
+
+  $blocks_to_disable = [
+    'account',
+  ];
+
+  if (!in_array($id, $blocks_to_disable)) {
+    return;
+  }
+
+  $build['#access'] = FALSE;
+}
+
+/**
+ * Implements hook_preprocess_hook().
+ */
+function ir_tome_preprocess_menu(&$variables) {
+  if (isset($variables['menu_name']) && $variables['menu_name'] === 'main') {
+    foreach ($variables['items'] as $key => $item) {
+      $url = $item['url']->toString();
+      if ($url == '/content/api-documentation') {
+        unset($variables['items'][$key]);
+      }
+    }
+  }
+}

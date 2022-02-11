@@ -1,0 +1,12 @@
+diff --git a/core/modules/views/src/Plugin/views/filter/BooleanOperator.php b/core/modules/views/src/Plugin/views/filter/BooleanOperator.php
+index 95929ca..b5295f5 100644
+--- a/core/modules/views/src/Plugin/views/filter/BooleanOperator.php
++++ b/core/modules/views/src/Plugin/views/filter/BooleanOperator.php
+@@ -183,7 +183,6 @@ protected function valueForm(&$form, FormStateInterface $form_state) {
+       $user_input = $form_state->getUserInput();
+       if ($exposed && !isset($user_input[$identifier])) {
+         $user_input[$identifier] = $value;
+-        $form_state->setUserInput($user_input);
+       }
+       // If we're configuring an exposed filter, add an - Any - option.
+       if (!$exposed || empty($this->options['expose']['required'])) {

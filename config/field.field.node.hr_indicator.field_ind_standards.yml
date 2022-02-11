@@ -19,12 +19,12 @@ default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'
   handler_settings:
-    behaviors:
-      views-select-list:
-        status: 0
+    target_bundles:
+      hr_indicator_standard: hr_indicator_standard
     sort:
       field: _none
       direction: ASC
-    target_bundles:
-      hr_indicator_standard: hr_indicator_standard
+    behaviors:
+      views-select-list:
+        status: 0
 field_type: entity_reference

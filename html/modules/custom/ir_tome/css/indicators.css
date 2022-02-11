@@ -1,0 +1,33 @@
+.lunr-filters--wrapper {
+  display: grid;
+  grid-template-areas:
+      "sidebar results";
+  grid-template-columns: 250px 1fr;
+  width: 100%;
+  max-width: 100%;
+  position: relative;
+}
+
+.lunr-filters--wrapper-filters select,
+.lunr-filters--wrapper-filters .js-lunr-search-input {
+  width: 225px;
+}
+
+.lunr-filters--wrapper-filters .select2-container {
+  display: block;
+}
+
+.lunr-filters--wrapper-filters {
+  grid-area: sidebar;
+  overflow: hidden;
+}
+
+.lunr-filters--wrapper-results {
+  grid-area: results;
+}
+
+.path-indicators .cd-export-button--wrapper {
+  position: absolute;
+  right: 0;
+  top: 0;
+}

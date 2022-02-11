@@ -11,11 +11,11 @@ pattern: 'indicator/[node:field_ind_code]'
 selection_criteria:
   -
     id: node_type
-    bundles:
-      hr_indicator: hr_indicator
     negate: false
     context_mapping:
       node: node
+    bundles:
+      hr_indicator: hr_indicator
 selection_logic: and
 weight: 0
 relationships: {  }

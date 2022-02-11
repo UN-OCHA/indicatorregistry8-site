@@ -39,21 +39,21 @@ bundle: hr_indicator
 mode: default
 content:
   body:
-    weight: 5
     type: text_textarea_with_summary
+    weight: 5
+    region: content
     settings:
       rows: 9
       summary_rows: 3
       placeholder: ''
       show_summary: false
     third_party_settings: {  }
-    region: content
   comment_node_hr_indicator:
     type: comment_default
     weight: 20
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
   created:
     type: datetime_timestamp
     weight: 10
@@ -61,153 +61,153 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_ind_code:
-    weight: 2
     type: string_textfield
+    weight: 2
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    region: content
   field_ind_comments:
+    type: string_textarea
     weight: 20
-    type: string_textarea
+    region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-    region: content
   field_ind_data_sources:
+    type: string_textarea
     weight: 21
-    type: string_textarea
+    region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-    region: content
   field_ind_denominator:
+    type: string_textarea
     weight: 9
-    type: string_textarea
+    region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-    region: content
   field_ind_disaggregation:
+    type: string_textarea
     weight: 10
-    type: string_textarea
+    region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-    region: content
   field_ind_general_guidance:
+    type: string_textarea
     weight: 18
-    type: string_textarea
+    region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-    region: content
   field_ind_guidance_baseline:
+    type: string_textarea
     weight: 19
-    type: string_textarea
+    region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-    region: content
   field_ind_guidance_phases:
+    type: string_textarea
     weight: 16
-    type: string_textarea
+    region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-    region: content
   field_ind_key:
+    type: options_buttons
     weight: 11
-    type: options_buttons
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
   field_ind_level:
+    type: options_select
     weight: 28
-    type: options_select
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
   field_ind_numerator:
+    type: string_textarea
     weight: 8
-    type: string_textarea
+    region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-    region: content
   field_ind_phase_applicability:
+    type: options_buttons
     weight: 17
-    type: options_buttons
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
   field_ind_response:
-    weight: 13
     type: options_buttons
+    weight: 13
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
   field_ind_sectoral_objective:
+    type: options_select
     weight: 27
-    type: options_select
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
   field_ind_standards:
+    type: options_select
     weight: 14
-    type: options_select
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
   field_ind_strategic_objective:
+    type: options_select
     weight: 26
-    type: options_select
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
   field_ind_threshold:
+    type: string_textarea
     weight: 15
-    type: string_textarea
+    region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-    region: content
   field_ind_types:
+    type: options_select
     weight: 12
-    type: options_select
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
   field_ind_unit:
-    weight: 6
     type: options_select
+    weight: 6
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
   field_ind_unit_desc:
-    weight: 7
     type: string_textarea
+    weight: 7
+    region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-    region: content
   field_sectors:
-    weight: 1
     type: options_select
+    weight: 1
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
   langcode:
     type: language_select
     weight: 2
@@ -223,24 +223,24 @@ content:
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    settings:
-      display_label: true
     weight: 15
     region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    settings:
-      display_label: true
     weight: 120
     region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    settings:
-      display_label: true
     weight: 16
     region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   title:
     type: string_textfield
@@ -253,18 +253,18 @@ content:
   uid:
     type: entity_reference_autocomplete
     weight: 5
+    region: content
     settings:
       match_operator: CONTAINS
+      match_limit: 10
       size: 60
       placeholder: ''
-      match_limit: 10
-    region: content
     third_party_settings: {  }
   url_redirects:
     weight: 50
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
 hidden:
   field_ind_cross_tagging: true
   field_ind_domain: true
