@@ -24,7 +24,7 @@ dependencies:
     - text
     - user
 _core:
-  default_config_hash: Hu9E5md9NXvv7sBbC-HQgMmnkuWx_4I-2u8ZHWW0Uoc
+  default_config_hash: vX3kUgCRqA1k_8YDT9ixyEXq1V4toE89BRGRNAHu168
 id: indicators_lunr_search
 label: 'Indicators Lunr search'
 module: views
@@ -40,8 +40,8 @@ display:
     position: 0
     display_options:
       fields:
-        field_sectors_1:
-          id: field_sectors_1
+        field_sectors:
+          id: field_sectors
           table: node__field_sectors
           field: field_sectors
           relationship: none
@@ -166,8 +166,8 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_ind_domain_1:
-          id: field_ind_domain_1
+        field_ind_domain:
+          id: field_ind_domain
           table: node__field_ind_domain
           field: field_ind_domain
           relationship: none
@@ -216,9 +216,8 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: target_id
-          type: entity_reference_label
-          settings:
-            link: false
+          type: entity_reference_entity_id
+          settings: {  }
           group_column: target_id
           group_columns: {  }
           group_rows: true
@@ -407,68 +406,6 @@ display:
           empty_zero: false
           hide_alter_empty: true
           view_mode: search_result
-        field_sectors:
-          id: field_sectors
-          table: node__field_sectors
-          field: field_sectors
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: field
-          label: ''
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: target_id
-          type: entity_reference_entity_id
-          settings: {  }
-          group_column: target_id
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
         field_ind_key:
           id: field_ind_key
           table: node__field_ind_key
@@ -658,68 +595,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_ind_domain:
-          id: field_ind_domain
-          table: node__field_ind_domain
-          field: field_ind_domain
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: field
-          label: ''
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: target_id
-          type: entity_reference_entity_id
-          settings: {  }
-          group_column: target_id
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
         field_ind_types:
           id: field_ind_types
           table: node__field_ind_types
@@ -773,71 +648,6 @@ display:
           type: entity_reference_entity_id
           settings: {  }
           group_column: target_id
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-        title_1:
-          id: title_1
-          table: node_field_data
-          field: title
-          relationship: none
-          group_type: group
-          admin_label: ''
-          entity_type: node
-          entity_field: title
-          plugin_id: field
-          label: ''
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: string
-          settings:
-            link_to_entity: false
-          group_column: value
           group_columns: {  }
           group_rows: true
           delta_limit: 0
@@ -1352,51 +1162,45 @@ display:
       pager:
         type: none
         options:
-          offset: 0
+          offset: '0'
       row:
         type: lunr_filters_search_index_row
         options:
           field_options:
-            field_sectors_1:
+            field_sectors:
+              index: '1'
               boost: '1'
               display: '1'
-              alias: ''
-              index: 0
+              alias: sectors
               raw_output: 0
             field_ind_code:
               boost: '1'
               display: '1'
-              alias: ''
+              alias: code
               index: 0
               raw_output: 0
-            field_ind_domain_1:
+            field_ind_domain:
+              index: '1'
               boost: '1'
               display: '1'
-              alias: ''
-              index: 0
+              alias: domain
               raw_output: 0
             title:
-              boost: '1'
+              index: '1'
+              boost: '3'
               display: '1'
-              alias: title
-              index: 0
+              alias: label
               raw_output: 0
             body:
               index: '1'
               boost: '1'
               display: '1'
-              alias: body
+              alias: description
               raw_output: 0
             rendered_entity:
               boost: '1'
               alias: html
               index: 0
-              display: 0
-              raw_output: 0
-            field_sectors:
-              index: '1'
-              boost: '1'
-              alias: ''
               display: 0
               raw_output: 0
             field_ind_key:
@@ -1417,21 +1221,9 @@ display:
               alias: ''
               display: 0
               raw_output: 0
-            field_ind_domain:
-              index: '1'
-              boost: '1'
-              alias: ''
-              display: 0
-              raw_output: 0
             field_ind_types:
               index: '1'
               boost: '1'
-              alias: ''
-              display: 0
-              raw_output: 0
-            title_1:
-              index: '1'
-              boost: '3'
               alias: ''
               display: 0
               raw_output: 0
