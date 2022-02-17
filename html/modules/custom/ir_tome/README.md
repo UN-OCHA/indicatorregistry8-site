@@ -4,7 +4,7 @@
 
 1. `drush en ir_tome -y`
 2. Set GTM production Id
-3. Create index at http://pocam8-site.docksal/admin/config/lunr_search/extracts/index
+3. Create index at http://indicatorregistry8-site.docksal/admin/config/lunr_search/indicators
 4. `drush tome:static`
 
 ## Local settings
