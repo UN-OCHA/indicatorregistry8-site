@@ -2,7 +2,7 @@
 
 ## Steps
 
-1. `drush en pocam_tome -y`
+1. `drush en ir_tome -y`
 2. Set GTM production Id
 3. Create index at http://pocam8-site.docksal/admin/config/lunr_search/extracts/index
 4. `drush tome:static`
