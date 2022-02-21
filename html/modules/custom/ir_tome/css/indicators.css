@@ -1,46 +1,33 @@
-/*.lunr-filters--wrapper {*/
-/*  display: grid;*/
-/*  grid-template-areas:*/
-/*      "sidebar results";*/
-/*  grid-template-columns: 250px 1fr;*/
-/*  width: 100%;*/
-/*  max-width: 100%;*/
-/*  position: relative;*/
-/*}*/
+.lunr-filters--wrapper {
+  display: grid;
+  grid-template-areas:
+    "sidebar results";
+  grid-template-columns: 250px 1fr;
+  width: 100%;
+  max-width: 100%;
+  position: relative;
+}
 
-/*.lunr-filters--wrapper-filters select,*/
-/*.lunr-filters--wrapper-filters .js-lunr-search-input {*/
-/*  width: 225px;*/
-/*}*/
+.lunr-filters--wrapper-filters select,
+.lunr-filters--wrapper-filters .js-lunr-search-input {
+  width: 225px;
+}
 
 .lunr-filters--wrapper-filters .select2-container {
   display: block;
 }
 
-/*.lunr-filters--wrapper-filters {*/
-/*  grid-area: sidebar;*/
-/*  overflow: hidden;*/
-/*}*/
+.lunr-filters--wrapper-filters {
+  grid-area: sidebar;
+  overflow: hidden;
+}
 
-/*.lunr-filters--wrapper-results {*/
-/*  grid-area: results;*/
-/*}*/
+.lunr-filters--wrapper-results {
+  grid-area: results;
+}
 
 .path-indicators .cd-export-button--wrapper {
   position: absolute;
   right: 0;
   top: 0;
-}
-
-/* Temp - not sure where to put this yet. */
-.select2-container {
-  width: 100% !important;
-}
-
-.select2-container .select2-selection--multiple .select2-selection__rendered {
-  white-space: unset;
-}
-
-.lunr-search-page-form input[type="search"] {
-  width: 100%;
 }
