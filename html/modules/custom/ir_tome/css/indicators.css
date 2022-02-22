@@ -26,6 +26,8 @@
 /*  grid-area: results;*/
 /*}*/
 
+
+
 .path-indicators .cd-export-button--wrapper {
   position: absolute;
   right: 0;
@@ -38,16 +40,15 @@
   right: 0;
 }
 
-@media (max-width: 1023px) {
-  .select2-container {
-    width: 100%;
-    background-color: lightcoral;
-  }
+/* Select2 adjustments, so js calculated width doesn't break layout */
+.form-item > .select2-container {
+  width: 100% !important;
 }
 
 .select2-container .select2-selection--multiple .select2-selection__rendered {
   white-space: unset;
 }
+
 
 .lunr-search-page-form input[type="search"] {
   width: 100%;
