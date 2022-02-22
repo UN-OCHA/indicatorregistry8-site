@@ -3375,17 +3375,17 @@
         },
         {
             "name": "drupal/lunr_filters",
-            "version": "1.1.4",
+            "version": "1.1.5",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/lunr_filters.git",
-                "reference": "1.1.4"
+                "reference": "1.1.5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/lunr_filters-1.1.4.zip",
-                "reference": "1.1.4",
-                "shasum": "ead303a25df9bc8cef3f323f00c24d8ead584ed2"
+                "url": "https://ftp.drupal.org/files/projects/lunr_filters-1.1.5.zip",
+                "reference": "1.1.5",
+                "shasum": "c7b3201ffed5de3e092d8feba85ce6a76e263601"
             },
             "require": {
                 "drupal/core": "^8 || ^9",
@@ -3395,8 +3395,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "1.1.4",
-                    "datestamp": "1644586733",
+                    "version": "1.1.5",
+                    "datestamp": "1645455322",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
