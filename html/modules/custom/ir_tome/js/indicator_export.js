@@ -25,7 +25,7 @@
       exportWrapper.classList.add('cd-export-button--wrapper');
       exportWrapper.appendChild(exportButton);
 
-      document.querySelector('.block-system-main-block').appendChild(exportWrapper);
+      document.querySelector('.lunr-filters--wrapper-filters').prepend(exportWrapper);
     }
   };
 })(Drupal);

@@ -26,20 +26,6 @@
 /*  grid-area: results;*/
 /*}*/
 
-
-
-.path-indicators .cd-export-button--wrapper {
-  position: absolute;
-  right: 0;
-  top: 0;
-}
-
-.path-indicators .cd-export-button--wrapper {
-  position: absolute;
-  top: 0;
-  right: 0;
-}
-
 /* Select2 adjustments, so js calculated width doesn't break layout */
 .form-item > .select2-container {
   width: 100% !important;
