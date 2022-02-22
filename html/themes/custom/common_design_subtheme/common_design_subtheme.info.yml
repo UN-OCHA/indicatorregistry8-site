@@ -34,9 +34,3 @@ components:
 libraries-extend:
   common_design/cd-table:
     - common_design_subtheme/cd-table
-
-libraries-override:
-  ir_tome/ir_tome:
-    css:
-      theme:
-        css/indicators.css: components/cd-lunr/cd-lunr.css
