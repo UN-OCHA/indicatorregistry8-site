@@ -1,4 +1,4 @@
-# Pocam Tomifier
+# IR Tomifier
 
 ## Steps
 
