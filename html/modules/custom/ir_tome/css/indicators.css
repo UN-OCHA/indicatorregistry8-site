@@ -1,31 +1,3 @@
-/*.lunr-filters--wrapper {*/
-/*  display: grid;*/
-/*  grid-template-areas:*/
-/*    "sidebar results";*/
-/*  grid-template-columns: 250px 1fr;*/
-/*  width: 100%;*/
-/*  max-width: 100%;*/
-/*  position: relative;*/
-/*}*/
-
-/*.lunr-filters--wrapper-filters select,*/
-/*.lunr-filters--wrapper-filters .js-lunr-search-input {*/
-/*  width: 225px;*/
-/*}*/
-
-/*.lunr-filters--wrapper-filters .select2-container {*/
-/*  display: block;*/
-/*}*/
-
-/*.lunr-filters--wrapper-filters {*/
-/*  grid-area: sidebar;*/
-/*  overflow: hidden;*/
-/*}*/
-
-/*.lunr-filters--wrapper-results {*/
-/*  grid-area: results;*/
-/*}*/
-
 /* Select2 adjustments, so js calculated width doesn't break layout */
 .form-item > .select2-container {
   width: 100% !important;
