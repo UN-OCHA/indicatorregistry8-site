@@ -57,6 +57,15 @@ class IrConfigOverrider implements ConfigFactoryOverrideInterface {
       return $overrides;
     }
 
+    if (in_array('common_design_subtheme.settings', $names)) {
+      $config = $this->configFactory->getEditable('common_design_subtheme.settings')->getRawData();
+      $config['common_design_node_title'] = [
+        'full' => 0,
+      ];
+      $overrides['common_design_subtheme.settings'] = $config;
+      return $overrides;
+    }
+
     return $overrides;
   }
 
