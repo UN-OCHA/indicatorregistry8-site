@@ -54,3 +54,19 @@ function common_design_subtheme_form_alter(&$form, FormStateInterface $form_stat
     $form['actions']['submit']['#attributes']['value'][] = 'Search';
   }
 }
+
+
+/**
+ * Implements hook_form_system_theme_settings_alter().
+ *
+ * Add a setting to the theme for the special handling of the node title.
+ */
+//function common_design_subtheme_form_system_theme_settings_alter(&$form, FormStateInterface $form_state, $form_id = NULL) {
+//  $moduleHandler = \Drupal::service('module_handler');
+//
+//  // By default, this behavior is enabled for the "full" view mode.
+//  $default = theme_get_setting('common_design_node_title');
+//  if ($moduleHandler->moduleExists('ir_tome')) {
+//    $default = ['0'];
+//  }
+//}
