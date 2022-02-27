@@ -47,6 +47,7 @@
         "drupal/seckit": "^2.0",
         "drupal/select2": "^1.8",
         "drupal/social_auth_hid": "^2.6",
+        "drupal/user_expire": "^1.0",
         "drupal/views_data_export": "^1.0",
         "drush/drush": "^10.3",
         "npm-asset/select2": "^4.0",
