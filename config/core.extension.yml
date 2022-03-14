@@ -6,6 +6,7 @@ module:
   block: 0
   block_content: 0
   breakpoint: 0
+  build_hooks: 0
   ckeditor: 0
   color: 0
   comment: 0
@@ -16,6 +17,7 @@ module:
   csv_serialization: 0
   ctools: 0
   datetime: 0
+  dynamic_entity_reference: 0
   dynamic_page_cache: 0
   editor: 0
   facets: 0

@@ -1,0 +1,16 @@
+uuid: d24829a6-18fc-440a-9134-01d62b256ca1
+langcode: en
+status: true
+dependencies: {  }
+id: deploy_static_site
+label: 'Deploy static site'
+provider: null
+plugin: generic
+deployment_strategy: manual
+url: 'https://ir.static.ahconu.org/'
+weight: 0
+settings:
+  id: generic
+  label: null
+  provider: build_hooks
+  build_hook_url: 'https://jenkins.aws.ahconu.org/generic-webhook-trigger/invoke?token=TOKEN_HERE'
