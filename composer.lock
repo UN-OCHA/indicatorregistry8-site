@@ -6087,12 +6087,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "League\\Csv\\": "src"
-                },
                 "files": [
                     "src/functions_include.php"
-                ]
+                ],
+                "psr-4": {
+                    "League\\Csv\\": "src"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
