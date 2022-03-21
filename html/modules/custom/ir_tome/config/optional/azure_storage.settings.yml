@@ -1,0 +1,6 @@
+protocol: https
+account_name: STORED_IN_ANSILBLE
+test_account_key: azure_key1
+live_account_key: azure_key1
+mode: test
+endpoint_suffix: ''

@@ -1,0 +1,8 @@
+ir_tome.redirect:
+  path: '/indicators/global-clusters/{id}'
+  defaults:
+    _controller: '\Drupal\ir_tome\Controller\RedirectController::redirectToLunr'
+    _title: 'redirect'
+  requirements:
+    _access: 'TRUE'
+    id: \d+

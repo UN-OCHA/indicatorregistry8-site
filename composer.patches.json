@@ -1,10 +1,15 @@
 {
   "patches": {
-    "drupal/facets": {
-      "https://www.drupal.org/project/facets/issues/3005040": "https://www.drupal.org/files/issues/2021-05-13/facets-hierarchy-allow-different-types-3005040-13.patch"
-    },
     "drupal/select2": {
       "https://www.drupal.org/project/select2/issues/3078085": "https://www.drupal.org/files/issues/2020-02-27/hierarchical-facet-widget-3078085-2.patch"
+    },
+    "drupal/core": {
+      "https://www.drupal.org/node/2429699 - view exposed entity reference": "https://www.drupal.org/files/issues/2021-12-02/2429699-453-9.3.x.patch",
+      "https://www.drupal.org/node/2732103 - Boolean exposed filter default values do not work correctly with AJAX enabled views": "https://www.drupal.org/files/issues/2732103-25.patch",
+      "HOTFIX https://www.drupal.org/node/2732103 - Boolean exposed filter default values do not work correctly with AJAX enabled views": "./PATCHES/2732103-25.patch"
+    },
+    "drupal/azure_storage": {
+      "https://www.drupal.org/project/azure_storage/issues/3261907": "https://git.drupalcode.org/project/azure_storage/-/merge_requests/1.diff"
     }
   }
 }

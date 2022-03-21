@@ -43,87 +43,12 @@ base_table: search_api_index_indicators
 base_field: search_api_id
 display:
   default:
-    display_plugin: default
     id: default
     display_title: Master
+    display_plugin: default
     position: 0
     display_options:
-      access:
-        type: none
-        options: {  }
-      cache:
-        type: tag
-        options: {  }
-      query:
-        type: views_query
-        options:
-          bypass_access: false
-          skip_access: false
-          preserve_facet_query_args: false
-      exposed_form:
-        type: basic
-        options:
-          submit_button: Apply
-          reset_button: false
-          reset_button_label: Reset
-          exposed_sorts_label: 'Sort by'
-          expose_sort_order: true
-          sort_asc_label: Asc
-          sort_desc_label: Desc
-      pager:
-        type: full
-        options:
-          items_per_page: 25
-          offset: 0
-          id: 0
-          total_pages: null
-          tags:
-            previous: ‹‹
-            next: ››
-            first: '« First'
-            last: 'Last »'
-          expose:
-            items_per_page: false
-            items_per_page_label: 'Items per page'
-            items_per_page_options: '5, 10, 25, 50'
-            items_per_page_options_all: false
-            items_per_page_options_all_label: '- All -'
-            offset: false
-            offset_label: Offset
-          quantity: 9
-      style:
-        type: table
-        options:
-          grouping: {  }
-          row_class: ''
-          default_row_class: true
-          override: true
-          sticky: false
-          caption: ''
-          summary: ''
-          description: ''
-          columns:
-            changed: changed
-            field_sectors: field_sectors
-          info:
-            changed:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_sectors:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-          default: '-1'
-          empty_table: false
-      row:
-        type: fields
+      title: Indicators
       fields:
         field_sectors:
           id: field_sectors
@@ -132,6 +57,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: search_api_field
           label: 'Global cluster'
           exclude: false
           alter:
@@ -204,7 +130,6 @@ display:
               hr_sector:
                 display_method: label
                 view_mode: default
-          plugin_id: search_api_field
         field_ind_code:
           id: field_ind_code
           table: search_api_index_indicators
@@ -212,6 +137,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: search_api_field
           label: Code
           exclude: false
           alter:
@@ -274,7 +200,6 @@ display:
             use_highlighting: false
             multi_type: separator
             multi_separator: ', '
-          plugin_id: search_api_field
         field_ind_domain:
           id: field_ind_domain
           table: search_api_index_indicators
@@ -282,6 +207,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: search_api_field
           label: Sub-domain
           exclude: false
           alter:
@@ -367,7 +293,6 @@ display:
                 display_method: label
               tags:
                 display_method: label
-          plugin_id: search_api_field
         title:
           id: title
           table: search_api_index_indicators
@@ -375,6 +300,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: search_api_field
           label: Title
           exclude: false
           alter:
@@ -437,7 +363,6 @@ display:
             use_highlighting: false
             multi_type: separator
             multi_separator: ', '
-          plugin_id: search_api_field
         body:
           id: body
           table: search_api_datasource_indicators_entity_node
@@ -445,6 +370,8 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          plugin_id: search_api_field
           label: 'Description / Rationale'
           exclude: false
           alter:
@@ -506,8 +433,72 @@ display:
             use_highlighting: false
             multi_type: separator
             multi_separator: ', '
-          entity_type: node
-          plugin_id: search_api_field
+      pager:
+        type: full
+        options:
+          offset: 0
+          items_per_page: 25
+          total_pages: null
+          id: 0
+          tags:
+            next: ››
+            previous: ‹‹
+            first: '« First'
+            last: 'Last »'
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          quantity: 9
+      exposed_form:
+        type: basic
+        options:
+          submit_button: Apply
+          reset_button: false
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
+          expose_sort_order: true
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      access:
+        type: none
+        options: {  }
+      cache:
+        type: tag
+        options: {  }
+      empty:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text
+          empty: true
+          content:
+            value: 'Your search yielded no results.'
+            format: basic_html
+          tokenize: false
+      sorts:
+        field_ind_code:
+          id: field_ind_code
+          table: search_api_index_indicators
+          field: field_ind_code
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: ''
+            field_identifier: field_ind_code
+          exposed: false
+      arguments: {  }
       filters:
         search_api_fulltext:
           id: search_api_fulltext
@@ -516,6 +507,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: search_api_fulltext
           operator: and
           value: ''
           group: 1
@@ -552,39 +544,48 @@ display:
           parse_mode: terms
           min_length: null
           fields: {  }
-          plugin_id: search_api_fulltext
-      sorts:
-        field_ind_code:
-          id: field_ind_code
-          table: search_api_index_indicators
-          field: field_ind_code
-          relationship: none
-          group_type: group
-          admin_label: ''
-          order: ASC
-          exposed: false
-          expose:
-            label: ''
-          plugin_id: search_api
-      title: Indicators
+      style:
+        type: table
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+          columns:
+            changed: changed
+            field_sectors: field_sectors
+          default: '-1'
+          info:
+            changed:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_sectors:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+          override: true
+          sticky: false
+          summary: ''
+          empty_table: false
+          caption: ''
+          description: ''
+      row:
+        type: fields
+      query:
+        type: views_query
+        options:
+          bypass_access: false
+          skip_access: false
+          preserve_facet_query_args: false
+      relationships: {  }
       header: {  }
       footer: {  }
-      empty:
-        area:
-          id: area
-          table: views
-          field: area
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: true
-          tokenize: false
-          content:
-            value: 'Your search yielded no results.'
-            format: basic_html
-          plugin_id: text
-      relationships: {  }
-      arguments: {  }
       display_extenders: {  }
     cache_metadata:
       max-age: -1
@@ -601,37 +602,11 @@ display:
         - 'config:field.storage.node.field_sectors'
         - 'config:search_api.index.indicators'
   data_export_1:
-    display_plugin: data_export
     id: data_export_1
     display_title: 'Data export'
+    display_plugin: data_export
     position: 2
     display_options:
-      display_extenders: {  }
-      path: export/indicators
-      filename: indicators.csv
-      automatic_download: true
-      store_in_public_file_directory: null
-      redirect_to_display: none
-      custom_redirect_path: false
-      include_query_params: false
-      style:
-        type: data_export
-        options:
-          formats:
-            csv: csv
-          csv_settings:
-            delimiter: ','
-            enclosure: '"'
-            escape_char: \
-            strip_tags: true
-            trim: true
-            encoding: utf8
-            utf8_bom: '0'
-            use_serializer_encode_only: true
-      facet_settings: 'search_api:views_data_export__indicators__data_export_1'
-      displays:
-        default: '0'
-        indicators_table: '0'
       fields:
         field_sectors:
           id: field_sectors
@@ -640,6 +615,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: search_api_field
           label: 'Global cluster'
           exclude: false
           alter:
@@ -712,7 +688,6 @@ display:
               hr_sector:
                 display_method: label
                 view_mode: default
-          plugin_id: search_api_field
         field_ind_code:
           id: field_ind_code
           table: search_api_index_indicators
@@ -720,6 +695,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: search_api_field
           label: Code
           exclude: false
           alter:
@@ -782,7 +758,6 @@ display:
             use_highlighting: false
             multi_type: separator
             multi_separator: ', '
-          plugin_id: search_api_field
         field_ind_domain:
           id: field_ind_domain
           table: search_api_index_indicators
@@ -790,6 +765,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: search_api_field
           label: Sub-domain
           exclude: false
           alter:
@@ -875,7 +851,6 @@ display:
                 display_method: label
               tags:
                 display_method: label
-          plugin_id: search_api_field
         title:
           id: title
           table: search_api_index_indicators
@@ -883,6 +858,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: search_api_field
           label: Title
           exclude: false
           alter:
@@ -945,7 +921,6 @@ display:
             use_highlighting: false
             multi_type: separator
             multi_separator: ', '
-          plugin_id: search_api_field
         body:
           id: body
           table: search_api_datasource_indicators_entity_node
@@ -953,6 +928,8 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          plugin_id: search_api_field
           label: Description/Rationale
           exclude: false
           alter:
@@ -1014,8 +991,6 @@ display:
             use_highlighting: false
             multi_type: separator
             multi_separator: ', '
-          entity_type: node
-          plugin_id: search_api_field
         field_ind_denominator:
           id: field_ind_denominator
           table: search_api_datasource_indicators_entity_node
@@ -1023,6 +998,8 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          plugin_id: search_api_field
           label: Denominator
           exclude: false
           alter:
@@ -1084,8 +1061,6 @@ display:
             use_highlighting: false
             multi_type: separator
             multi_separator: ', '
-          entity_type: node
-          plugin_id: search_api_field
         field_ind_disaggregation:
           id: field_ind_disaggregation
           table: search_api_datasource_indicators_entity_node
@@ -1093,6 +1068,8 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          plugin_id: search_api_field
           label: Disaggregation
           exclude: false
           alter:
@@ -1154,8 +1131,6 @@ display:
             use_highlighting: false
             multi_type: separator
             multi_separator: ', '
-          entity_type: node
-          plugin_id: search_api_field
         field_ind_general_guidance:
           id: field_ind_general_guidance
           table: search_api_datasource_indicators_entity_node
@@ -1163,6 +1138,8 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          plugin_id: search_api_field
           label: 'General guidance'
           exclude: false
           alter:
@@ -1224,8 +1201,6 @@ display:
             use_highlighting: false
             multi_type: separator
             multi_separator: ', '
-          entity_type: node
-          plugin_id: search_api_field
         field_ind_guidance_baseline:
           id: field_ind_guidance_baseline
           table: search_api_index_indicators
@@ -1233,6 +1208,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: search_api_field
           label: 'Guidance for pre-crisis/baseline'
           exclude: false
           alter:
@@ -1294,7 +1270,6 @@ display:
             use_highlighting: false
             multi_type: separator
             multi_separator: ', '
-          plugin_id: search_api_field
         field_ind_guidance_phases:
           id: field_ind_guidance_phases
           table: search_api_index_indicators
@@ -1302,6 +1277,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: search_api_field
           label: 'Guidance on phases'
           exclude: false
           alter:
@@ -1363,7 +1339,6 @@ display:
             use_highlighting: false
             multi_type: separator
             multi_separator: ', '
-          plugin_id: search_api_field
         field_ind_response:
           id: field_ind_response
           table: search_api_index_indicators
@@ -1371,6 +1346,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: search_api_field
           label: 'Indicator used for response monitoring?'
           exclude: false
           alter:
@@ -1416,8 +1392,8 @@ display:
           type: boolean
           settings:
             format: yes-no
-            format_custom_true: ''
             format_custom_false: ''
+            format_custom_true: ''
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -1439,7 +1415,6 @@ display:
             use_highlighting: false
             multi_type: separator
             multi_separator: ', '
-          plugin_id: search_api_field
         field_ind_key:
           id: field_ind_key
           table: search_api_index_indicators
@@ -1447,6 +1422,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: search_api_field
           label: 'Key indicator'
           exclude: false
           alter:
@@ -1492,8 +1468,8 @@ display:
           type: boolean
           settings:
             format: yes-no
-            format_custom_true: ''
             format_custom_false: ''
+            format_custom_true: ''
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -1515,7 +1491,6 @@ display:
             use_highlighting: false
             multi_type: separator
             multi_separator: ', '
-          plugin_id: search_api_field
         field_ind_level:
           id: field_ind_level
           table: search_api_index_indicators
@@ -1523,6 +1498,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: search_api_field
           label: Level
           exclude: false
           alter:
@@ -1608,7 +1584,6 @@ display:
                 display_method: label
               tags:
                 display_method: label
-          plugin_id: search_api_field
         field_ind_numerator:
           id: field_ind_numerator
           table: search_api_datasource_indicators_entity_node
@@ -1616,6 +1591,8 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          plugin_id: search_api_field
           label: Numerator
           exclude: false
           alter:
@@ -1677,8 +1654,6 @@ display:
             use_highlighting: false
             multi_type: separator
             multi_separator: ', '
-          entity_type: node
-          plugin_id: search_api_field
         field_ind_phase_applicability:
           id: field_ind_phase_applicability
           table: search_api_datasource_indicators_entity_node
@@ -1686,6 +1661,8 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          plugin_id: search_api_field
           label: 'Phase applicability'
           exclude: false
           alter:
@@ -1747,8 +1724,6 @@ display:
             use_highlighting: false
             multi_type: separator
             multi_separator: ', '
-          entity_type: node
-          plugin_id: search_api_field
         field_ind_cross_tagging:
           id: field_ind_cross_tagging
           table: search_api_index_indicators
@@ -1756,6 +1731,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: search_api_field
           label: 'Sector cross-tagging'
           exclude: false
           alter:
@@ -1841,7 +1817,6 @@ display:
                 display_method: label
               tags:
                 display_method: label
-          plugin_id: search_api_field
         field_ind_sectoral_objective:
           id: field_ind_sectoral_objective
           table: search_api_index_indicators
@@ -1849,6 +1824,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: search_api_field
           label: 'Sectoral objective'
           exclude: false
           alter:
@@ -1934,7 +1910,6 @@ display:
                 display_method: label
               tags:
                 display_method: label
-          plugin_id: search_api_field
         field_ind_standards:
           id: field_ind_standards
           table: search_api_index_indicators
@@ -1942,6 +1917,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: search_api_field
           label: Standards
           exclude: false
           alter:
@@ -2027,7 +2003,6 @@ display:
                 display_method: label
               tags:
                 display_method: label
-          plugin_id: search_api_field
         field_ind_strategic_objective:
           id: field_ind_strategic_objective
           table: search_api_index_indicators
@@ -2035,6 +2010,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: search_api_field
           label: 'Strategic objective'
           exclude: false
           alter:
@@ -2120,7 +2096,6 @@ display:
                 display_method: label
               tags:
                 display_method: label
-          plugin_id: search_api_field
         field_ind_threshold:
           id: field_ind_threshold
           table: search_api_datasource_indicators_entity_node
@@ -2128,6 +2103,8 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          plugin_id: search_api_field
           label: 'Threshold / Standard'
           exclude: false
           alter:
@@ -2189,8 +2166,6 @@ display:
             use_highlighting: false
             multi_type: separator
             multi_separator: ', '
-          entity_type: node
-          plugin_id: search_api_field
         field_ind_types:
           id: field_ind_types
           table: search_api_index_indicators
@@ -2198,6 +2173,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: search_api_field
           label: Types
           exclude: false
           alter:
@@ -2283,7 +2259,6 @@ display:
                 display_method: label
               tags:
                 display_method: label
-          plugin_id: search_api_field
         field_ind_unit_desc:
           id: field_ind_unit_desc
           table: search_api_datasource_indicators_entity_node
@@ -2291,6 +2266,8 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          plugin_id: search_api_field
           label: 'Unit Description'
           exclude: false
           alter:
@@ -2352,8 +2329,6 @@ display:
             use_highlighting: false
             multi_type: separator
             multi_separator: ', '
-          entity_type: node
-          plugin_id: search_api_field
         field_ind_unit_1:
           id: field_ind_unit_1
           table: search_api_index_indicators
@@ -2361,6 +2336,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: search_api_field
           label: 'Unit of Measurement'
           exclude: false
           alter:
@@ -2446,15 +2422,40 @@ display:
                 display_method: label
               tags:
                 display_method: label
-          plugin_id: search_api_field
-      defaults:
-        fields: false
-      export_limit: 9999
       pager:
         type: some
         options:
-          items_per_page: 9999
           offset: 0
+          items_per_page: 9999
+      style:
+        type: data_export
+        options:
+          formats:
+            csv: csv
+          csv_settings:
+            delimiter: ','
+            enclosure: '"'
+            escape_char: \
+            strip_tags: true
+            trim: true
+            encoding: utf8
+            utf8_bom: '0'
+            use_serializer_encode_only: true
+      defaults:
+        fields: false
+      display_extenders: {  }
+      path: export/indicators
+      displays:
+        default: '0'
+        indicators_table: '0'
+      filename: indicators.csv
+      automatic_download: true
+      export_limit: 9999
+      facet_settings: 'search_api:views_data_export__indicators__data_export_1'
+      store_in_public_file_directory: null
+      custom_redirect_path: false
+      redirect_to_display: none
+      include_query_params: false
     cache_metadata:
       max-age: -1
       contexts:
@@ -2488,19 +2489,19 @@ display:
         - 'config:field.storage.node.field_sectors'
         - 'config:search_api.index.indicators'
   indicators_table:
-    display_plugin: page
     id: indicators_table
     display_title: Table
+    display_plugin: page
     position: 1
     display_options:
-      display_extenders: {  }
-      path: indicators
       cache:
         type: none
       defaults:
         cache: false
-      exposed_block: true
       display_description: ''
+      exposed_block: true
+      display_extenders: {  }
+      path: indicators
     cache_metadata:
       max-age: -1
       contexts:

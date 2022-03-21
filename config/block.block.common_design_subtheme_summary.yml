@@ -18,11 +18,11 @@ plugin: 'facets_summary_block:summary'
 settings:
   id: 'facets_summary_block:summary'
   label: Summary
-  provider: facets_summary
   label_display: visible
+  provider: facets_summary
 visibility:
   request_path:
     id: request_path
-    pages: "/indicators\r\n/indicators/*"
     negate: false
     context_mapping: {  }
+    pages: "/indicators\r\n/indicators/*"

@@ -9,49 +9,6 @@ dependencies:
     - search_api
 id: summary
 name: Summary
-facets:
-  global_clusters:
-    checked: true
-    label: 'Global Clusters'
-    separator: ', '
-    weight: 0
-    show_count: false
-  key_indicator:
-    checked: true
-    label: 'Key indicator'
-    separator: ', '
-    weight: 0
-    show_count: false
-  sector_cross_tagging:
-    checked: true
-    label: 'Sector cross-tagging'
-    separator: ', '
-    weight: 0
-    show_count: false
-  sectoral_objective:
-    checked: true
-    label: 'Sectoral objective'
-    separator: ', '
-    weight: 0
-    show_count: false
-  standards:
-    checked: true
-    label: Standards
-    separator: ', '
-    weight: 0
-    show_count: false
-  sub_domain:
-    checked: true
-    label: Sub-domain
-    separator: ', '
-    weight: 0
-    show_count: false
-  types:
-    checked: true
-    label: Types
-    separator: ', '
-    weight: 0
-    show_count: false
 facet_source_id: 'search_api:views_page__indicators__indicators_table'
 processor_configs:
   hide_when_not_rendered:
@@ -84,3 +41,46 @@ processor_configs:
       text:
         value: 'No results found.'
         format: plain_text
+facets:
+  global_clusters:
+    checked: true
+    label: 'Global Clusters'
+    separator: ', '
+    show_count: false
+    weight: 0
+  key_indicator:
+    checked: true
+    label: 'Key indicator'
+    separator: ', '
+    show_count: false
+    weight: 0
+  sector_cross_tagging:
+    checked: true
+    label: 'Sector cross-tagging'
+    separator: ', '
+    show_count: false
+    weight: 0
+  sectoral_objective:
+    checked: true
+    label: 'Sectoral objective'
+    separator: ', '
+    show_count: false
+    weight: 0
+  standards:
+    checked: true
+    label: Standards
+    separator: ', '
+    show_count: false
+    weight: 0
+  sub_domain:
+    checked: true
+    label: Sub-domain
+    separator: ', '
+    show_count: false
+    weight: 0
+  types:
+    checked: true
+    label: Types
+    separator: ', '
+    show_count: false
+    weight: 0
