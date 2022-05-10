@@ -10,9 +10,13 @@ jobs:
     container: public.ecr.aws/unocha/php:8.0-stable
     steps:
 
+      - name: Workaround Git Issue
+        id: workaround
+        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
+
       - name: Checkout code
         id: checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           ref: 'develop'
 
@@ -36,7 +40,7 @@ jobs:
 
       - name: Create Pull Request
         id: pull
-        uses: peter-evans/create-pull-request@v3
+        uses: peter-evans/create-pull-request@v4
         with:
           token: ${{ secrets.PAT }}
           commit-message: "[UPDATES] Periodic pull request after updating all outdated drupal packages."
