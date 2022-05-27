@@ -98,5 +98,5 @@ jobs:
         env:
           FLOWDOCK_TOKEN: ${{ secrets.FLOWDOCK_TOKEN }}
           FLOWDOCK_ICON: 'jeans'
-          FLOWDOCK_MESSAGE: 'Created an up to date pull request for [${{ github.action.repository }}](${{ steps.pull.outputs.pull-request-url }}) from ${{ github.ref }}.'
+          FLOWDOCK_MESSAGE: 'Created an up to date pull request for [${{ github.repository }}](${{ steps.pull.outputs.pull-request-url }}) from ${{ github.ref }}.'
           FLOWDOCK_TAGS: 'pull,${{ github.actor }}'
