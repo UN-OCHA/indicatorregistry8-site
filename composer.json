@@ -33,7 +33,7 @@
         "drupal/core-project-message": "^9.3",
         "drupal/core-recommended": "^9.3",
         "drupal/csv_serialization": "^2.0",
-        "drupal/ctools": "^3.7",
+        "drupal/ctools": "^4.0",
         "drupal/dream_block_manager": "^1.0",
         "drupal/facets": "^1.8",
         "drupal/facets_pretty_paths": "^1.1",
