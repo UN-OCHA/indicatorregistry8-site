@@ -10,7 +10,7 @@ type: 'canonical_entities:node'
 pattern: 'indicator/[node:field_ind_code]'
 selection_criteria:
   -
-    id: entity_type:node
+    id: entity_bundle:node
     negate: false
     context_mapping:
       node: node
