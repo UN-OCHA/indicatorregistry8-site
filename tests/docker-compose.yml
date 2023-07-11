@@ -1,0 +1,65 @@
+version: "2.2"
+
+networks:
+  default:
+
+volumes:
+  indicator-test-site-public:
+  indicator-test-site-private:
+  indicator-test-mysql-data:
+  indicator-test-mysql-logs:
+
+services:
+  mysql:
+    image: public.ecr.aws/unocha/mysql:10.6
+    hostname: indicator-test-mysql
+    container_name: indicator-test-mysql
+    environment:
+      - MYSQL_DB=ir
+      - MYSQL_USER=ir
+      - MYSQL_PASS=ir
+    volumes:
+      - "indicator-test-mysql-data:/var/lib/mysql"
+      - "indicator-test-mysql-logs:/var/log/mysql"
+    networks:
+      - default
+
+  chrome:
+    image: public.ecr.aws/unocha/debian-snap-base:12-debian
+    hostname: indicator-test-chrome
+
+  drupal:
+    image: public.ecr.aws/unocha/indicatorregistry-site:local
+    hostname: indicator-test-site
+    container_name: indicator-test-site
+    depends_on:
+      - mysql
+    volumes:
+      - "./settings:/srv/www/shared/settings:ro"
+      # Mount volumes for the private and public files.
+      - "indicator-test-site-public:/srv/www/html/sites/default/files:rw"
+      - "indicator-test-site-private:/srv/www/html/sites/default/private:rw"
+      # Mount the folders needed for the tests.
+      - "../phpcs.xml:/srv/www/phpcs.xml:ro"
+      - "../phpunit.xml:/srv/www/phpunit.xml:ro"
+      - "../.coveralls.yml:/srv/www/.coveralls.yml:ro"
+      # Mount local custom code.
+      - "../html/modules/custom:/srv/www/html/modules/custom:rw"
+      - "../html/themes/custom:/srv/www/html/themes/custom:ro"
+    environment:
+      - TERM=xterm
+      - ENVIRONMENT=dev
+      - NGINX_SERVERNAME=indicator-test-site,localhost,127.0.0.1
+      - NGINX_OVERRIDE_PROTOCOL=HTTP,indicator-test-site,localhost,127.0.0.1
+      - DRUSH_OPTIONS_URI=http://indicator-test-site
+      - DRUPAL_DB_DATABASE=ir
+      - DRUPAL_DB_USERNAME=ir
+      - DRUPAL_DB_PASSWORD=ir
+      - DRUPAL_DB_HOST=mysql
+      - DRUPAL_DB_DRIVER=mysql
+      - PHP_ENVIRONMENT=dev
+      - PHP_XDEBUG=true
+    ports:
+      - 127.0.0.1:80:80
+    networks:
+      - default
